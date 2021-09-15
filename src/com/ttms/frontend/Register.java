@@ -5,6 +5,8 @@
  */
 package com.ttms.frontend;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Esha
@@ -38,20 +40,21 @@ public class Register extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jPasswordField3 = new javax.swing.JPasswordField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        first_name = new javax.swing.JTextField();
+        last_name = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
+        confirm_password = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        aadhar_num = new javax.swing.JTextField();
+        mobile = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+<<<<<<< HEAD
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -60,10 +63,17 @@ public class Register extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+=======
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+>>>>>>> e4dbafdac8d45071d4a4f430e9b2934be94d441e
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(7, 13, 45));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(7, 13, 45));
 
@@ -88,86 +98,131 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 456, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 78, 408, 10));
+
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Please fill in this form to create an account!");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 101, 293, 29));
 
         checkbox1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         checkbox1.setForeground(new java.awt.Color(255, 255, 255));
         checkbox1.setLabel("   I accept the Terms of Use & Privacy Policy.");
+        jPanel1.add(checkbox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 654, -1, 34));
 
         jButton1.setBackground(new java.awt.Color(6, 193, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         jButton1.setText("Register");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 714, 172, 46));
 
         jRadioButton1.setBackground(new java.awt.Color(7, 13, 45));
         jRadioButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setText("Male");
+        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 478, -1, -1));
 
         jRadioButton2.setBackground(new java.awt.Color(7, 13, 45));
         jRadioButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("Female");
         jRadioButton2.setActionCommand("");
+        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 478, -1, -1));
 
         jRadioButton3.setBackground(new java.awt.Color(7, 13, 45));
         jRadioButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton3.setText("Others");
+        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 478, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Date of Birth:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 528, -1, -1));
 
+<<<<<<< HEAD
         jTextField4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jTextField4.setToolTipText("First Name");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
+=======
+        first_name.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        first_name.setToolTipText("First name");
+        first_name.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> e4dbafdac8d45071d4a4f430e9b2934be94d441e
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                first_nameActionPerformed(evt);
             }
         });
+        jPanel1.add(first_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 162, 130, 45));
 
+<<<<<<< HEAD
         jTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jTextField2.setToolTipText("Last name");
         jTextField2.setPreferredSize(new java.awt.Dimension(71, 26));
 
         jTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jTextField3.setToolTipText("Enter your Email");
+=======
+        last_name.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        last_name.setToolTipText("Last name");
+        last_name.setPreferredSize(new java.awt.Dimension(71, 26));
+        jPanel1.add(last_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 162, 139, 45));
 
-        jPasswordField3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jPasswordField3.setToolTipText("Enter your password");
+        email.setToolTipText("Enter your email");
+        email.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 222, 290, 45));
+>>>>>>> e4dbafdac8d45071d4a4f430e9b2934be94d441e
 
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jPasswordField1.setToolTipText("Confirm your password");
+        password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        password.setToolTipText("Enter your password");
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 293, 290, 45));
+
+        confirm_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        confirm_password.setToolTipText("Confirm your password");
+        jPanel1.add(confirm_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 356, 290, 45));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Personal Information");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 429, 257, 31));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Gender :");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 485, -1, -1));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Adhar Card No :");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 571, -1, -1));
 
-        jTextField5.setToolTipText("Enter your Adhar Card No");
+        aadhar_num.setToolTipText("Enter your Adhar Card No");
+        jPanel1.add(aadhar_num, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 565, 177, -1));
 
-        jTextField6.setToolTipText("Enter your number");
+        mobile.setToolTipText("Enter your number");
+        jPanel1.add(mobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 614, 177, -1));
 
         jTextField1.setText("DD");
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 525, 45, -1));
 
         jTextField7.setText("MM");
+        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 525, 45, -1));
 
         jTextField8.setText("YYYY");
+        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 525, 45, -1));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Mobile No :");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 620, -1, -1));
 
+<<<<<<< HEAD
         jPanel3.setBackground(new java.awt.Color(6, 193, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(50, 45));
 
@@ -353,6 +408,24 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(52, Short.MAX_VALUE))
         );
+=======
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_password_32px.png"))); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 356, -1, 45));
+
+        jLabel10.setBackground(new java.awt.Color(254, 84, 48));
+        jLabel10.setForeground(new java.awt.Color(254, 84, 48));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_mail_32px.png"))); // NOI18N
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 222, -1, 53));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_password_32px.png"))); // NOI18N
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 293, -1, 45));
+
+        jLabel12.setBackground(new java.awt.Color(254, 84, 48));
+        jLabel12.setForeground(new java.awt.Color(254, 84, 48));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_user_24px_1.png"))); // NOI18N
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 162, 32, 53));
+>>>>>>> e4dbafdac8d45071d4a4f430e9b2934be94d441e
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -372,9 +445,15 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void first_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_first_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_first_nameActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        System.out.println("\nFirst Name = "+first_name.getText()+"\nLast Name = "+last_name.getText()+"\nEmail = "+email.getText()+"\nPassword = "+password.getText()+"\nMobile = "+mobile.getText());
+        JOptionPane.showMessageDialog(null, "You have succesfully registered", "Sucess", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -413,17 +492,26 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField aadhar_num;
     private java.awt.Checkbox checkbox1;
+    private javax.swing.JPasswordField confirm_password;
+    private javax.swing.JTextField email;
+    private javax.swing.JTextField first_name;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+<<<<<<< HEAD
+=======
+    private javax.swing.JLabel jLabel12;
+>>>>>>> e4dbafdac8d45071d4a4f430e9b2934be94d441e
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -434,17 +522,20 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField3;
+=======
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+>>>>>>> e4dbafdac8d45071d4a4f430e9b2934be94d441e
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField last_name;
+    private javax.swing.JTextField mobile;
+    private javax.swing.JPasswordField password;
     // End of variables declaration//GEN-END:variables
 }
