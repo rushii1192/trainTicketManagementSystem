@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/F:/GitHub/trainTicketManagementSystem/src/com/ttms/frontend/Register.java</file>
             <file>file:/F:/GitHub/trainTicketManagementSystem/src/com/ttms/frontend/Login.java</file>
+=======
+            <file>file:/C:/Users/Esha/OneDrive/Documents/GitHub/trainTicketManagementSystem/src/com/ttms/frontend/Login.java</file>
+            <file>file:/C:/Users/Esha/OneDrive/Documents/GitHub/trainTicketManagementSystem/src/com/ttms/frontend/Register.java</file>
+>>>>>>> 78457c3cb6df6f45d27b5c369dcd531023ab5316
         </group>
     </open-files>
 </project-private>
