@@ -6,6 +6,7 @@
 package com.ttms.frontend;
 
 import javax.swing.JOptionPane;
+import com.ttms.backend.Conn;
 
 /**
  *
@@ -238,7 +239,14 @@ public class Register extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         System.out.println("\nFirst Name = "+first_name.getText()+"\nLast Name = "+last_name.getText()+"\nEmail = "+email.getText()+"\nPassword = "+password.getText()+"\nMobile = "+mobile.getText());
-        JOptionPane.showMessageDialog(null, "You have succesfully registered", "Sucess", JOptionPane.INFORMATION_MESSAGE);
+        System.out.println("INSERT INTO userdata values('firstUser', '"+first_name.getText()+" "+last_name.getText()+"', '"+"NULL"+"', '"+email.getText()+"', '"+password.getText()+"', '"+"User"+"', '"+0+"')");
+        try{
+            Conn c = new Conn();
+            c.s.execute("INSERT INTO userdata values('firstUser', '"+first_name.getText()+" "+last_name.getText()+"', '"+"NULL"+"', '"+email.getText()+"', '"+password.getText()+"', '"+"User"+0);
+            JOptionPane.showMessageDialog(null, "You have succesfully registered", "Sucess", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+             e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
