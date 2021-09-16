@@ -86,12 +86,20 @@ public class Register extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 456, -1));
+<<<<<<< HEAD
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 350, 10));
+=======
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 78, 408, 10));
+>>>>>>> 66e3b674a2989e0b07e22a321a39caaee1da5c88
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Please fill in this form to create an account!");
+<<<<<<< HEAD
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 293, 29));
+=======
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 101, 293, 29));
+>>>>>>> 66e3b674a2989e0b07e22a321a39caaee1da5c88
 
         checkbox1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         checkbox1.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,16 +146,29 @@ public class Register extends javax.swing.JFrame {
                 jTextField4ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 162, 125, 45));
+=======
+        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 162, 130, 45));
+>>>>>>> 66e3b674a2989e0b07e22a321a39caaee1da5c88
 
         jTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jTextField2.setToolTipText("Last name");
         jTextField2.setPreferredSize(new java.awt.Dimension(71, 26));
+<<<<<<< HEAD
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 162, 125, 45));
+=======
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 162, 139, 45));
+>>>>>>> 66e3b674a2989e0b07e22a321a39caaee1da5c88
 
         jTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jTextField3.setToolTipText("Enter your email");
+<<<<<<< HEAD
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 290, 45));
+=======
+        jTextField3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 222, 290, 45));
+>>>>>>> 66e3b674a2989e0b07e22a321a39caaee1da5c88
 
         jPasswordField3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jPasswordField3.setToolTipText("Enter your password");
@@ -200,7 +221,11 @@ public class Register extends javax.swing.JFrame {
         jLabel10.setBackground(new java.awt.Color(254, 84, 48));
         jLabel10.setForeground(new java.awt.Color(254, 84, 48));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_mail_32px.png"))); // NOI18N
+<<<<<<< HEAD
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, 53));
+=======
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 222, -1, 53));
+>>>>>>> 66e3b674a2989e0b07e22a321a39caaee1da5c88
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_password_32px.png"))); // NOI18N
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 293, -1, 45));
@@ -219,7 +244,11 @@ public class Register extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 771, Short.MAX_VALUE)
+=======
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+>>>>>>> 66e3b674a2989e0b07e22a321a39caaee1da5c88
         );
 
         pack();
