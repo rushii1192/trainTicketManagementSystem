@@ -28,7 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="771" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -60,9 +60,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="88" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -85,9 +85,9 @@
                   <Font name="Segoe UI Semibold" size="36" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="ff" green="c1" red="6" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="REGISTRATION FORM"/>
+                <Property name="text" type="java.lang.String" value="CREATE ACCOUNT"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -95,7 +95,7 @@
         <Component class="javax.swing.JSeparator" name="jSeparator1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="28" y="78" width="408" height="10"/>
+              <AbsoluteConstraints x="40" y="90" width="350" height="10"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -111,7 +111,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="38" y="101" width="293" height="29"/>
+              <AbsoluteConstraints x="40" y="100" width="293" height="29"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -233,7 +233,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="111" y="162" width="130" height="45"/>
+              <AbsoluteConstraints x="111" y="162" width="125" height="45"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -249,22 +249,20 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="259" y="162" width="139" height="45"/>
+              <AbsoluteConstraints x="270" y="162" width="125" height="45"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField3">
           <Properties>
-            <Property name="toolTipText" type="java.lang.String" value="Enter your email"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                <BevelBorder bevelType="1"/>
-              </Border>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Semibold" size="14" style="0"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Enter your email"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="108" y="222" width="290" height="45"/>
+              <AbsoluteConstraints x="110" y="230" width="290" height="45"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -338,6 +336,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField5">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Semibold" size="14" style="0"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value="Enter your Adhar Card No"/>
           </Properties>
           <Constraints>
@@ -348,6 +349,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField6">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Semibold" size="14" style="0"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value="Enter your number"/>
           </Properties>
           <Constraints>
@@ -358,6 +362,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Semibold" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="DD"/>
           </Properties>
           <Constraints>
@@ -368,6 +375,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField7">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Semibold" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="MM"/>
           </Properties>
           <Constraints>
@@ -378,6 +388,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField8">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Semibold" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="YYYY"/>
           </Properties>
           <Constraints>
@@ -425,7 +438,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="38" y="222" width="-1" height="53"/>
+              <AbsoluteConstraints x="40" y="230" width="-1" height="53"/>
             </Constraint>
           </Constraints>
         </Component>
