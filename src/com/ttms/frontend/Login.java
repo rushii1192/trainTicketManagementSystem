@@ -43,7 +43,7 @@ public class Login extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         checkbox1 = new java.awt.Checkbox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(7, 13, 45));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,7 +108,7 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 435, 105, -1));
 
-        username.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        username.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         username.setToolTipText("Enter your Username");
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,6 +157,8 @@ public class Login extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 225, 50, -1));
+
+        password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 225, 233, 50));
 
         checkbox1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
@@ -260,6 +262,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField password;
     private javax.swing.JButton register;
     private javax.swing.JTextField username;
-    public boolean login_state;
     // End of variables declaration//GEN-END:variables
 }
