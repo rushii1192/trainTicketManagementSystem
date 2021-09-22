@@ -5,6 +5,7 @@
  */
 package com.ttms.frontend;
 
+
 /**
  *
  * @author Esha
@@ -192,6 +193,14 @@ public class Login extends javax.swing.JFrame {
     private void log_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_log_inMouseClicked
         // TODO add your handling code here:
         System.out.println("Username = "+username.getText()+"\nPassword = "+password.getText());
+        if((username.getText().equals("rushi"))&&(password.getText().equals("rushi"))){
+            new Welcome().setVisible(true);
+            this.setVisible(false);
+            login_state = true;
+        }
+        else{
+            javax.swing.JOptionPane.showMessageDialog(this,"Username and Password is incorrect");
+        }
     }//GEN-LAST:event_log_inMouseClicked
 
     private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
@@ -251,5 +260,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField password;
     private javax.swing.JButton register;
     private javax.swing.JTextField username;
+    public boolean login_state;
     // End of variables declaration//GEN-END:variables
 }
