@@ -348,11 +348,6 @@ public class Welcome extends javax.swing.JFrame {
                 findTrainButtonMouseClicked(evt);
             }
         });
-        findTrainButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                findTrainButtonActionPerformed(evt);
-            }
-        });
 
         jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
@@ -543,13 +538,15 @@ public class Welcome extends javax.swing.JFrame {
         new Register().setVisible(true);
     }//GEN-LAST:event_register_labelMouseClicked
 
-    private void findTrainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findTrainButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_findTrainButtonActionPerformed
-
     private void findTrainButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findTrainButtonMouseClicked
         // TODO add your handling code here:
         findTrainButton.setText("Its working");
+        TrainDetails td = new TrainDetails();
+        td.setBounds(130, 3, 688, 156);
+        trainDetailsContainer.add(td);
+        TrainDetails td1 = new TrainDetails();
+        td1.setBounds(130, 169, 688, 156);
+        trainDetailsContainer.add(td1);
         trainDetailsContainer.add(new javax.swing.JScrollPane());
     }//GEN-LAST:event_findTrainButtonMouseClicked
 
