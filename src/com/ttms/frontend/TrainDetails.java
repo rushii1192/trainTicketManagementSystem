@@ -160,6 +160,7 @@ public class TrainDetails extends javax.swing.JPanel {
         System.out.println("Train details:-"+this.train_details.getText());
     }//GEN-LAST:event_booknowMouseClicked
 
+    public void setSourceStation(String sourceStation){this.sourceStation.setText(sourceStation);}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField arrival_date;
