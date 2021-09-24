@@ -548,8 +548,9 @@ public class Welcome extends javax.swing.JFrame {
         TrainDetails td1 = new TrainDetails();
         td1.setBounds(130, 169, 688, 156);
         trainDetailsContainer.add(td1);
-        javax.swing.JScrollBar jsb = new javax.swing.JScrollBar();
+        /*javax.swing.JScrollBar jsb = new javax.swing.JScrollBar();
         trainDetailsContainer.add(jsb);
+        javax.swing.JScrollPane panelPane = new javax.swing.JScrollPane(trainDetailsContainer);*/
         //trainDetailsContainer.add(new javax.swing.JScrollPane());
         //javax.swing.JScrollPane jp = new javax.swing.JScrollPane(trainDetailsContainer, javax.swing.JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, javax.swing.JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         //javax.swing.JScrollPane scrollPane = new javax.swing.JScrollPane(trainDetailsContainer,   javax.swing.JScrollPane.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
