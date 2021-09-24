@@ -547,7 +547,13 @@ public class Welcome extends javax.swing.JFrame {
         TrainDetails td1 = new TrainDetails();
         td1.setBounds(130, 169, 688, 156);
         trainDetailsContainer.add(td1);
-        trainDetailsContainer.add(new javax.swing.JScrollPane());
+        javax.swing.JScrollBar jsb = new javax.swing.JScrollBar();
+        trainDetailsContainer.add(jsb);
+        //trainDetailsContainer.add(new javax.swing.JScrollPane());
+        //javax.swing.JScrollPane jp = new javax.swing.JScrollPane(trainDetailsContainer, javax.swing.JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, javax.swing.JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        //javax.swing.JScrollPane scrollPane = new javax.swing.JScrollPane(trainDetailsContainer,   javax.swing.JScrollPane.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        //scrollPane.setPreferredSize(new javax.swing.Dimension(600, 600));
+        //jp.setPreferredSize(new java.awt.Dimension(600, 600));
     }//GEN-LAST:event_findTrainButtonMouseClicked
 
     private void plan_journey_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plan_journey_labelMouseClicked
