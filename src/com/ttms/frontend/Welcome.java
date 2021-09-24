@@ -521,10 +521,8 @@ public class Welcome extends javax.swing.JFrame {
 
     private void login_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_labelMouseClicked
         // TODO add your handling code here:
-        Login l = new Login();
-        if(l.login_state){
-            javax.swing.JOptionPane.showMessageDialog(this,"You are already login");
-        }
+        Login l = new Login();      
+        javax.swing.JOptionPane.showMessageDialog(this,"You are already login");
         l.setVisible(true);
     }//GEN-LAST:event_login_labelMouseClicked
 
