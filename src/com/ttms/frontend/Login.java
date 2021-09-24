@@ -198,7 +198,6 @@ public class Login extends javax.swing.JFrame {
         if((username.getText().equals("rushi"))&&(password.getText().equals("rushi"))){
             new Welcome().setVisible(true);
             this.setVisible(false);
-            login_state = true;
         }
         else{
             javax.swing.JOptionPane.showMessageDialog(this,"Username and Password is incorrect");
