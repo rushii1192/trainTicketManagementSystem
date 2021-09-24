@@ -58,9 +58,9 @@ public class Welcome extends javax.swing.JFrame {
         findTrainButton = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
-        trainDetailsContainer = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        trainDetailsContainer = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -423,8 +423,6 @@ public class Welcome extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        trainDetailsContainer.setBackground(new java.awt.Color(255, 255, 255));
-
         jPanel3.setBackground(new java.awt.Color(254, 84, 48));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/images (1).jpeg"))); // NOI18N
@@ -446,6 +444,20 @@ public class Welcome extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        trainDetailsContainer.setBackground(new java.awt.Color(255, 255, 255));
+        trainDetailsContainer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout trainDetailsContainerLayout = new javax.swing.GroupLayout(trainDetailsContainer);
+        trainDetailsContainer.setLayout(trainDetailsContainerLayout);
+        trainDetailsContainerLayout.setHorizontalGroup(
+            trainDetailsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        trainDetailsContainerLayout.setVerticalGroup(
+            trainDetailsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 161, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
         container.setLayout(containerLayout);
         containerLayout.setHorizontalGroup(
@@ -456,7 +468,7 @@ public class Welcome extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(containerLayout.createSequentialGroup()
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(trainDetailsContainer)
+                    .addComponent(trainDetailsContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 24, Short.MAX_VALUE))
         );
@@ -467,9 +479,9 @@ public class Welcome extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(trainDetailsContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(trainDetailsContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -538,6 +550,7 @@ public class Welcome extends javax.swing.JFrame {
     private void findTrainButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findTrainButtonMouseClicked
         // TODO add your handling code here:
         findTrainButton.setText("Its working");
+        trainDetailsContainer.add(new javax.swing.JScrollPane());
     }//GEN-LAST:event_findTrainButtonMouseClicked
 
     private void plan_journey_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plan_journey_labelMouseClicked
@@ -615,7 +628,7 @@ public class Welcome extends javax.swing.JFrame {
     private javax.swing.JLabel plan_journey_label;
     private javax.swing.JLabel register_label;
     private javax.swing.JComboBox<String> soureStation;
-    private javax.swing.JScrollPane trainDetailsContainer;
+    private javax.swing.JPanel trainDetailsContainer;
     private javax.swing.JLabel wallet_label;
     // End of variables declaration//GEN-END:variables
 
