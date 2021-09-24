@@ -161,6 +161,13 @@ public class TrainDetails extends javax.swing.JPanel {
     }//GEN-LAST:event_booknowMouseClicked
 
     public void setSourceStation(String sourceStation){this.sourceStation.setText(sourceStation);}
+    public void setDestinationStation(String destinationStation){this.destinationStation.setText(destinationStation);}
+    public void setArrival_date(String arrival_date){this.arrival_date.setText(arrival_date);}
+    public void setArrival_time(String arrival_time){this.arrival_time.setText(arrival_time);}
+    public void setDeparture_date(String departure_date){this.departure_date.setText(departure_date);}
+    public void setDeparture_time(String departure_time){this.departure_time.setText(departure_time);}
+    public void setTrain_details(String train_details){this.train_details.setText(train_details);}
+    public void setDuration(String duration){this.duration.setText(duration);}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField arrival_date;
