@@ -542,6 +542,7 @@ public class Welcome extends javax.swing.JFrame {
         // TODO add your handling code here:
         findTrainButton.setText("Its working");
         TrainDetails td = new TrainDetails();
+        td.setTrain_details("New train details");
         td.setBounds(130, 3, 688, 156);
         trainDetailsContainer.add(td);
         TrainDetails td1 = new TrainDetails();
@@ -559,7 +560,7 @@ public class Welcome extends javax.swing.JFrame {
     private void plan_journey_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plan_journey_labelMouseClicked
         // TODO add your handling code here:
         new Welcome().setVisible(true);
-        this.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_plan_journey_labelMouseClicked
 
     /**
