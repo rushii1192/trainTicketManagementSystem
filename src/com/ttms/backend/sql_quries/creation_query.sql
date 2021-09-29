@@ -26,8 +26,8 @@ create table ttms.userdata (
     ValletBalance int,
     Gender varchar(50),
     DOB date,
-    AadharNo int,
-    Mobile int,
+    AadharNo varchar(16),
+    Mobile varchar(10),
     primary key (UserId)
 );
 
