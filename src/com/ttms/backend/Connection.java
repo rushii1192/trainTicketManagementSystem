@@ -3,10 +3,10 @@ package com.ttms.backend;
 
 import java.sql.*;  
 
-public class Conn{
+public class Connection{
     Connection c;
     Statement s;
-    public Conn(){  
+    public Connection(){  
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");  
             c = DriverManager.getConnection("jdbc:mysql:///ttms","username","password");    
