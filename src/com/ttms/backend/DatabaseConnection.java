@@ -12,7 +12,7 @@ import java.sql.*;
  * @author CORE COMP
  */
 public class DatabaseConnection {
-    private Connection con;
+    public Connection con;
     public Statement stmt;
     public DatabaseConnection(){
         try{  
