@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package com.ttms.frontend;
-
+import com.ttms.backend.DatabaseConnection;
+import java.sql.ResultSet;
 
 /**
  *
@@ -194,13 +195,20 @@ public class Login extends javax.swing.JFrame {
 
     private void log_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_log_inMouseClicked
         // TODO add your handling code here:
-        System.out.println("Username = "+username.getText()+"\nPassword = "+password.getText());
-        if((username.getText().equals("rushi"))&&(password.getText().equals("rushi"))){
-            new Welcome().setVisible(true);
-            this.setVisible(false);
-        }
-        else{
-            javax.swing.JOptionPane.showMessageDialog(this,"Username and Password is incorrect");
+        try{
+            DatabaseConnection dc = new DatabaseConnection();
+            String query = "select * from userdata where UserId = '"+username.getText()+"' and Password = '"+new String(password.getPassword())+"'";
+            System.out.println(query);
+            ResultSet rs = dc.stmt.executeQuery(query);
+            if(rs.next()){
+                new Welcome().setVisible(true);
+                this.setVisible(false);
+            }
+            else
+               javax.swing.JOptionPane.showMessageDialog(this,"Username and Password is incorrect");
+            
+        } catch(Exception e){
+            System.out.println(e);
         }
     }//GEN-LAST:event_log_inMouseClicked
 
