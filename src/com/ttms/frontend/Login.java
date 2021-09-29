@@ -16,6 +16,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form JFrame1
      */
+    
     public Login() {
         initComponents();
     }
@@ -33,7 +34,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        log_in = new javax.swing.JButton();
+        logInButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         register = new javax.swing.JButton();
         username = new javax.swing.JTextField();
@@ -44,7 +45,7 @@ public class Login extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         checkbox1 = new java.awt.Checkbox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(7, 13, 45));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -74,20 +75,15 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 85, 349, 10));
 
-        log_in.setBackground(new java.awt.Color(0, 153, 0));
-        log_in.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        log_in.setText("Log in");
-        log_in.addMouseListener(new java.awt.event.MouseAdapter() {
+        logInButton.setBackground(new java.awt.Color(0, 153, 0));
+        logInButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        logInButton.setText("Log in");
+        logInButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                log_inMouseClicked(evt);
+                logInButtonMouseClicked(evt);
             }
         });
-        log_in.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                log_inActionPerformed(evt);
-            }
-        });
-        jPanel1.add(log_in, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 352, 145, -1));
+        jPanel1.add(logInButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 352, 145, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,11 +96,6 @@ public class Login extends javax.swing.JFrame {
         register.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registerMouseClicked(evt);
-            }
-        });
-        register.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerActionPerformed(evt);
             }
         });
         jPanel1.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 435, 105, -1));
@@ -181,19 +172,11 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void log_inActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_log_inActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_log_inActionPerformed
-
-    private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registerActionPerformed
-
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameActionPerformed
 
-    private void log_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_log_inMouseClicked
+    private void logInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logInButtonMouseClicked
         // TODO add your handling code here:
         try{
             DatabaseConnection dc = new DatabaseConnection();
@@ -211,7 +194,7 @@ public class Login extends javax.swing.JFrame {
         } catch(Exception e){
             System.out.println(e);
         }
-    }//GEN-LAST:event_log_inMouseClicked
+    }//GEN-LAST:event_logInButtonMouseClicked
 
     private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
         // TODO add your handling code here:
@@ -266,7 +249,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton log_in;
+    private javax.swing.JButton logInButton;
     private javax.swing.JPasswordField password;
     private javax.swing.JButton register;
     private javax.swing.JTextField username;
