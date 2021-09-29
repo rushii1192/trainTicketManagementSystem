@@ -206,7 +206,8 @@ public class Login extends javax.swing.JFrame {
             }
             else
                javax.swing.JOptionPane.showMessageDialog(this,"Username and Password is incorrect");
-            
+            dc.con.commit();
+            dc.con.close();
         } catch(Exception e){
             System.out.println(e);
         }
