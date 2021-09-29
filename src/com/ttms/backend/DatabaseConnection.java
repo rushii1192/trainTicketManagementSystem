@@ -12,13 +12,13 @@ import java.sql.*;
  * @author CORE COMP
  */
 public class DatabaseConnection {
-    Connection c;
-    Statement s;
+    private Connection con;
+    public Statement stmt;
     public DatabaseConnection(){
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");  
-            c = DriverManager.getConnection("jdbc:mysql:///ttms","username","password");    
-            s =c.createStatement(); 
+            con = DriverManager.getConnection("jdbc:mysql:///ttms","username","password");    
+            stmt =con.createStatement(); 
            
           
             
