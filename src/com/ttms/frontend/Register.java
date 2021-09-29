@@ -5,8 +5,9 @@
  */
 package com.ttms.frontend;
 
+import com.ttms.backend.DatabaseConnection;
 import java.awt.event.MouseEvent;
-
+import java.sql.*;
 /**
  *
  * @author Esha
@@ -107,9 +108,6 @@ public class Register extends javax.swing.JFrame {
         registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registerButtonMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                registerButtonMouseEntered(evt);
             }
         });
         jPanel1.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 714, 172, 46));
@@ -228,7 +226,32 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
     
-    private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {        
+    private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {  
+        try{
+            DatabaseConnection dc = new DatabaseConnection();
+            String query = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement prestmt = dc.con.prepareStatement(query);
+            
+            prestmt.setString(1,first_name.getText()+mobile.getText());
+            prestmt.setString(2,first_name.getText());
+            prestmt.setString(3, last_name.getText());
+            prestmt.setString(4, null);
+            prestmt.setString(5, email.getText());
+            prestmt.setString(6, new String(password.getPassword()));
+            prestmt.setString(7, "User");
+            prestmt.setString(8, null);
+            prestmt.setString(9, null);
+            prestmt.setString(10, null);
+            prestmt.setString(11, aadhar_num.getText());
+            prestmt.setString(12, mobile.getText());
+            
+            prestmt.executeUpdate();
+            
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
+//        System.out.println(new Integer(mobile.getText()));
         System.out.println("Register button is clicked");
         if(terms_condition.getState()){
             javax.swing.JOptionPane.showMessageDialog(this, "You have successfully registered.\nContinue to login.");
@@ -240,10 +263,6 @@ public class Register extends javax.swing.JFrame {
         }
         // TODO add your handling code here:
     }                                           
-
-    private void registerButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registerButtonMouseEntered
 
     /**
      * @param args the command line arguments
