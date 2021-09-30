@@ -38,9 +38,9 @@ public class Register extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         terms_condition = new java.awt.Checkbox();
         registerButton = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        malegenderradiobtn = new javax.swing.JRadioButton();
+        femalegenderradiobtn = new javax.swing.JRadioButton();
+        othergenderradiobtn = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         first_name = new javax.swing.JTextField();
         last_name = new javax.swing.JTextField();
@@ -112,27 +112,27 @@ public class Register extends javax.swing.JFrame {
         });
         jPanel1.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 714, 172, 46));
 
-        jRadioButton1.setBackground(new java.awt.Color(7, 13, 45));
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Male");
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 478, -1, -1));
+        malegenderradiobtn.setBackground(new java.awt.Color(7, 13, 45));
+        buttonGroup1.add(malegenderradiobtn);
+        malegenderradiobtn.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        malegenderradiobtn.setForeground(new java.awt.Color(255, 255, 255));
+        malegenderradiobtn.setText("Male");
+        jPanel1.add(malegenderradiobtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 478, -1, -1));
 
-        jRadioButton2.setBackground(new java.awt.Color(7, 13, 45));
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Female");
-        jRadioButton2.setActionCommand("");
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 478, -1, -1));
+        femalegenderradiobtn.setBackground(new java.awt.Color(7, 13, 45));
+        buttonGroup1.add(femalegenderradiobtn);
+        femalegenderradiobtn.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        femalegenderradiobtn.setForeground(new java.awt.Color(255, 255, 255));
+        femalegenderradiobtn.setText("Female");
+        femalegenderradiobtn.setActionCommand("");
+        jPanel1.add(femalegenderradiobtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 478, -1, -1));
 
-        jRadioButton3.setBackground(new java.awt.Color(7, 13, 45));
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setText("Others");
-        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 478, -1, -1));
+        othergenderradiobtn.setBackground(new java.awt.Color(7, 13, 45));
+        buttonGroup1.add(othergenderradiobtn);
+        othergenderradiobtn.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        othergenderradiobtn.setForeground(new java.awt.Color(255, 255, 255));
+        othergenderradiobtn.setText("Others");
+        jPanel1.add(othergenderradiobtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 478, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Date of Birth:");
@@ -232,7 +232,7 @@ public class Register extends javax.swing.JFrame {
             String query = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement prestmt = dc.con.prepareStatement(query);
             
-            prestmt.setString(1,first_name.getText()+mobile.getText());
+            prestmt.setString(1,first_name.getText()+mobile.getText().substring(0, 5));
             prestmt.setString(2,first_name.getText());
             prestmt.setString(3, last_name.getText());
             prestmt.setString(4, null);
@@ -240,7 +240,12 @@ public class Register extends javax.swing.JFrame {
             prestmt.setString(6, new String(password.getPassword()));
             prestmt.setString(7, "User");
             prestmt.setString(8, null);
-            prestmt.setString(9, null);
+            if(malegenderradiobtn.isSelected())
+                prestmt.setString(9, "Male");
+            else if(femalegenderradiobtn.isSelected())
+                prestmt.setString(9, "Female");
+            else
+                prestmt.setString(9, "Other");
             prestmt.setString(10, null);
             prestmt.setString(11, aadhar_num.getText());
             prestmt.setString(12, mobile.getText());
@@ -254,7 +259,7 @@ public class Register extends javax.swing.JFrame {
 //        System.out.println(new Integer(mobile.getText()));
         System.out.println("Register button is clicked");
         if(terms_condition.getState()){
-            javax.swing.JOptionPane.showMessageDialog(this, "You have successfully registered.\nContinue to login.");
+            javax.swing.JOptionPane.showMessageDialog(this, "You have successfully registered.\nYour userid is "+first_name.getText()+mobile.getText().substring(0, 5)+"\nContinue to login.");
             new Login().setVisible(true);
             this.setVisible(false);
         }
@@ -305,6 +310,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPasswordField confirm_password;
     private javax.swing.JTextField email;
+    private javax.swing.JRadioButton femalegenderradiobtn;
     private javax.swing.JTextField first_name;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -319,15 +325,14 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField last_name;
+    private javax.swing.JRadioButton malegenderradiobtn;
     private javax.swing.JTextField mobile;
+    private javax.swing.JRadioButton othergenderradiobtn;
     private javax.swing.JPasswordField password;
     private javax.swing.JButton registerButton;
     private java.awt.Checkbox terms_condition;
