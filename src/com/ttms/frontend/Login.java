@@ -180,7 +180,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             DatabaseConnection dc = new DatabaseConnection();
-            String query = "select * from userdata where UserId = '"+username.getText()+"' and Password = '"+new String(password.getPassword())+"'";
+            String query = "select * from userlogin where Username = '"+username.getText()+"' and Password = '"+new String(password.getPassword())+"'";
             System.out.println(query);
             ResultSet rs = dc.stmt.executeQuery(query);
             if(rs.next()){
@@ -189,7 +189,6 @@ public class Login extends javax.swing.JFrame {
             }
             else
                javax.swing.JOptionPane.showMessageDialog(this,"Username and Password is incorrect");
-            dc.con.commit();
             dc.con.close();
         } catch(Exception e){
             System.out.println(e);
