@@ -229,29 +229,35 @@ public class Register extends javax.swing.JFrame {
     private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {  
         try{
             DatabaseConnection dc = new DatabaseConnection();
-            String query = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement prestmt = dc.con.prepareStatement(query);
+            String registerquery = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement registerprestmt = dc.con.prepareStatement(registerquery);
             
-            prestmt.setString(1,first_name.getText()+mobile.getText().substring(0, 5));
-            prestmt.setString(2,first_name.getText());
-            prestmt.setString(3, last_name.getText());
-            prestmt.setString(4, null);
-            prestmt.setString(5, email.getText());
-            prestmt.setString(6, new String(password.getPassword()));
-            prestmt.setString(7, "User");
-            prestmt.setString(8, null);
+            registerprestmt.setString(1,first_name.getText()+mobile.getText().substring(0, 5));
+            registerprestmt.setString(2,first_name.getText());
+            registerprestmt.setString(3, last_name.getText());
+            registerprestmt.setString(4, null);
+            registerprestmt.setString(5, email.getText());
+            registerprestmt.setString(6, new String(password.getPassword()));
+            registerprestmt.setString(7, "User");
+            registerprestmt.setString(8, null);
             if(malegenderradiobtn.isSelected())
-                prestmt.setString(9, "Male");
+                registerprestmt.setString(9, "Male");
             else if(femalegenderradiobtn.isSelected())
-                prestmt.setString(9, "Female");
+                registerprestmt.setString(9, "Female");
             else
-                prestmt.setString(9, "Other");
-            prestmt.setString(10, null);
-            prestmt.setString(11, aadhar_num.getText());
-            prestmt.setString(12, mobile.getText());
+                registerprestmt.setString(9, "Other");
+            registerprestmt.setString(10, null);
+            registerprestmt.setString(11, aadhar_num.getText());
+            registerprestmt.setString(12, mobile.getText());
             
-            prestmt.executeUpdate();
+            registerprestmt.executeUpdate();
             
+            String loginquery = "Insert Into userlogin values(?,?)";
+            PreparedStatement loginprestmt = dc.con.prepareStatement(loginquery);
+            loginprestmt.setString(1, first_name.getText()+mobile.getText().substring(0, 5));
+            loginprestmt.setString(2, new String(password.getPassword()));
+            loginprestmt.executeUpdate();
+            dc.con.close();
             
         } catch(Exception e){
             System.out.println(e);
