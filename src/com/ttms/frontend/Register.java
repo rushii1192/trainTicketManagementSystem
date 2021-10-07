@@ -258,20 +258,20 @@ public class Register extends javax.swing.JFrame {
             loginprestmt.setString(2, new String(password.getPassword()));
             loginprestmt.executeUpdate();
             dc.con.close();
-            
+            if(terms_condition.getState()){
+                javax.swing.JOptionPane.showMessageDialog(this, "You have successfully registered.\nYour userid is "+first_name.getText()+mobile.getText().substring(0, 5)+"\nContinue to login.");
+                new Login().setVisible(true);
+                this.setVisible(false);
+            }
+            else {
+                javax.swing.JOptionPane.showMessageDialog(this, "You have not clicked the accept terms and condition.");
+            }
         } catch(Exception e){
             System.out.println(e);
         }
 //        System.out.println(new Integer(mobile.getText()));
         System.out.println("Register button is clicked");
-        if(terms_condition.getState()){
-            javax.swing.JOptionPane.showMessageDialog(this, "You have successfully registered.\nYour userid is "+first_name.getText()+mobile.getText().substring(0, 5)+"\nContinue to login.");
-            new Login().setVisible(true);
-            this.setVisible(false);
-        }
-        else {
-            javax.swing.JOptionPane.showMessageDialog(this, "You have not clicked the accept terms and condition.");
-        }
+        
         // TODO add your handling code here:
     }                                           
 
