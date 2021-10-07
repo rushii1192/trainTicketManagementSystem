@@ -17,13 +17,13 @@ public class DatabaseConnection {
     public DatabaseConnection(){
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");  
-            con = DriverManager.getConnection("jdbc:mysql:///ttms","username","password");    
+            con = DriverManager.getConnection("jdbc:mysql:///ttms","rushi","Rushi_1192#");    
             stmt =con.createStatement(); 
-           
           
             
         }catch(Exception e){ 
             System.out.println(e);
         }
     }
+    
 }
