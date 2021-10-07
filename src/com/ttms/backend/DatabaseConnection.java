@@ -17,7 +17,7 @@ public class DatabaseConnection {
     public DatabaseConnection(){
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");  
-            con = DriverManager.getConnection("jdbc:mysql:///ttms","rushi","Rushi_1192#");    
+            con = DriverManager.getConnection("jdbc:mysql:///ttms","username","password");    
             stmt =con.createStatement(); 
           
             
