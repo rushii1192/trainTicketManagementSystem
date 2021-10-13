@@ -232,8 +232,8 @@ public class Register extends javax.swing.JFrame {
             String registerquery = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement registerprestmt = dc.con.prepareStatement(registerquery);
             
-            registerprestmt.setString(1,first_name.getText()+mobile.getText().substring(0, 5));
-            registerprestmt.setString(2,first_name.getText());
+            registerprestmt.setString(1, first_name.getText()+mobile.getText().substring(0, 5));
+            registerprestmt.setString(2, first_name.getText());
             registerprestmt.setString(3, last_name.getText());
             registerprestmt.setString(4, null);
             registerprestmt.setString(5, email.getText());
