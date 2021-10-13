@@ -1,1 +1,3 @@
 /build/
+/nbproject/private/
+/src/com/ttms/backend/DatabaseConnection.java
