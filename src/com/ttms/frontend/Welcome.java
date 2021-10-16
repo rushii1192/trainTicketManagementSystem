@@ -115,6 +115,11 @@ public class Welcome extends javax.swing.JFrame {
         history_label.setForeground(new java.awt.Color(255, 255, 255));
         history_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_clock_arrow_32px.png"))); // NOI18N
         history_label.setText(" History");
+        history_label.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                history_labelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -524,6 +529,11 @@ public class Welcome extends javax.swing.JFrame {
         new Welcome().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_plan_journey_labelMouseClicked
+
+    private void history_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_history_labelMouseClicked
+        // TODO add your handling code here:
+        new History().setVisible(true);
+    }//GEN-LAST:event_history_labelMouseClicked
 
     /**
      * @param args the command line arguments
