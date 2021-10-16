@@ -17,7 +17,7 @@ public class History extends javax.swing.JFrame {
     public History() {
         initComponents();
         ph = new PassengerHistory("123456","Rushi","150");
-        ph.setBounds(5, 5, 570,70);
+        ph.setBounds(5, 5, 590,70);
         this.history_container.add(ph);
     }
 
@@ -92,9 +92,9 @@ public class History extends javax.swing.JFrame {
                 .addComponent(prn_no, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
                 .addComponent(passenger_name, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addGap(70, 70, 70)
                 .addComponent(ticket_price, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
