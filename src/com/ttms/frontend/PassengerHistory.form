@@ -25,9 +25,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="prn_no" min="-2" pref="148" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="prn_no1" min="-2" pref="287" max="-2" attributes="0"/>
+              <Component id="passenger_name" min="-2" pref="287" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="prn_no2" min="-2" pref="148" max="-2" attributes="0"/>
+              <Component id="ticket_price" min="-2" pref="148" max="-2" attributes="0"/>
               <EmptySpace pref="48" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -38,8 +38,8 @@
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="prn_no" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="prn_no1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="prn_no2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="passenger_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ticket_price" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
@@ -55,7 +55,7 @@
         <Property name="text" type="java.lang.String" value="PRN NO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="prn_no1">
+    <Component class="javax.swing.JLabel" name="passenger_name">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Mongolian Baiti" size="22" style="0"/>
@@ -63,7 +63,7 @@
         <Property name="text" type="java.lang.String" value="Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="prn_no2">
+    <Component class="javax.swing.JLabel" name="ticket_price">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Mongolian Baiti" size="22" style="0"/>
