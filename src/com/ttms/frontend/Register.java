@@ -61,7 +61,7 @@ public class Register extends javax.swing.JFrame {
         month_combobox = new javax.swing.JComboBox<>();
         year_combobox = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(7, 13, 45));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
