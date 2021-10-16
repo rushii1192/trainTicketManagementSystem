@@ -14,8 +14,11 @@ public class PassengerHistory extends javax.swing.JPanel {
     /**
      * Creates new form PassengerHistory
      */
-    public PassengerHistory() {
+    public PassengerHistory(String prnno, String name, String ticketprice) {
         initComponents();
+        this.prn_no.setText(prnno);
+        this.passenger_name.setText(name);
+        this.ticket_price.setText(ticketprice);
     }
 
     /**
@@ -53,7 +56,7 @@ public class PassengerHistory extends javax.swing.JPanel {
                 .addComponent(passenger_name, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ticket_price, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,15 +66,12 @@ public class PassengerHistory extends javax.swing.JPanel {
                     .addComponent(prn_no)
                     .addComponent(passenger_name)
                     .addComponent(ticket_price))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     //setters for this
-    public void setPrnNO(String prnno){ this.prn_no.setText(prnno); }
-    public void setPassengerName(String psgname){ this.passenger_name.setText(psgname); }
-    public void setTicketPrice(String ticketprice){ this.ticket_price.setText(ticketprice); }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel passenger_name;
     private javax.swing.JLabel prn_no;
