@@ -28,19 +28,19 @@ public class PassengerHistory extends javax.swing.JPanel {
     private void initComponents() {
 
         prn_no = new javax.swing.JLabel();
-        prn_no1 = new javax.swing.JLabel();
-        prn_no2 = new javax.swing.JLabel();
+        passenger_name = new javax.swing.JLabel();
+        ticket_price = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         prn_no.setFont(new java.awt.Font("Mongolian Baiti", 0, 22)); // NOI18N
         prn_no.setText("PRN NO");
 
-        prn_no1.setFont(new java.awt.Font("Mongolian Baiti", 0, 22)); // NOI18N
-        prn_no1.setText("Name");
+        passenger_name.setFont(new java.awt.Font("Mongolian Baiti", 0, 22)); // NOI18N
+        passenger_name.setText("Name");
 
-        prn_no2.setFont(new java.awt.Font("Mongolian Baiti", 0, 22)); // NOI18N
-        prn_no2.setText("Price");
+        ticket_price.setFont(new java.awt.Font("Mongolian Baiti", 0, 22)); // NOI18N
+        ticket_price.setText("Price");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -50,9 +50,9 @@ public class PassengerHistory extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(prn_no, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(prn_no1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passenger_name, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(prn_no2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ticket_price, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -61,16 +61,16 @@ public class PassengerHistory extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(prn_no)
-                    .addComponent(prn_no1)
-                    .addComponent(prn_no2))
+                    .addComponent(passenger_name)
+                    .addComponent(ticket_price))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel passenger_name;
     private javax.swing.JLabel prn_no;
-    private javax.swing.JLabel prn_no1;
-    private javax.swing.JLabel prn_no2;
+    private javax.swing.JLabel ticket_price;
     // End of variables declaration//GEN-END:variables
 }
