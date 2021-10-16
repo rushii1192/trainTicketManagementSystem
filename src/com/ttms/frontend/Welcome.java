@@ -33,7 +33,6 @@ public class Welcome extends javax.swing.JFrame {
         login_label = new javax.swing.JLabel();
         register_label = new javax.swing.JLabel();
         plan_journey_label = new javax.swing.JLabel();
-        wallet_label = new javax.swing.JLabel();
         history_label = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -111,12 +110,6 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
 
-        wallet_label.setBackground(new java.awt.Color(255, 255, 255));
-        wallet_label.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        wallet_label.setForeground(new java.awt.Color(255, 255, 255));
-        wallet_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_wallet_32px_1.png"))); // NOI18N
-        wallet_label.setText(" Wallet");
-
         history_label.setBackground(new java.awt.Color(255, 255, 255));
         history_label.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         history_label.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,7 +128,6 @@ public class Welcome extends javax.swing.JFrame {
                 .addContainerGap(59, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(history_label, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(wallet_label, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(plan_journey_label, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(register_label, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login_label, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,8 +148,6 @@ public class Welcome extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(plan_journey_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(wallet_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(history_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -177,11 +167,6 @@ public class Welcome extends javax.swing.JFrame {
 
         soureStation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         soureStation.setBorder(null);
-        soureStation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                soureStationActionPerformed(evt);
-            }
-        });
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_marker_32px_1.png"))); // NOI18N
 
@@ -257,11 +242,6 @@ public class Welcome extends javax.swing.JFrame {
         date.setForeground(new java.awt.Color(51, 51, 51));
         date.setText(" dd/mm/yy");
         date.setBorder(null);
-        date.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateActionPerformed(evt);
-            }
-        });
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_calendar_plus_32px.png"))); // NOI18N
 
@@ -298,11 +278,6 @@ public class Welcome extends javax.swing.JFrame {
         passengerClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "Tatkal", "1st Ac", "2nd AC", "3rd Ac", "Sleeper", "2 Sitter" }));
         passengerClass.setActionCommand("");
         passengerClass.setBorder(null);
-        passengerClass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passengerClassActionPerformed(evt);
-            }
-        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel6.setText("All classes");
@@ -514,18 +489,6 @@ public class Welcome extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void soureStationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soureStationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_soureStationActionPerformed
-
-    private void dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dateActionPerformed
-
-    private void passengerClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passengerClassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passengerClassActionPerformed
-
     private void login_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_labelMouseClicked
         // TODO add your handling code here:
         new Login().setVisible(true);
@@ -632,7 +595,6 @@ public class Welcome extends javax.swing.JFrame {
     private javax.swing.JLabel register_label;
     private javax.swing.JComboBox<String> soureStation;
     private javax.swing.JPanel trainDetailsContainer;
-    private javax.swing.JLabel wallet_label;
     // End of variables declaration//GEN-END:variables
 
 }
