@@ -61,12 +61,6 @@ public class TicketDetails extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
         jLabel11.setText("Age");
 
-        age.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ageActionPerformed(evt);
-            }
-        });
-
         gender.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
         gender.setText("Gender");
 
@@ -220,10 +214,6 @@ public class TicketDetails extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
