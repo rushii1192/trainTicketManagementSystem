@@ -214,6 +214,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value=" History"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="history_labelMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
