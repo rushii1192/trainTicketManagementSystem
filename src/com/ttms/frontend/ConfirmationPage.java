@@ -15,9 +15,10 @@ public class ConfirmationPage extends javax.swing.JFrame {
      * Creates new form ConfirmationPage
      */
     public ConfirmationPage() {
+        initComponents();
         TicketDetails td = new TicketDetails();
         td.setBounds(0, 0, 680, 320);
-        initComponents();
+        tickets_container.add(td);
     }
 
     /**
