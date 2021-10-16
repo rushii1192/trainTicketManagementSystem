@@ -158,9 +158,9 @@
                           <Component id="prn_no" min="-2" pref="109" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                           <Component id="passenger_name" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace pref="117" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                           <Component id="ticket_price" min="-2" pref="147" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace pref="127" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
