@@ -25,10 +25,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="prn_no" min="-2" pref="148" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="passenger_name" min="-2" pref="287" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="passenger_name" min="-2" pref="193" max="-2" attributes="0"/>
+              <EmptySpace pref="67" max="32767" attributes="0"/>
               <Component id="ticket_price" min="-2" pref="148" max="-2" attributes="0"/>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
