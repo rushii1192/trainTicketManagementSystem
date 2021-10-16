@@ -157,6 +157,7 @@ public class TrainDetails extends javax.swing.JPanel {
 
     private void booknowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booknowMouseClicked
         // TODO add your handling code here:
+        new AddPassenger().setVisible(true);
         System.out.println("Train details:-"+this.train_details.getText());
     }//GEN-LAST:event_booknowMouseClicked
 
