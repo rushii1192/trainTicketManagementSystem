@@ -57,9 +57,7 @@ public class Register extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        date_combobox = new javax.swing.JComboBox<>();
-        month_combobox = new javax.swing.JComboBox<>();
-        year_combobox = new javax.swing.JComboBox<>();
+        dob = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -199,14 +197,8 @@ public class Register extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_user_24px_1.png"))); // NOI18N
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 162, 32, 53));
 
-        date_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DD", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(date_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 60, 30));
-
-        month_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MM", "1", "2", "3", "4", "5", "6", "7", "8", "9", " " }));
-        jPanel1.add(month_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, 60, 30));
-
-        year_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "YYYY", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003" }));
-        jPanel1.add(year_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 520, 80, 30));
+        dob.setDateFormatString("yyyy-dd-MM");
+        jPanel1.add(dob, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 170, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -246,7 +238,7 @@ public class Register extends javax.swing.JFrame {
                 registerprestmt.setString(9, "Female");
             else
                 registerprestmt.setString(9, "Other");
-            registerprestmt.setString(10, year_combobox.getSelectedItem().toString()+"-"+month_combobox.getSelectedItem().toString()+"-"+date_combobox.getSelectedItem().toString());
+            registerprestmt.setString(10, this.dob.getDate().toString());
             registerprestmt.setString(11, aadhar_num.getText());
             registerprestmt.setString(12, mobile.getText());
             
@@ -315,7 +307,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField aadhar_num;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPasswordField confirm_password;
-    private javax.swing.JComboBox<String> date_combobox;
+    private com.toedter.calendar.JDateChooser dob;
     private javax.swing.JTextField email;
     private javax.swing.JRadioButton femalegenderradiobtn;
     private javax.swing.JTextField first_name;
@@ -336,11 +328,9 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField last_name;
     private javax.swing.JRadioButton malegenderradiobtn;
     private javax.swing.JTextField mobile;
-    private javax.swing.JComboBox<String> month_combobox;
     private javax.swing.JRadioButton othergenderradiobtn;
     private javax.swing.JPasswordField password;
     private javax.swing.JButton registerButton;
     private java.awt.Checkbox terms_condition;
-    private javax.swing.JComboBox<String> year_combobox;
     // End of variables declaration//GEN-END:variables
 }
