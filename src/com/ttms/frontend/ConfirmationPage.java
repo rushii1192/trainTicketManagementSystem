@@ -16,7 +16,7 @@ public class ConfirmationPage extends javax.swing.JFrame {
      */
     public ConfirmationPage() {
         initComponents();
-        TicketDetails td = new TicketDetails("Name","Gender","Age","Train NO","Source Station","Destination Station");
+        TicketDetails td = new TicketDetails("Esha Dhuri","Female","19","Ngp Csmt Duronto(12290)","Nagpur","Mumbai");
         td.setBounds(50, 10, 557,302);
         tickets_container.add(td);
     }
@@ -66,8 +66,7 @@ public class ConfirmationPage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        tickets_container.setBackground(new java.awt.Color(84, 110, 229));
-        tickets_container.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tickets_container.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout tickets_containerLayout = new javax.swing.GroupLayout(tickets_container);
         tickets_container.setLayout(tickets_containerLayout);
@@ -94,7 +93,7 @@ public class ConfirmationPage extends javax.swing.JFrame {
                 .addComponent(cancel_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(tickets_container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
