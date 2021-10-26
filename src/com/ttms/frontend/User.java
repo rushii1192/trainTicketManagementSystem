@@ -327,7 +327,7 @@ public class User extends javax.swing.JPanel {
             loginprestmt.setString(2, null);//password
             loginprestmt.executeUpdate();
             dc.con.close();
-            
+            javax.swing.JOptionPane.showMessageDialog(this, "User is successfully added.");
         } catch(Exception e){
             System.out.println(e);
         }
@@ -338,10 +338,10 @@ public class User extends javax.swing.JPanel {
         String query = "delete from userlogin where Username = '"+userid.getText()+"'";
         try{
             DatabaseConnection db = new DatabaseConnection();
-            ResultSet rs = db.stmt.executeQuery(query);
-            rs.next();
-            db.con.commit();
+            db.stmt.execute(query);
+            //db.con.commit();
             db.con.close();
+            javax.swing.JOptionPane.showMessageDialog(this, "User is successfully deleted.");
         }catch(Exception e){System.out.println(e);}
     }//GEN-LAST:event_remove_btnMouseClicked
 
