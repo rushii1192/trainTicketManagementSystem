@@ -72,7 +72,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="search_btn" alignment="1" min="-2" pref="104" max="-2" attributes="0"/>
                   <Component id="add_btn" alignment="1" min="-2" pref="104" max="-2" attributes="0"/>
@@ -408,6 +408,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Remove"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="remove_btnMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="update_btn">
       <Properties>
