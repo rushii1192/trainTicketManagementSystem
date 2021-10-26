@@ -9,6 +9,9 @@ package com.ttms.frontend;
  *
  * @author Esha
  */
+import com.ttms.backend.DatabaseConnection;
+import java.sql.*;
+
 public class User extends javax.swing.JPanel {
 
     /**
@@ -187,6 +190,11 @@ public class User extends javax.swing.JPanel {
         search_btn.setText("Search");
 
         add_btn.setText("Add");
+        add_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add_btnMouseClicked(evt);
+            }
+        });
 
         remove_btn.setText("Remove");
 
@@ -201,7 +209,7 @@ public class User extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -221,7 +229,7 @@ public class User extends javax.swing.JPanel {
                                         .addComponent(jLabel6))
                                     .addComponent(usr_name, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(162, 162, 162)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(search_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(add_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -262,9 +270,43 @@ public class User extends javax.swing.JPanel {
                         .addComponent(remove_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(update_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void add_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_btnMouseClicked
+        // TODO add your handling code here:
+        try{
+            DatabaseConnection dc = new DatabaseConnection();
+            String registerquery = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement addprestmt = dc.con.prepareStatement(registerquery);
+            
+            addprestmt.setString(1, userid.getText().split(" ")[0]);
+            addprestmt.setString(2, usr_name.getText().split(" ")[1]);
+            addprestmt.setString(3, usr_name.getText());
+            addprestmt.setString(4, null); //Address
+            addprestmt.setString(5, usr_email.getText());
+            addprestmt.setString(6, null); //password
+            addprestmt.setString(7, "User");
+            addprestmt.setString(8, null);//Valent Balance
+            addprestmt.setString(9, usr_gender.getItemAt(usr_gender.getSelectedIndex()));
+            addprestmt.setString(10, this.usr_dob.getText());
+            addprestmt.setString(11, usr_aadhar.getText());
+            addprestmt.setString(12, usr_mobile.getText());
+            
+            addprestmt.executeUpdate();
+            
+            String loginquery = "Insert Into userlogin values(?,?)";
+            PreparedStatement loginprestmt = dc.con.prepareStatement(loginquery);
+            loginprestmt.setString(1, userid.getText());
+            loginprestmt.setString(2, null);//password
+            loginprestmt.executeUpdate();
+            dc.con.close();
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_add_btnMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
