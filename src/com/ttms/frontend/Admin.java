@@ -80,6 +80,11 @@ public class Admin extends javax.swing.JFrame {
         usersLabel.setForeground(new java.awt.Color(255, 255, 255));
         usersLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_user_32px_1.png"))); // NOI18N
         usersLabel.setText("Users");
+        usersLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usersLabelMouseClicked(evt);
+            }
+        });
 
         historyLabel.setBackground(new java.awt.Color(255, 255, 255));
         historyLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
@@ -202,6 +207,13 @@ public class Admin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void usersLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersLabelMouseClicked
+        // TODO add your handling code here:
+        User usr = new User();
+        usr.setBounds(10, 10, 897, 794);
+        adminContainerPanel.add(usr);
+    }//GEN-LAST:event_usersLabelMouseClicked
 
     /**
      * @param args the command line arguments
