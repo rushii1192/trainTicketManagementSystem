@@ -16,6 +16,9 @@ public class Admin extends javax.swing.JFrame {
      */
     public Admin() {
         initComponents();
+        usr = new User();
+        usr.setBounds(10, 10, 897, 794);
+        adminContainerPanel.add(usr);
     }
 
     /**
@@ -107,6 +110,11 @@ public class Admin extends javax.swing.JFrame {
         requestLabel.setForeground(new java.awt.Color(255, 255, 255));
         requestLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_add_32px.png"))); // NOI18N
         requestLabel.setText("Train Details");
+        requestLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                requestLabelMouseClicked(evt);
+            }
+        });
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_train_100px.png"))); // NOI18N
@@ -210,10 +218,15 @@ public class Admin extends javax.swing.JFrame {
 
     private void usersLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersLabelMouseClicked
         // TODO add your handling code here:
-        User usr = new User();
+        usr = new User();
         usr.setBounds(10, 10, 897, 794);
         adminContainerPanel.add(usr);
     }//GEN-LAST:event_usersLabelMouseClicked
+
+    private void requestLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestLabelMouseClicked
+        // TODO add your handling code here:
+        usr.setVisible(false);
+    }//GEN-LAST:event_requestLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -250,7 +263,7 @@ public class Admin extends javax.swing.JFrame {
             }
         });
     }
-
+    User usr;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel adminContainerPanel;
     private javax.swing.ButtonGroup buttonGroup1;
