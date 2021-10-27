@@ -301,6 +301,7 @@ public class User extends javax.swing.JPanel {
 
     private void add_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_btnMouseClicked
         // TODO add your handling code here:
+        boolean flag = false;
         try{
             DatabaseConnection dc = new DatabaseConnection();
             String registerquery = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -327,9 +328,21 @@ public class User extends javax.swing.JPanel {
             loginprestmt.setString(2, null);//password
             loginprestmt.executeUpdate();
             dc.con.close();
-            javax.swing.JOptionPane.showMessageDialog(this, "User is successfully added.");
+            flag = true;
         } catch(Exception e){
             System.out.println(e);
+        }
+        if(flag){
+            javax.swing.JOptionPane.showMessageDialog(this, "User is successfully added.");
+            userid.setText("");
+            usr_name.setText("");
+            usr_email.setText("");
+            usr_mobile.setText("");
+            usr_dob.setText("");
+            usr_aadhar.setText("");
+        }
+        else{
+            javax.swing.JOptionPane.showMessageDialog(this, "User is not added.");
         }
     }//GEN-LAST:event_add_btnMouseClicked
 
