@@ -41,7 +41,7 @@ public class Admin extends javax.swing.JFrame {
         historyLabel = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        requestLabel = new javax.swing.JLabel();
+        train_details_label = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         adminContainerPanel = new javax.swing.JPanel();
 
@@ -106,13 +106,13 @@ public class Admin extends javax.swing.JFrame {
         jLabel13.setText("YOUR TRAIN");
         jLabel13.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        requestLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        requestLabel.setForeground(new java.awt.Color(255, 255, 255));
-        requestLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_add_32px.png"))); // NOI18N
-        requestLabel.setText("Train Details");
-        requestLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        train_details_label.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        train_details_label.setForeground(new java.awt.Color(255, 255, 255));
+        train_details_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_add_32px.png"))); // NOI18N
+        train_details_label.setText("Train Details");
+        train_details_label.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                requestLabelMouseClicked(evt);
+                train_details_labelMouseClicked(evt);
             }
         });
 
@@ -125,7 +125,7 @@ public class Admin extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(requestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(train_details_label, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel5Layout.createSequentialGroup()
                             .addGap(55, 55, 55)
@@ -155,7 +155,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGap(77, 77, 77)
                 .addComponent(usersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(requestLabel)
+                .addComponent(train_details_label)
                 .addGap(18, 18, 18)
                 .addComponent(historyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(456, Short.MAX_VALUE))
@@ -220,13 +220,17 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
         usr = new User();
         usr.setBounds(10, 10, 897, 794);
+        atd.setVisible(false);
         adminContainerPanel.add(usr);
     }//GEN-LAST:event_usersLabelMouseClicked
 
-    private void requestLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestLabelMouseClicked
+    private void train_details_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_train_details_labelMouseClicked
         // TODO add your handling code here:
         usr.setVisible(false);
-    }//GEN-LAST:event_requestLabelMouseClicked
+        atd = new AdminTrainDetails();
+        atd.setBounds(10, 10, 906, 898);
+        adminContainerPanel.add(atd);
+    }//GEN-LAST:event_train_details_labelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -264,6 +268,7 @@ public class Admin extends javax.swing.JFrame {
         });
     }
     User usr;
+    AdminTrainDetails atd;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel adminContainerPanel;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -277,7 +282,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JLabel requestLabel;
+    private javax.swing.JLabel train_details_label;
     private javax.swing.JLabel usersLabel;
     // End of variables declaration//GEN-END:variables
 }
