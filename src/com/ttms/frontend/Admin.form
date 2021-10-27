@@ -141,7 +141,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="requestLabel" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="train_details_label" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
@@ -180,7 +180,7 @@
                       <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                       <Component id="usersLabel" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="requestLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="train_details_label" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="historyLabel" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace pref="456" max="32767" attributes="0"/>
@@ -251,7 +251,7 @@
                 <Property name="verticalAlignment" type="int" value="1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="requestLabel">
+            <Component class="javax.swing.JLabel" name="train_details_label">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Semibold" size="24" style="0"/>
@@ -265,7 +265,7 @@
                 <Property name="text" type="java.lang.String" value="Train Details"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="requestLabelMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="train_details_labelMouseClicked"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
