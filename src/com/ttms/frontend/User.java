@@ -193,9 +193,9 @@ public class User extends javax.swing.JPanel {
         search_btn.setAutoscrolls(true);
         search_btn.setBorder(null);
         search_btn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        search_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                search_btnActionPerformed(evt);
+        search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                search_btnMouseClicked(evt);
             }
         });
 
@@ -359,13 +359,24 @@ public class User extends javax.swing.JPanel {
         }catch(Exception e){System.out.println(e);}
     }//GEN-LAST:event_remove_btnMouseClicked
 
-    private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_search_btnActionPerformed
-
     private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_add_btnActionPerformed
+
+    private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
+        // TODO add your handling code here:
+        DatabaseConnection dc = new DatabaseConnection();
+        String query = "search * from userdata where UserId =?";
+        try{
+            PreparedStatement prestmt = dc.con.prepareStatement(query);
+            prestmt.setString(1, userid.getText());
+            ResultSet rs = prestmt.executeQuery();
+            if(rs.next()){
+                System.out.println(rs.getString(2));
+            }
+        }catch(Exception e){javax.swing.JOptionPane.showMessageDialog(this, e);}
+        
+    }//GEN-LAST:event_search_btnMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
