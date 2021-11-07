@@ -374,6 +374,9 @@ public class User extends javax.swing.JPanel {
             if(rs.next()){
                 System.out.println(rs.getString(2));
             }
+            else{
+                javax.swing.JOptionPane.showMessageDialog(this, "user not found");
+            }
         }catch(Exception e){javax.swing.JOptionPane.showMessageDialog(this, e);}
         
     }//GEN-LAST:event_search_btnMouseClicked
