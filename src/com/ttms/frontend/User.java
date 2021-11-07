@@ -366,7 +366,7 @@ public class User extends javax.swing.JPanel {
     private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
         // TODO add your handling code here:
         DatabaseConnection dc = new DatabaseConnection();
-        String query = "search * from userdata where UserId =?";
+        String query = "select * from userdata where UserId =?";
         try{
             PreparedStatement prestmt = dc.con.prepareStatement(query);
             prestmt.setString(1, userid.getText());
