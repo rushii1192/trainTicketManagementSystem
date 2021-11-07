@@ -16,9 +16,13 @@ public class Admin extends javax.swing.JFrame {
      */
     public Admin() {
         initComponents();
+        adhome = new AdminHome();
+        adhome.setBounds(30, 400, 843, 183);
+        adminContainerPanel.add(adhome);
+        atd = new AdminTrainDetails();
         usr = new User();
         usr.setBounds(10, 10, 897, 794);
-        adminContainerPanel.add(usr);
+        atd.setBounds(10, 0, 906, 910);
     }
 
     /**
@@ -168,11 +172,11 @@ public class Admin extends javax.swing.JFrame {
         adminContainerPanel.setLayout(adminContainerPanelLayout);
         adminContainerPanelLayout.setHorizontalGroup(
             adminContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1002, Short.MAX_VALUE)
+            .addGap(0, 1012, Short.MAX_VALUE)
         );
         adminContainerPanelLayout.setVerticalGroup(
             adminContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 819, Short.MAX_VALUE)
+            .addGap(0, 920, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -206,11 +210,15 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -218,17 +226,17 @@ public class Admin extends javax.swing.JFrame {
 
     private void usersLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersLabelMouseClicked
         // TODO add your handling code here:
-        usr = new User();
-        usr.setBounds(10, 10, 897, 794);
         atd.setVisible(false);
+        adhome.setVisible(false);
+        usr.setVisible(true);
         adminContainerPanel.add(usr);
     }//GEN-LAST:event_usersLabelMouseClicked
 
     private void train_details_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_train_details_labelMouseClicked
         // TODO add your handling code here:
+        atd.setVisible(true);
         usr.setVisible(false);
-        atd = new AdminTrainDetails();
-        atd.setBounds(10, 10, 906, 898);
+        adhome.setVisible(false);
         adminContainerPanel.add(atd);
     }//GEN-LAST:event_train_details_labelMouseClicked
 
@@ -269,6 +277,7 @@ public class Admin extends javax.swing.JFrame {
     }
     User usr;
     AdminTrainDetails atd;
+    AdminHome adhome;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel adminContainerPanel;
     private javax.swing.ButtonGroup buttonGroup1;
