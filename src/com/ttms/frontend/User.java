@@ -11,7 +11,7 @@ package com.ttms.frontend;
  */
 import com.ttms.backend.DatabaseConnection;
 import java.sql.*;
-
+import java.text.SimpleDateFormat;
 public class User extends javax.swing.JPanel {
 
     /**
@@ -39,7 +39,6 @@ public class User extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        usr_dob = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         usr_aadhar = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -48,6 +47,7 @@ public class User extends javax.swing.JPanel {
         usr_mobile = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         usr_gender = new javax.swing.JComboBox<>();
+        usr_dob = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         usr_name = new javax.swing.JTextField();
@@ -83,8 +83,6 @@ public class User extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         jLabel8.setText("Date of Birth");
 
-        usr_dob.setText("jTextField3");
-
         jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel9.setText("Adhar Card Number");
 
@@ -103,6 +101,8 @@ public class User extends javax.swing.JPanel {
         usr_mobile.setToolTipText("Enter your mobile");
 
         usr_gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
+
+        usr_dob.setDateFormatString("dd-MM-yyyy");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,7 +125,7 @@ public class User extends javax.swing.JPanel {
                                 .addGap(176, 176, 176)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(usr_dob, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(usr_dob, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -158,9 +158,9 @@ public class User extends javax.swing.JPanel {
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usr_dob, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usr_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(usr_dob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(usr_gender, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -210,11 +210,6 @@ public class User extends javax.swing.JPanel {
                 add_btnMouseClicked(evt);
             }
         });
-        add_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_btnActionPerformed(evt);
-            }
-        });
 
         remove_btn.setBackground(new java.awt.Color(254, 84, 48));
         remove_btn.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
@@ -234,6 +229,11 @@ public class User extends javax.swing.JPanel {
         update_btn.setText("Update  ");
         update_btn.setBorder(null);
         update_btn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        update_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                update_btnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -317,7 +317,7 @@ public class User extends javax.swing.JPanel {
             addprestmt.setString(7, "User");
             addprestmt.setString(8, null);//Valent Balance
             addprestmt.setString(9, usr_gender.getItemAt(usr_gender.getSelectedIndex()));
-            addprestmt.setString(10, this.usr_dob.getText());
+            addprestmt.setString(10, null);
             addprestmt.setString(11, usr_aadhar.getText());
             addprestmt.setString(12, usr_mobile.getText());
             
@@ -339,7 +339,6 @@ public class User extends javax.swing.JPanel {
             usr_name.setText("");
             usr_email.setText("");
             usr_mobile.setText("");
-            usr_dob.setText("");
             usr_aadhar.setText("");
         }
         else{
@@ -359,10 +358,6 @@ public class User extends javax.swing.JPanel {
         }catch(Exception e){System.out.println(e);}
     }//GEN-LAST:event_remove_btnMouseClicked
 
-    private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_add_btnActionPerformed
-
     private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
         // TODO add your handling code here:
         DatabaseConnection dc = new DatabaseConnection();
@@ -372,7 +367,13 @@ public class User extends javax.swing.JPanel {
             prestmt.setString(1, userid.getText());
             ResultSet rs = prestmt.executeQuery();
             if(rs.next()){
-                System.out.println(rs.getString(2));
+                usr_name.setText(rs.getString(2));
+                java.util.Date date = new SimpleDateFormat("dd-MM-yyyy").parse(rs.getString("DOB"));
+                usr_dob.setDate(date);
+                usr_email.setText(rs.getString(5));
+                usr_mobile.setText(rs.getString("Mobile"));
+                usr_aadhar.setText(rs.getString("AadharNo"));
+                System.out.println(usr_dob.getDate());
             }
             else{
                 javax.swing.JOptionPane.showMessageDialog(this, "user not found");
@@ -380,6 +381,15 @@ public class User extends javax.swing.JPanel {
         }catch(Exception e){javax.swing.JOptionPane.showMessageDialog(this, e);}
         
     }//GEN-LAST:event_search_btnMouseClicked
+
+    private void update_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_btnMouseClicked
+        // TODO add your handling code here:
+        DatabaseConnection dc = new DatabaseConnection();
+        String query = "update from userdata set (?,?,?,?,?,?,?,?,?,?,?,?) where UserId =?";
+        try{
+            PreparedStatement prestmt = dc.con.prepareStatement(query);
+        }catch(Exception e){javax.swing.JOptionPane.showMessageDialog(this, e);}
+    }//GEN-LAST:event_update_btnMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -403,7 +413,7 @@ public class User extends javax.swing.JPanel {
     private javax.swing.JButton update_btn;
     private javax.swing.JTextField userid;
     private javax.swing.JTextField usr_aadhar;
-    private javax.swing.JTextField usr_dob;
+    private com.toedter.calendar.JDateChooser usr_dob;
     private javax.swing.JTextField usr_email;
     private javax.swing.JComboBox<String> usr_gender;
     private javax.swing.JTextField usr_mobile;
