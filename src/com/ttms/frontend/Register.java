@@ -238,7 +238,7 @@ public class Register extends javax.swing.JFrame {
                 registerprestmt.setString(9, "Female");
             else
                 registerprestmt.setString(9, "Other");
-            registerprestmt.setString(10, this.dob.getDate().toString());
+            registerprestmt.setString(10, this.dob.getDate().getDate()+"-"+this.dob.getDate().getMonth()+"-"+this.dob.getDate().getYear());
             registerprestmt.setString(11, aadhar_num.getText());
             registerprestmt.setString(12, mobile.getText());
             
