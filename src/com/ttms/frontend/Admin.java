@@ -21,8 +21,8 @@ public class Admin extends javax.swing.JFrame {
         adminContainerPanel.add(adhome);
         atd = new AdminTrainDetails();
         usr = new User();
-        usr.setBounds(10, 10, 897, 794);
-        atd.setBounds(10, 0, 906, 910);
+        usr.setBounds(10, 10, 836, 800);
+        atd.setBounds(10, 100, 854, 600);
     }
 
     /**
