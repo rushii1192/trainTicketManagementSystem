@@ -180,7 +180,7 @@
                                   <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel8" min="-2" pref="117" max="-2" attributes="0"/>
-                                      <Component id="usr_dob" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="usr_dob" min="-2" pref="167" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
@@ -228,9 +228,9 @@
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="usr_dob" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="usr_gender" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="usr_dob" max="32767" attributes="0"/>
+                      <Component id="usr_gender" pref="33" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -279,11 +279,6 @@
               <Font name="Yu Gothic UI Semibold" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Date of Birth"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="usr_dob">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField3"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -346,6 +341,11 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="usr_dob">
+          <Properties>
+            <Property name="dateFormatString" type="java.lang.String" value="dd-MM-yyyy"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -414,7 +414,6 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="add_btnMouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_btnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="remove_btn">
@@ -455,6 +454,9 @@
         </Property>
         <Property name="horizontalTextPosition" type="int" value="2"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="update_btnMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
