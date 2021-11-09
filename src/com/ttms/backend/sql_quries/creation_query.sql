@@ -4,7 +4,7 @@ create database ttms;
 
 /*Creating table TrainData*/
 create table ttms.traindata (
-	TrainNo	int,	
+    TrainNo	int,	
     TrainName varchar(100),
     StationName	varchar(500),
     ArrivalTime datetime,
