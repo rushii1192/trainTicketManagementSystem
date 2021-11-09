@@ -374,6 +374,7 @@ public class User extends javax.swing.JPanel {
                 usr_mobile.setText(rs.getString("Mobile"));
                 usr_aadhar.setText(rs.getString("AadharNo"));
                 System.out.println(usr_dob.getDate());
+                dc.con.close();
             }
             else{
                 javax.swing.JOptionPane.showMessageDialog(this, "user not found");
