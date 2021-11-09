@@ -4,7 +4,7 @@ create database ttms;
 
 /*Creating table TrainData*/
 create table ttms.traindata (
-    TrainNo	int,	
+    TrainNo	varchar(50),	
     TrainName varchar(100),
     StationName	varchar(500),
     DistanceFromSourceStation int,	
@@ -12,7 +12,8 @@ create table ttms.traindata (
     ArrivalTime varchar(100),
     DepartureTime varchar(100),
     Date varchar(100),
-    SourceStationName varchar(500)
+    SourceStationName varchar(500),
+    primary key (TrainNo)
 );
 
 /*Creating table UserData*/
