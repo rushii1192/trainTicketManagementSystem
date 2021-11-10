@@ -11,6 +11,7 @@ package com.ttms.frontend;
  */
 import com.ttms.backend.DatabaseConnection;
 import java.sql.*;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 public class User extends javax.swing.JPanel {
 
@@ -303,6 +304,7 @@ public class User extends javax.swing.JPanel {
     private void add_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_btnMouseClicked
         // TODO add your handling code here:
         boolean flag = false;
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         try{
             DatabaseConnection dc = new DatabaseConnection();
             String registerquery = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -317,7 +319,7 @@ public class User extends javax.swing.JPanel {
             addprestmt.setString(7, "User");
             addprestmt.setString(8, null);//Valent Balance
             addprestmt.setString(9, usr_gender.getItemAt(usr_gender.getSelectedIndex()));
-            addprestmt.setString(10, null);
+            addprestmt.setString(10, df.format(usr_dob.getDate()));
             addprestmt.setString(11, usr_aadhar.getText());
             addprestmt.setString(12, usr_mobile.getText());
             
