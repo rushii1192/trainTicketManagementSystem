@@ -36,16 +36,22 @@ public class PassengerDetails extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextField1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jTextField1.setText("First Name");
 
+        jTextField2.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jTextField2.setText("Last Name");
 
+        jTextField3.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jTextField3.setText("Age");
 
+        jTextField4.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jTextField4.setText("Aadhar No");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
 
+        jTextField5.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jTextField5.setText("Mobile no");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
