@@ -31,6 +31,7 @@ public class Register extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -196,9 +197,7 @@ public class Register extends javax.swing.JFrame {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_user_24px_1.png"))); // NOI18N
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 162, 32, 53));
-
-        dob.setDateFormatString("yyyy-dd-MM");
-        jPanel1.add(dob, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 170, 30));
+        jPanel1.add(dob, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, 180, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -311,6 +310,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField email;
     private javax.swing.JRadioButton femalegenderradiobtn;
     private javax.swing.JTextField first_name;
+    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -333,4 +333,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JButton registerButton;
     private java.awt.Checkbox terms_condition;
     // End of variables declaration//GEN-END:variables
+
+  
 }
