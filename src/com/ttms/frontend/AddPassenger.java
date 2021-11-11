@@ -232,10 +232,14 @@ public class AddPassenger extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        coding....
         DatabaseConnection db=new DatabaseConnection();
-        String registerquery = "Insert Into passenger values(?,?,?,?,?,?,?)";
+        String registerquery = "Insert Into passenger values(?,?,?,?,?,?)";
         try {
             PreparedStatement addprestmt = db.con.prepareStatement(registerquery);
             addprestmt.setString(1,pd.getfirst_name());
+            addprestmt.setString(1,pd.getlast_name());
+            addprestmt.setString(1,pd.getage());
+            addprestmt.setString(1,pd.getaadhar_number());
+            addprestmt.setString(1,pd.getmobile_number());
         } catch (SQLException ex) {
             Logger.getLogger(AddPassenger.class.getName()).log(Level.SEVERE, null, ex);
         }
