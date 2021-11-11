@@ -5,6 +5,12 @@
  */
 package com.ttms.frontend;
 
+import com.ttms.backend.DatabaseConnection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author "Rushikesh Borakhede Class:-SEINFTA Batch:- 01 Roll No:- 01"
@@ -224,6 +230,15 @@ public class AddPassenger extends javax.swing.JFrame {
 
     private void add_passenger_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_passenger_btnMouseClicked
         // TODO add your handling code here:
+//        coding....
+        DatabaseConnection db=new DatabaseConnection();
+        String registerquery = "Insert Into passenger values(?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement addprestmt = db.con.prepareStatement(registerquery);
+            addprestmt.setString(1,pd.getfirst_name());
+        } catch (SQLException ex) {
+            Logger.getLogger(AddPassenger.class.getName()).log(Level.SEVERE, null, ex);
+        }
         y_axis = y_axis+78;
         pd = new PassengerDetails();
         pd.setBounds(0, y_axis, 824, 78);
