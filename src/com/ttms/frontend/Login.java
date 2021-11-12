@@ -226,7 +226,9 @@ public class Login extends javax.swing.JFrame {
             System.out.println(query);
             ResultSet rs = dc.stmt.executeQuery(query);
             if(rs.next()){
-                new Welcome().setVisible(true);
+                Welcome w = new Welcome();
+                w.setLoginLabel(rs.getString("Username"));
+                w.setVisible(true);
                 this.setVisible(false);
             }
             else
