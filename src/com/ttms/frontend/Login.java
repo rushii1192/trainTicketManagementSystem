@@ -223,12 +223,13 @@ public class Login extends javax.swing.JFrame {
         try{
             DatabaseConnection dc = new DatabaseConnection();
             String query = "select * from userlogin where Username = '"+username.getText()+"' and Password = '"+new String(password.getPassword())+"'";
-            System.out.println(query);
             ResultSet rs = dc.stmt.executeQuery(query);
             if(rs.next()){
                 Welcome w = new Welcome();
                 w.setLoginLabel(rs.getString("Username"));
                 w.setVisible(true);
+                w.registerRemover();
+                w.setLoginFlag(true);
                 this.setVisible(false);
             }
             else
