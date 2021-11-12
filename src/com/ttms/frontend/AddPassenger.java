@@ -39,6 +39,7 @@ public class AddPassenger extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        login_label = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -66,20 +67,35 @@ public class AddPassenger extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_add_48px.png"))); // NOI18N
         jLabel1.setText("Add Passenger");
 
+        login_label.setBackground(new java.awt.Color(255, 255, 255));
+        login_label.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        login_label.setForeground(new java.awt.Color(255, 255, 255));
+        login_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_user_32px_1.png"))); // NOI18N
+        login_label.setText(" Login");
+        login_label.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                login_labelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(310, 310, 310)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(login_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(111, 111, 111)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(345, 345, 345))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                    .addComponent(login_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -240,8 +256,8 @@ public class AddPassenger extends javax.swing.JFrame {
             addprestmt.setString(1,pd.getage());
             addprestmt.setString(1,pd.getaadhar_number());
             addprestmt.setString(1,pd.getmobile_number());
-        } catch (SQLException ex) {
-            Logger.getLogger(AddPassenger.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, ex);
         }
         y_axis = y_axis+78;
         pd = new PassengerDetails();
@@ -253,6 +269,11 @@ public class AddPassenger extends javax.swing.JFrame {
         // TODO add your handling code here:
         new ConfirmationPage().setVisible(true);
     }//GEN-LAST:event_book_ticket_btnMouseClicked
+
+    private void login_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_labelMouseClicked
+        // TODO add your handling code here:
+        new Login().setVisible(true);
+    }//GEN-LAST:event_login_labelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -306,5 +327,6 @@ public class AddPassenger extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel login_label;
     // End of variables declaration//GEN-END:variables
 }
