@@ -138,8 +138,9 @@ public class Welcome extends javax.swing.JFrame {
                     .addComponent(history_label, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(plan_journey_label, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(register_label, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(login_label, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(login_label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(48, 48, 48))
         );
         jPanel2Layout.setVerticalGroup(
@@ -557,7 +558,9 @@ public class Welcome extends javax.swing.JFrame {
 
     private void history_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_history_labelMouseClicked
         // TODO add your handling code here:
-        new History().setVisible(true);
+        History his = new History();
+        his.setLoginLabel(this.login_label.getText());
+        his.setVisible(true);
     }//GEN-LAST:event_history_labelMouseClicked
 
     /**
@@ -594,7 +597,7 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
     }
-
+    public void setLoginLabel(String usr_id){ this.login_label.setText(usr_id);}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel container;
     private javax.swing.JComboBox<String> destinationStation;
