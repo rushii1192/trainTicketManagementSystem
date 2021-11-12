@@ -150,11 +150,11 @@ public class Welcome extends javax.swing.JFrame {
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel13)
-                .addGap(131, 131, 131)
-                .addComponent(login_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(161, 161, 161)
                 .addComponent(register_label)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(login_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(plan_journey_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(history_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -523,6 +523,7 @@ public class Welcome extends javax.swing.JFrame {
     private void login_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_labelMouseClicked
         // TODO add your handling code here:
         new Login().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_login_labelMouseClicked
 
     private void register_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_register_labelMouseClicked
@@ -532,6 +533,7 @@ public class Welcome extends javax.swing.JFrame {
 
     private void findTrainButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findTrainButtonMouseClicked
         // TODO add your handling code here:
+        
         findTrainButton.setText("Its working");
         TrainDetails td = new TrainDetails();
         td.setTrain_details("New train details");
@@ -540,6 +542,9 @@ public class Welcome extends javax.swing.JFrame {
         TrainDetails td1 = new TrainDetails();
         td1.setBounds(130, 169, 688, 156);
         trainDetailsContainer.add(td1);
+        if(!(login_flag)){
+            javax.swing.JOptionPane.showMessageDialog(this, "Please login to book ticket");
+        }
         /*javax.swing.JScrollBar jsb = new javax.swing.JScrollBar();
         trainDetailsContainer.add(jsb);
         javax.swing.JScrollPane panelPane = new javax.swing.JScrollPane(trainDetailsContainer);*/
@@ -558,9 +563,14 @@ public class Welcome extends javax.swing.JFrame {
 
     private void history_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_history_labelMouseClicked
         // TODO add your handling code here:
-        History his = new History();
-        his.setLoginLabel(this.login_label.getText());
-        his.setVisible(true);
+        if(this.login_flag){
+            History his = new History();
+            his.setLoginLabel(this.login_label.getText());
+            his.setVisible(true);
+        }else{
+            javax.swing.JOptionPane.showMessageDialog(this, "Please login to view history");
+        }
+        
     }//GEN-LAST:event_history_labelMouseClicked
 
     /**
@@ -597,7 +607,11 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
     }
+    public void registerRemover(){this.register_label.setVisible(false);};
     public void setLoginLabel(String usr_id){ this.login_label.setText(usr_id);}
+    public void setLoginFlag(boolean value){this.login_flag = value;}
+    
+    private boolean login_flag = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel container;
     private javax.swing.JComboBox<String> destinationStation;
