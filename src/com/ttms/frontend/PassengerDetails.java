@@ -78,10 +78,10 @@ public class PassengerDetails extends javax.swing.JPanel {
                 .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(mobile_number, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
             .addComponent(jSeparator1)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE))
+                .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,10 +96,10 @@ public class PassengerDetails extends javax.swing.JPanel {
                     .addComponent(aadhar_number, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mobile_number, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(63, Short.MAX_VALUE)
+                    .addContainerGap(53, Short.MAX_VALUE)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
@@ -114,7 +114,7 @@ public class PassengerDetails extends javax.swing.JPanel {
     public String getlast_name(){
         return this.last_name.getText();
     }
-    public String getage(){
+    public String getAge(){
         return this.age.getText();
     }
     public String getaadhar_number(){
@@ -122,6 +122,9 @@ public class PassengerDetails extends javax.swing.JPanel {
     }
     public String getmobile_number(){
         return this.mobile_number.getText();
+    }
+    public String getGender(){
+        return this.gender.getItemAt(this.gender.getSelectedIndex());
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField aadhar_number;
