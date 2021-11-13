@@ -23,7 +23,7 @@ public class AddPassenger extends javax.swing.JFrame {
     public AddPassenger() {
         initComponents();
         pd = new PassengerDetails();
-        pd.setBounds(0, y_axis, 824, 78);
+        pd.setBounds(0, y_axis, 860, 78);
         add_passenser_container.add(pd);
     }
 
@@ -127,19 +127,19 @@ public class AddPassenger extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(43, 43, 43)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGap(72, 72, 72)
                 .addComponent(jLabel5)
-                .addGap(70, 70, 70)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(39, 39, 39)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel7)
-                .addGap(31, 31, 31))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +207,7 @@ public class AddPassenger extends javax.swing.JFrame {
                 .addComponent(book_ticket_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(add_passenser_container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -248,21 +248,30 @@ public class AddPassenger extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        coding....
         DatabaseConnection db=new DatabaseConnection();
-        String registerquery = "Insert Into passenger values(?,?,?,?,?,?)";
+        String registerquery = "Insert Into passenger values(?,?,?,?,?,?,?)";
         try {
             PreparedStatement addprestmt = db.con.prepareStatement(registerquery);
             addprestmt.setString(1,pd.getfirst_name());
-            addprestmt.setString(1,pd.getlast_name());
-            addprestmt.setString(1,pd.getage());
-            addprestmt.setString(1,pd.getaadhar_number());
-            addprestmt.setString(1,pd.getmobile_number());
+            addprestmt.setString(2,pd.getlast_name());
+            addprestmt.setString(3,pd.getAge());
+            addprestmt.setString(4,null);
+            addprestmt.setString(5,pd.getaadhar_number());
+            addprestmt.setString(6,pd.getGender());
+            addprestmt.setString(7,pd.getmobile_number());
+            addprestmt.executeUpdate();
+            db.con.close();
+            Passeneger_Flag = true;
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(this, ex);
         }
-        y_axis = y_axis+78;
-        pd = new PassengerDetails();
-        pd.setBounds(0, y_axis, 824, 78);
-        add_passenser_container.add(pd);
+        if(Passeneger_Flag){
+            y_axis = y_axis+78;
+            pd = new PassengerDetails();
+            pd.setBounds(0, y_axis, 860, 78);
+            add_passenser_container.add(pd);
+        }else{
+            javax.swing.JOptionPane.showMessageDialog(this, "Passenger is not added");
+        }     
     }//GEN-LAST:event_add_passenger_btnMouseClicked
 
     private void book_ticket_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_ticket_btnMouseClicked
@@ -311,6 +320,7 @@ public class AddPassenger extends javax.swing.JFrame {
     }
     PassengerDetails pd;
     int y_axis=0;
+    boolean Passeneger_Flag = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_passenger_btn;
     private javax.swing.JPanel add_passenser_container;
