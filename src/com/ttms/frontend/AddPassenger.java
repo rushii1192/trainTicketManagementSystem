@@ -40,6 +40,7 @@ public class AddPassenger extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         login_label = new javax.swing.JLabel();
+        train_num = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -72,11 +73,10 @@ public class AddPassenger extends javax.swing.JFrame {
         login_label.setForeground(new java.awt.Color(255, 255, 255));
         login_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_user_32px_1.png"))); // NOI18N
         login_label.setText(" Login");
-        login_label.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                login_labelMouseClicked(evt);
-            }
-        });
+
+        train_num.setFont(new java.awt.Font("Monospaced", 1, 20)); // NOI18N
+        train_num.setForeground(new java.awt.Color(255, 255, 255));
+        train_num.setText("TrainNo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -84,10 +84,12 @@ public class AddPassenger extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(login_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(111, 111, 111)
+                .addComponent(login_label, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                .addGap(93, 93, 93)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(345, 345, 345))
+                .addGap(171, 171, 171)
+                .addComponent(train_num, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,6 +99,10 @@ public class AddPassenger extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
                     .addComponent(login_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(train_num, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -248,17 +254,21 @@ public class AddPassenger extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        coding....
         DatabaseConnection db=new DatabaseConnection();
-        String registerquery = "Insert Into passenger values(?,?,?,?,?,?,?)";
+        String passeneger_query = "Insert Into passenger values(?,?,?,?,?,?,?)";
+        String ticket_query = "Insert Into passenger values(?,?,?,?,?,?,?)";
         try {
-            PreparedStatement addprestmt = db.con.prepareStatement(registerquery);
-            addprestmt.setString(1,pd.getfirst_name());
-            addprestmt.setString(2,pd.getlast_name());
-            addprestmt.setString(3,pd.getAge());
-            addprestmt.setString(4,null);
-            addprestmt.setString(5,pd.getaadhar_number());
-            addprestmt.setString(6,pd.getGender());
-            addprestmt.setString(7,pd.getmobile_number());
-            addprestmt.executeUpdate();
+            PreparedStatement passengerstmt = db.con.prepareStatement(passeneger_query);
+            passengerstmt.setString(1,pd.getfirst_name());
+            passengerstmt.setString(2,pd.getlast_name());
+            passengerstmt.setString(3,pd.getAge());
+            passengerstmt.setString(4,null);
+            passengerstmt.setString(5,pd.getaadhar_number());
+            passengerstmt.setString(6,pd.getGender());
+            passengerstmt.setString(7,pd.getmobile_number());
+            passengerstmt.executeUpdate();
+            
+            PreparedStatement ticketstmt = db.con.prepareStatement(ticket_query);
+            
             db.con.close();
             Passeneger_Flag = true;
         } catch (Exception ex) {
@@ -278,12 +288,13 @@ public class AddPassenger extends javax.swing.JFrame {
         // TODO add your handling code here:
         new ConfirmationPage().setVisible(true);
     }//GEN-LAST:event_book_ticket_btnMouseClicked
-
-    private void login_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_labelMouseClicked
-        // TODO add your handling code here:
-        new Login().setVisible(true);
-    }//GEN-LAST:event_login_labelMouseClicked
-
+    
+    public void setTrainNumber(String train_no){
+        this.train_num.setText(train_no);
+    }
+    public void setUserId(String user_id){
+        this.login_label.setText(user_id);
+    }
     /**
      * @param args the command line arguments
      */
@@ -338,5 +349,6 @@ public class AddPassenger extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel login_label;
+    private javax.swing.JLabel train_num;
     // End of variables declaration//GEN-END:variables
 }
