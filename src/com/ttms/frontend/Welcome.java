@@ -535,11 +535,12 @@ public class Welcome extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         findTrainButton.setText("Its working");
-        TrainDetails td = new TrainDetails();
-        td.setTrain_details("New train details");
+        TrainDetails td = new TrainDetails(this.login_label.getText());
+        td.setTrainName("Malad Express");
+        td.setTrainNumber("12345");
         td.setBounds(130, 0, 688, 156);
         trainDetailsContainer.add(td);
-        TrainDetails td1 = new TrainDetails();
+        TrainDetails td1 = new TrainDetails(this.login_label.getText());
         td1.setBounds(130, 169, 688, 156);
         trainDetailsContainer.add(td1);
         if(!(login_flag)){
