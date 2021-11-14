@@ -63,4 +63,5 @@ create table ttms.userlogin (
     Password varchar(100)
 );
 
-
+alter table ttms.ticketdata add column userid varchar(100);
+alter table ttms.ticketdata add column status varchar(100) default "WAIT";
