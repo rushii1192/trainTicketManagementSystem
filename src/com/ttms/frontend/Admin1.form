@@ -246,7 +246,7 @@
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="820" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="adminContainerPanel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -254,7 +254,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="adminContainerPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" pref="61" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -321,7 +321,7 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel9">
             </Component>
-            <Container class="javax.swing.JPanel" name="adminContainerPanel">
+            <Container class="javax.swing.JPanel" name="jPanel6">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -333,23 +333,24 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="116" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" pref="131" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="394" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jScrollPane1" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="909" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="385" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="298" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="56" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
+                          <EmptySpace pref="240" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -358,7 +359,7 @@
                 <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="99" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                   </Properties>
 
@@ -368,9 +369,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jButton1"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
