@@ -5,6 +5,7 @@
  */
 package com.ttms.frontend;
 import com.ttms.backend.DatabaseConnection;
+import com.ttms.backend.Validation;
 import java.sql.ResultSet;
 
 /**
@@ -221,23 +222,28 @@ public class Login extends javax.swing.JFrame {
 
     private void logInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logInButtonMouseClicked
         // TODO add your handling code here:
-        try{
-            DatabaseConnection dc = new DatabaseConnection();
-            String query = "select * from userlogin where Username = '"+username.getText()+"' and Password = '"+new String(password.getPassword())+"'";
-            ResultSet rs = dc.stmt.executeQuery(query);
-            if(rs.next()){
-                Welcome w = new Welcome();
-                w.setLoginLabel(rs.getString("Username"));
-                w.setVisible(true);
-                w.registerRemover();
-                w.setLoginFlag(true);
-                this.setVisible(false);
+        Validation validator = new Validation();
+        if(validator.nullChecker(username.getText()) || validator.nullChecker(new String(password.getPassword()))){
+            javax.swing.JOptionPane.showMessageDialog(this, "Username or password is null");
+        }else{
+            try{
+                DatabaseConnection dc = new DatabaseConnection();
+                String query = "select * from userlogin where Username = '"+username.getText()+"' and Password = '"+new String(password.getPassword())+"'";
+                ResultSet rs = dc.stmt.executeQuery(query);
+                if(rs.next()){
+                    Welcome w = new Welcome();
+                    w.setLoginLabel(rs.getString("Username"));
+                    w.setVisible(true);
+                    w.registerRemover();
+                    w.setLoginFlag(true);
+                    this.setVisible(false);
+                }
+                else
+                   javax.swing.JOptionPane.showMessageDialog(this,"Username and Password is incorrect");
+                dc.con.close();
+            } catch(Exception e){
+                System.out.println(e);
             }
-            else
-               javax.swing.JOptionPane.showMessageDialog(this,"Username and Password is incorrect");
-            dc.con.close();
-        } catch(Exception e){
-            System.out.println(e);
         }
     }//GEN-LAST:event_logInButtonMouseClicked
 
