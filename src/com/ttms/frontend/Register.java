@@ -325,14 +325,11 @@ public class Register extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Any of required fill is null");
         }
         else if(validator.passwordChecker(password.getText(),confirm_password.getText())){
-            javax.swing.JOptionPane.showMessageDialog(this, "Passowrd mismatch");
             try {
                 validator.validity(password.getText());
             } catch (Exception ex) {
                 System.out.println(ex);
             }
-        }
-        else{
             try{
                 DatabaseConnection dc = new DatabaseConnection();
                 String registerquery = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -375,6 +372,9 @@ public class Register extends javax.swing.JFrame {
                 } catch(Exception e){
                     System.out.println(e);
             }
+        }
+        else{
+            javax.swing.JOptionPane.showMessageDialog(this, "Passowrd mismatch");
         }
         
 //        System.out.println(new Integer(mobile.getText()));
