@@ -142,7 +142,7 @@ public class Login extends javax.swing.JFrame {
         password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
 
         jComboBox2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Owner", "User" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Admin" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
