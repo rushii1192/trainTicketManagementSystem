@@ -49,10 +49,11 @@ public class AddPassenger extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        add_passenser_container = new javax.swing.JPanel();
         add_passenger_btn = new javax.swing.JButton();
         book_ticket_btn = new javax.swing.JButton();
         confirm_psg_btn = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        add_passenser_container = new javax.swing.JPanel();
 
         jButton1.setText("jButton1");
 
@@ -161,19 +162,6 @@ public class AddPassenger extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        add_passenser_container.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout add_passenser_containerLayout = new javax.swing.GroupLayout(add_passenser_container);
-        add_passenser_container.setLayout(add_passenser_containerLayout);
-        add_passenser_containerLayout.setHorizontalGroup(
-            add_passenser_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 888, Short.MAX_VALUE)
-        );
-        add_passenser_containerLayout.setVerticalGroup(
-            add_passenser_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 437, Short.MAX_VALUE)
-        );
-
         add_passenger_btn.setBackground(new java.awt.Color(254, 84, 48));
         add_passenger_btn.setText("Add Passenger");
         add_passenger_btn.setBorder(null);
@@ -196,6 +184,21 @@ public class AddPassenger extends javax.swing.JFrame {
         confirm_psg_btn.setForeground(new java.awt.Color(10, 128, 49));
         confirm_psg_btn.setText("I confirmed above information is correct");
 
+        add_passenser_container.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout add_passenser_containerLayout = new javax.swing.GroupLayout(add_passenser_container);
+        add_passenser_container.setLayout(add_passenser_containerLayout);
+        add_passenser_containerLayout.setHorizontalGroup(
+            add_passenser_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 888, Short.MAX_VALUE)
+        );
+        add_passenser_containerLayout.setVerticalGroup(
+            add_passenser_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 437, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(add_passenser_container);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -213,8 +216,8 @@ public class AddPassenger extends javax.swing.JFrame {
                 .addComponent(book_ticket_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addComponent(add_passenser_container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -223,7 +226,7 @@ public class AddPassenger extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(add_passenser_container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_passenger_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -348,6 +351,7 @@ public class AddPassenger extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel login_label;
     private javax.swing.JLabel train_num;
     // End of variables declaration//GEN-END:variables
