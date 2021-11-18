@@ -20,8 +20,6 @@ public class Admin extends javax.swing.JFrame {
         adhome.setBounds(30, 400, 843, 183);
         adminContainerPanel.add(adhome);
         atd = new AdminTrainDetails();
-        usr = new UserTrail();
-        usr.setBounds(10, 10, 851, 824);
         atd.setBounds(10, 100, 854, 600);
     }
 
@@ -41,7 +39,6 @@ public class Admin extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        usersLabel = new javax.swing.JLabel();
         historyLabel = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -82,22 +79,11 @@ public class Admin extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(7, 13, 45));
         jPanel5.setForeground(new java.awt.Color(255, 255, 255));
 
-        usersLabel.setBackground(new java.awt.Color(255, 255, 255));
-        usersLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        usersLabel.setForeground(new java.awt.Color(255, 255, 255));
-        usersLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_user_32px_1.png"))); // NOI18N
-        usersLabel.setText("Users");
-        usersLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                usersLabelMouseClicked(evt);
-            }
-        });
-
         historyLabel.setBackground(new java.awt.Color(255, 255, 255));
         historyLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         historyLabel.setForeground(new java.awt.Color(255, 255, 255));
         historyLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_clock_arrow_32px.png"))); // NOI18N
-        historyLabel.setText(" History");
+        historyLabel.setText("Train Time Table");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 75)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,24 +114,22 @@ public class Admin extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(train_details_label, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(55, 55, 55)
-                            .addComponent(jLabel12))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(105, 105, 105)
-                            .addComponent(jLabel13))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(84, 84, 84)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(46, 46, 46)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(historyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(usersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel12))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(jLabel13))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(train_details_label, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(historyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,13 +140,11 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addComponent(usersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(99, 99, 99)
                 .addComponent(train_details_label)
                 .addGap(18, 18, 18)
                 .addComponent(historyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(456, Short.MAX_VALUE))
+                .addContainerGap(497, Short.MAX_VALUE))
         );
 
         adminContainerPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -224,18 +206,9 @@ public class Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usersLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersLabelMouseClicked
-        // TODO add your handling code here:
-        atd.setVisible(false);
-        adhome.setVisible(false);
-        usr.setVisible(true);
-        adminContainerPanel.add(usr);
-    }//GEN-LAST:event_usersLabelMouseClicked
-
     private void train_details_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_train_details_labelMouseClicked
         // TODO add your handling code here:
         atd.setVisible(true);
-        usr.setVisible(false);
         adhome.setVisible(false);
         adminContainerPanel.add(atd);
     }//GEN-LAST:event_train_details_labelMouseClicked
@@ -275,7 +248,6 @@ public class Admin extends javax.swing.JFrame {
             }
         });
     }
-    UserTrail usr;
     AdminTrainDetails atd;
     AdminHome adhome;
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -292,6 +264,5 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JLabel train_details_label;
-    private javax.swing.JLabel usersLabel;
     // End of variables declaration//GEN-END:variables
 }
