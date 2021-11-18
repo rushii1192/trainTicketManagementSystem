@@ -20,7 +20,7 @@ public class Admin extends javax.swing.JFrame {
         adhome.setBounds(30, 400, 843, 183);
         adminContainerPanel.add(adhome);
         atd = new AdminTrainDetails();
-        usr = new User();
+        usr = new UserTrail();
         usr.setBounds(10, 10, 851, 824);
         atd.setBounds(10, 100, 854, 600);
     }
@@ -275,7 +275,7 @@ public class Admin extends javax.swing.JFrame {
             }
         });
     }
-    User usr;
+    UserTrail usr;
     AdminTrainDetails atd;
     AdminHome adhome;
     // Variables declaration - do not modify//GEN-BEGIN:variables
