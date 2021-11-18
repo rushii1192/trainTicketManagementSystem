@@ -6,7 +6,11 @@
 
 package com.ttms.frontend;
 
+import com.ttms.backend.DatabaseConnection;
 import java.awt.Dimension;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -541,13 +545,26 @@ public class Welcome extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.login_flag){
             User usr1 = new User();
+            String query = "select * from userdata where Userid = ?";
             usr1.setUserId(this.login_label.getText());
-            usr1.setUserName("Ramesh Warma");
-            usr1.setAadharNumber("1324564565416");
-            usr1.setUserMobile("544456446");
-            usr1.setUserEmail("ijfkjej@mail.com");
-            
-            usr1.setVisible(true);
+            try{
+                DatabaseConnection dc = new DatabaseConnection();
+                PreparedStatement prestmt = dc.con.prepareStatement(query);
+                prestmt.setString(1, this.login_label.getText());
+                ResultSet rs = prestmt.executeQuery();
+                if(rs.next()){
+                    usr1.setUserName(rs.getString("FirstName"));
+                    usr1.setAadharNumber(rs.getString("AadharNo"));
+                    usr1.setUserMobile(rs.getString("Mobile"));
+                    usr1.setUserEmail(rs.getString("Username"));
+                    usr1.setUserPassword(rs.getString("Password"));
+                    usr1.setUserDOB(new SimpleDateFormat("dd-MM-yyyy").parse(rs.getString("Date")));
+
+                    usr1.setVisible(true);
+                }
+            }catch(Exception e){
+                javax.swing.JOptionPane.showMessageDialog(this, e);
+            }
         }
         else{
             new Login().setVisible(true);
