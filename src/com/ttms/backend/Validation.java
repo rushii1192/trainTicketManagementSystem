@@ -7,20 +7,6 @@ import java.util.regex.Pattern;
  *
  * @author "Rushikesh Borakhede Class:-SEINFTA Batch:- 01 Roll No:- 01"
  */
-class InvalidPassword extends Exception{
-    int n;
-    InvalidPassword(int n){
-        this.n=n;
-    }
-    String alert(){
-        switch(n){
-            case 1:javax.swing.JOptionPane.showMessageDialog(null,"Password length should be atleast 8"); break;
-            case 2:javax.swing.JOptionPane.showMessageDialog(null,"Password should contain atleast one digit"); break;
-            case 3:javax.swing.JOptionPane.showMessageDialog(null,"Password should contain one special symbol"); break;
-        }
-        return("");
-    }
-}
 
 public class Validation {
     public void validity(String p) throws InvalidPassword{
@@ -52,6 +38,12 @@ public class Validation {
     }
     public boolean nullChecker(String str){
         if(str.equals(""))
+            return true;
+        return false;
+    }
+    public boolean ageChecker(String str){
+        int n = new Integer(str);
+        if((n<=0) || (n>=100))
             return true;
         return false;
     }
