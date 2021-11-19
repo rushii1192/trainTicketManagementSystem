@@ -6,9 +6,12 @@
 package com.ttms.frontend;
 
 import com.ttms.backend.DatabaseConnection;
+import com.ttms.backend.InvalidPassword;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 import com.ttms.backend.Validation;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -321,48 +324,44 @@ public class Register extends javax.swing.JFrame {
     
     private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {  
         Validation validator = new Validation();
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         if(validator.nullChecker(first_name.getText()) || validator.nullChecker(last_name.getText())|| validator.nullChecker(confirm_password.getText())|| validator.nullChecker(password.getText())|| validator.nullChecker(mobile.getText())|| validator.nullChecker(email.getText())|| validator.nullChecker(aadhar_num.getText())){
             javax.swing.JOptionPane.showMessageDialog(this, "Any of required fill is null");
         }
         else if(validator.passwordChecker(password.getText(),confirm_password.getText())){
             try {
                 validator.validity(password.getText());
-            } catch (Exception ex) {
-                System.out.println(ex);
+            } catch (InvalidPassword ex) {
+                ex.alert();
             }
             try{
                 DatabaseConnection dc = new DatabaseConnection();
-                String registerquery = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?,?)";
+                String registerquery = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?)";
                 PreparedStatement registerprestmt = dc.con.prepareStatement(registerquery);
 
-                registerprestmt.setString(1, first_name.getText()+mobile.getText().substring(0, 5));
-                registerprestmt.setString(2, first_name.getText());
-                registerprestmt.setString(3, last_name.getText());
-                registerprestmt.setString(4, null);
-                registerprestmt.setString(5, email.getText());
-                registerprestmt.setString(6, new String(password.getPassword()));
-                registerprestmt.setString(7, "User");
-                registerprestmt.setString(8, null);
+                registerprestmt.setString(1, first_name.getText());
+                registerprestmt.setString(2, last_name.getText());
+                registerprestmt.setString(3, null);
+                registerprestmt.setString(4, email.getText());
+                registerprestmt.setString(5, new String(password.getPassword()));
+                registerprestmt.setString(6, "User");
+                registerprestmt.setString(7, null);
                 if(malegenderradiobtn.isSelected())
-                    registerprestmt.setString(9, "Male");
+                    registerprestmt.setString(8, "Male");
                 else if(femalegenderradiobtn.isSelected())
-                    registerprestmt.setString(9, "Female");
+                    registerprestmt.setString(8, "Female");
                 else
-                    registerprestmt.setString(9, "Other");
-                registerprestmt.setString(10, this.dob.getDate().getDate()+"-"+this.dob.getDate().getMonth()+"-"+this.dob.getDate().getYear());
-                registerprestmt.setString(11, aadhar_num.getText());
-                registerprestmt.setString(12, mobile.getText());
+                    registerprestmt.setString(8, "Other");
+                registerprestmt.setString(9, df.format(dob.getDate()));
+                registerprestmt.setString(10, aadhar_num.getText());
+                registerprestmt.setString(11, mobile.getText());
 
                 registerprestmt.executeUpdate();
 
-                String loginquery = "Insert Into userlogin values(?,?)";
-                PreparedStatement loginprestmt = dc.con.prepareStatement(loginquery);
-                loginprestmt.setString(1, first_name.getText()+mobile.getText().substring(0, 5));
-                loginprestmt.setString(2, new String(password.getPassword()));
-                loginprestmt.executeUpdate();
+                
                 dc.con.close();
                 if(terms_condition.getState()){
-                    javax.swing.JOptionPane.showMessageDialog(this, "You have successfully registered.\nYour userid is "+first_name.getText()+mobile.getText().substring(0, 5)+"\nContinue to login.");
+                    javax.swing.JOptionPane.showMessageDialog(this, "You have successfully registered.\nYour userid is "+email.getText()+"\nContinue to login.");
                     new Login().setVisible(true);
                     this.setVisible(false);
                 }
