@@ -51,8 +51,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="departure_time" alignment="1" min="-2" pref="124" max="-2" attributes="0"/>
                                   <Component id="arrival_time" alignment="1" min="-2" pref="127" max="-2" attributes="0"/>
-                                  <Component id="source_station_name" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
-                                  <Component id="station_name" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                                  <Component id="source_station" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                                  <Component id="destination_station" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
                                   <Component id="train_date" min="-2" pref="146" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -117,12 +117,12 @@
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="source_station_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="source_station" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="station_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="destination_station" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -231,10 +231,10 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/com/ttms/frontend/Icons/icons8_next_location_24px.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Station Name"/>
+        <Property name="text" type="java.lang.String" value="Destination Station Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="source_station_name">
+    <Component class="javax.swing.JTextField" name="source_station">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Semibold" size="18" style="0"/>
@@ -242,7 +242,7 @@
         <Property name="toolTipText" type="java.lang.String" value="Source Station"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="source_station_nameActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="source_stationActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
@@ -387,7 +387,7 @@
         <Property name="text" type="java.lang.String" value="Source Station Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="station_name">
+    <Component class="javax.swing.JTextField" name="destination_station">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Semibold" size="18" style="0"/>
@@ -395,7 +395,7 @@
         <Property name="toolTipText" type="java.lang.String" value="Enter Station Name"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="station_nameActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="destination_stationActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
