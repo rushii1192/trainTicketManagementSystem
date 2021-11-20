@@ -27,34 +27,39 @@ public class TrainTTRow extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        train_name = new javax.swing.JLabel();
+        source_station = new javax.swing.JLabel();
+        destination_station = new javax.swing.JLabel();
+        arrival_time = new javax.swing.JLabel();
+        departure_time = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(27, 120, 138));
-        jLabel2.setText("TrainName");
+        train_name.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
+        train_name.setForeground(new java.awt.Color(27, 120, 138));
+        train_name.setText("TrainName");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(27, 120, 138));
-        jLabel3.setText("SourceStation");
+        source_station.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
+        source_station.setForeground(new java.awt.Color(27, 120, 138));
+        source_station.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        source_station.setText("SourceStation");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(27, 120, 138));
-        jLabel4.setText("DestinationStation");
+        destination_station.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
+        destination_station.setForeground(new java.awt.Color(27, 120, 138));
+        destination_station.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        destination_station.setText("DestinationStation");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(27, 120, 138));
-        jLabel5.setText("ArrivalTime");
+        arrival_time.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
+        arrival_time.setForeground(new java.awt.Color(27, 120, 138));
+        arrival_time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        arrival_time.setText("ArrivalTime");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(27, 120, 138));
-        jLabel1.setText("DepartureTime");
+        departure_time.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
+        departure_time.setForeground(new java.awt.Color(27, 120, 138));
+        departure_time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        departure_time.setText("DepartureTime");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -62,37 +67,55 @@ public class TrainTTRow extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(train_name, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
+                .addComponent(source_station)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(destination_station)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addComponent(arrival_time)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(departure_time)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jSeparator1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel1))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(train_name)
+                    .addComponent(source_station)
+                    .addComponent(destination_station)
+                    .addComponent(arrival_time)
+                    .addComponent(departure_time))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    public void setTrainName(String name){
+        this.train_name.setText(name);
+    }
+    public void setSourceStation(String name){
+        this.source_station.setText(name);
+    }
+    public void setDestinationStation(String name){
+        this.destination_station.setText(name);
+    }
+    public void setArrivalTime(String name){
+        this.arrival_time.setText(name);
+    }
+    public void setDepartureTime(String name){
+        this.departure_time.setText(name);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel arrival_time;
+    private javax.swing.JLabel departure_time;
+    private javax.swing.JLabel destination_station;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel source_station;
+    private javax.swing.JLabel train_name;
     // End of variables declaration//GEN-END:variables
 }
