@@ -6,6 +6,7 @@
 package com.ttms.frontend;
 
 import com.ttms.backend.DatabaseConnection;
+import java.awt.Dimension;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -36,6 +37,13 @@ public class TrainTimeTable extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         time_table_container = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -71,6 +79,64 @@ public class TrainTimeTable extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(time_table_container);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(27, 120, 138));
+        jLabel2.setText("TrainName");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(27, 120, 138));
+        jLabel3.setText("SourceStation");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(27, 120, 138));
+        jLabel4.setText("DestinationStation");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(27, 120, 138));
+        jLabel5.setText("ArrivalTime");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(27, 120, 138));
+        jLabel6.setText("DepartureTime");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,7 +151,11 @@ public class TrainTimeTable extends javax.swing.JPanel {
                 .addGap(357, 357, 357))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 15, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -96,7 +166,9 @@ public class TrainTimeTable extends javax.swing.JPanel {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(train_num, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(search_btn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -105,24 +177,47 @@ public class TrainTimeTable extends javax.swing.JPanel {
     private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
         // TODO add your handling code here:
         dc = new DatabaseConnection();
-        String search_query = "select * from traindata where TrainNo =?";
+        String search_query = "select * from traindata where TrainNo =? group by DestinationStation;";
         try{
             PreparedStatement prestmt = dc.con.prepareStatement(search_query);
+            prestmt.setString(1, train_num.getText());
             ResultSet rs = prestmt.executeQuery();
-            if(rs.next()){
-                
-            }else{
+            while(rs.next()){
+                row = new TrainTTRow();
+                row.setBounds(5, y_axis, 966, 79);
+                row.setTrainName(rs.getNString("TrainName"));
+                row.setSourceStation(rs.getString("SourceStation"));
+                row.setDestinationStation(rs.getString("DestinationStation"));
+                row.setArrivalTime(rs.getString("ArrivalTime"));
+                row.setDepartureTime(rs.getString("DepartureTime"));
+                time_table_container.add(row);
+                y_axis = y_axis + 80;
+                time_table_container.setSize(981, y_axis);
+                time_table_container.setPreferredSize(new Dimension(981, y_axis));
+                train_flag = true;
+            }
+            if(!train_flag){
                 javax.swing.JOptionPane.showMessageDialog(this, "Train is not found");
             }
             dc.con.close();
+            
         }catch(Exception e){javax.swing.JOptionPane.showMessageDialog(this, e);}
     }//GEN-LAST:event_search_btnMouseClicked
     
     DatabaseConnection dc;
-
+    TrainTTRow row;
+    int y_axis = 0;
+    boolean train_flag = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton search_btn;
     private javax.swing.JPanel time_table_container;
     private javax.swing.JTextField train_num;
