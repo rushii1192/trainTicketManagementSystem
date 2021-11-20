@@ -41,7 +41,7 @@ public class AdminTrainDetails extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        source_station_name = new javax.swing.JTextField();
+        source_station = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         arrival_time = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -55,7 +55,7 @@ public class AdminTrainDetails extends javax.swing.JPanel {
         update_btn = new javax.swing.JButton();
         train_date = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
-        station_name = new javax.swing.JTextField();
+        destination_station = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(854, 600));
@@ -88,13 +88,13 @@ public class AdminTrainDetails extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_next_location_24px.png"))); // NOI18N
-        jLabel8.setText("Station Name");
+        jLabel8.setText("Destination Station Name");
 
-        source_station_name.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        source_station_name.setToolTipText("Source Station");
-        source_station_name.addActionListener(new java.awt.event.ActionListener() {
+        source_station.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        source_station.setToolTipText("Source Station");
+        source_station.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                source_station_nameActionPerformed(evt);
+                source_stationActionPerformed(evt);
             }
         });
 
@@ -162,11 +162,11 @@ public class AdminTrainDetails extends javax.swing.JPanel {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_next_location_24px.png"))); // NOI18N
         jLabel9.setText("Source Station Name");
 
-        station_name.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        station_name.setToolTipText("Enter Station Name");
-        station_name.addActionListener(new java.awt.event.ActionListener() {
+        destination_station.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        destination_station.setToolTipText("Enter Station Name");
+        destination_station.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                station_nameActionPerformed(evt);
+                destination_stationActionPerformed(evt);
             }
         });
 
@@ -198,8 +198,8 @@ public class AdminTrainDetails extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(departure_time, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(arrival_time, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(source_station_name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(station_name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(source_station, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(destination_station, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(train_date, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -248,11 +248,11 @@ public class AdminTrainDetails extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(source_station_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(source_station, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(station_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(destination_station, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(arrival_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,18 +279,20 @@ public class AdminTrainDetails extends javax.swing.JPanel {
         // TODO add your handling code here:
         dc = new DatabaseConnection();
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        String registerquery = "Insert Into traindata values(?,?,?,?,?,?,?,?,?)";
+        String registerquery = "Insert Into traindata values(?,?,?,?,?,?,?,?,?,?,?)";
         try{
             PreparedStatement addprestmt = dc.con.prepareStatement(registerquery);
             addprestmt.setString(1, train_no.getText());
             addprestmt.setString(2, train_name.getText());
-            addprestmt.setString(3, station_name.getText());
-            addprestmt.setString(4, distance_travelled.getText());
-            addprestmt.setString(5, null);
-            addprestmt.setString(6, arrival_time.getText());
-            addprestmt.setString(7, departure_time.getText());
-            addprestmt.setString(8, df.format(train_date.getDate()));
-            addprestmt.setString(9, source_station_name.getText());
+            addprestmt.setString(3, source_station.getText());
+            addprestmt.setString(4, destination_station.getText());
+            addprestmt.setString(5, arrival_time.getText());
+            addprestmt.setString(6, departure_time.getText());
+            addprestmt.setString(7, df.format(train_date.getDate()));
+            addprestmt.setString(8, distance_travelled.getText());
+            addprestmt.setString(9, "100");
+            addprestmt.setString(10, "General");
+            addprestmt.setString(11, "0");
             
             addprestmt.executeUpdate();
             javax.swing.JOptionPane.showMessageDialog(this, "Train is successfull added");
@@ -324,8 +326,8 @@ public class AdminTrainDetails extends javax.swing.JPanel {
                 departure_time.setText(rs.getString("DepartureTime"));
                 distance_travelled.setText(rs.getString("DistanceFromSourceStation"));
                 java.util.Date date = new SimpleDateFormat("dd-MM-yyyy").parse(rs.getString("Date"));
-                station_name.setText(rs.getString("StationName"));
-                source_station_name.setText(rs.getString("SourceStationName"));
+                destination_station.setText(rs.getString("DestinationStation"));
+                source_station.setText(rs.getString("SourceStation"));
                 train_date.setDate(date);
             }else{
                 javax.swing.JOptionPane.showMessageDialog(this, "Train is not found");
@@ -334,19 +336,20 @@ public class AdminTrainDetails extends javax.swing.JPanel {
         }catch(Exception e){javax.swing.JOptionPane.showMessageDialog(this, e);}
     }//GEN-LAST:event_search_btnMouseClicked
 
-    private void station_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_station_nameActionPerformed
+    private void destination_stationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destination_stationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_station_nameActionPerformed
+    }//GEN-LAST:event_destination_stationActionPerformed
 
-    private void source_station_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_source_station_nameActionPerformed
+    private void source_stationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_source_stationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_source_station_nameActionPerformed
+    }//GEN-LAST:event_source_stationActionPerformed
 
     DatabaseConnection dc;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_btn;
     private javax.swing.JTextField arrival_time;
     private javax.swing.JTextField departure_time;
+    private javax.swing.JTextField destination_station;
     private javax.swing.JTextField distance_travelled;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -361,8 +364,7 @@ public class AdminTrainDetails extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton remove_btn;
     private javax.swing.JButton search_btn;
-    private javax.swing.JTextField source_station_name;
-    private javax.swing.JTextField station_name;
+    private javax.swing.JTextField source_station;
     private com.toedter.calendar.JDateChooser train_date;
     private javax.swing.JTextField train_name;
     private javax.swing.JTextField train_no;
