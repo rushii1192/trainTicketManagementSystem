@@ -155,7 +155,7 @@
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="train_details_label" min="-2" pref="204" max="-2" attributes="0"/>
-                                  <Component id="historyLabel" min="-2" pref="232" max="-2" attributes="0"/>
+                                  <Component id="trainTTLabel" min="-2" pref="232" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -175,14 +175,14 @@
                       <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                       <Component id="train_details_label" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="historyLabel" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="trainTTLabel" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace pref="497" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="historyLabel">
+            <Component class="javax.swing.JLabel" name="trainTTLabel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -198,6 +198,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Train Time Table"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="trainTTLabelMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
