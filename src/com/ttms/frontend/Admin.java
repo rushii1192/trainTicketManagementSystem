@@ -21,6 +21,8 @@ public class Admin extends javax.swing.JFrame {
         adminContainerPanel.add(adhome);
         atd = new AdminTrainDetails();
         atd.setBounds(10, 100, 854, 600);
+        ttt = new TrainTimeTable();
+        ttt.setBounds(10, 100, 1005, 602);
     }
 
     /**
@@ -39,7 +41,7 @@ public class Admin extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        historyLabel = new javax.swing.JLabel();
+        trainTTLabel = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         train_details_label = new javax.swing.JLabel();
@@ -79,11 +81,16 @@ public class Admin extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(7, 13, 45));
         jPanel5.setForeground(new java.awt.Color(255, 255, 255));
 
-        historyLabel.setBackground(new java.awt.Color(255, 255, 255));
-        historyLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        historyLabel.setForeground(new java.awt.Color(255, 255, 255));
-        historyLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_planner_32px_1.png"))); // NOI18N
-        historyLabel.setText("Train Time Table");
+        trainTTLabel.setBackground(new java.awt.Color(255, 255, 255));
+        trainTTLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        trainTTLabel.setForeground(new java.awt.Color(255, 255, 255));
+        trainTTLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_planner_32px_1.png"))); // NOI18N
+        trainTTLabel.setText("Train Time Table");
+        trainTTLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                trainTTLabelMouseClicked(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 75)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,7 +135,7 @@ public class Admin extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(train_details_label, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(historyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(trainTTLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -143,7 +150,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGap(99, 99, 99)
                 .addComponent(train_details_label)
                 .addGap(18, 18, 18)
-                .addComponent(historyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(trainTTLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(497, Short.MAX_VALUE))
         );
 
@@ -205,8 +212,17 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
         atd.setVisible(true);
         adhome.setVisible(false);
+        ttt.setVisible(false);
         adminContainerPanel.add(atd);
     }//GEN-LAST:event_train_details_labelMouseClicked
+
+    private void trainTTLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trainTTLabelMouseClicked
+        // TODO add your handling code here:
+        atd.setVisible(false);
+        adhome.setVisible(false);
+        ttt.setVisible(true);
+        adminContainerPanel.add(ttt);
+    }//GEN-LAST:event_trainTTLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -245,10 +261,10 @@ public class Admin extends javax.swing.JFrame {
     }
     AdminTrainDetails atd;
     AdminHome adhome;
+    TrainTimeTable ttt;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel adminContainerPanel;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel historyLabel;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel17;
@@ -258,6 +274,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JLabel trainTTLabel;
     private javax.swing.JLabel train_details_label;
     // End of variables declaration//GEN-END:variables
 }
