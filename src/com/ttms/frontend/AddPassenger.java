@@ -6,6 +6,8 @@
 package com.ttms.frontend;
 
 import com.ttms.backend.DatabaseConnection;
+import com.ttms.backend.TicketInsert;
+import java.awt.Dimension;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -206,7 +208,7 @@ public class AddPassenger extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(confirm_psg_btn)
@@ -217,7 +219,7 @@ public class AddPassenger extends javax.swing.JFrame {
                 .addGap(72, 72, 72))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -226,7 +228,7 @@ public class AddPassenger extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_passenger_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,6 +275,7 @@ public class AddPassenger extends javax.swing.JFrame {
             PreparedStatement ticketstmt = db.con.prepareStatement(ticket_query);
             
             db.con.close();
+            //TicketInsert ti = new TicketInsert(this.train_num.getText(),"source_station","destination",pd.getfirst_name()+pd.getlast_name(),this.login_label.getText());
             Passeneger_Flag = true;
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(this, ex);
@@ -281,6 +284,8 @@ public class AddPassenger extends javax.swing.JFrame {
             y_axis = y_axis+78;
             pd = new PassengerDetails();
             pd.setBounds(0, y_axis, 860, 78);
+            if(y_axis>439)
+                add_passenser_container.setPreferredSize(new Dimension(890,y_axis));
             add_passenser_container.add(pd);
         }else{
             javax.swing.JOptionPane.showMessageDialog(this, "Passenger is not added");
