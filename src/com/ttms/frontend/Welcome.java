@@ -21,6 +21,19 @@ public class Welcome extends javax.swing.JFrame {
     /** Creates new form Welcome */
     public Welcome() {
         initComponents();
+        DatabaseConnection dc = new DatabaseConnection();
+        String query = "SELECT * FROM traindata GROUP BY DestinationStation;";
+        try{
+            PreparedStatement prestmt = dc.con.prepareStatement(query);
+            ResultSet rs = prestmt.executeQuery();
+            while(rs.next()){
+                soureStation.addItem(rs.getString("DestinationStation"));
+                destinationStation.addItem(rs.getString("DestinationStation"));
+            }
+        }catch(Exception e){
+            javax.swing.JOptionPane.showMessageDialog(this, e);
+        }
+        
     }
 
     /** This method is called from within the constructor to
@@ -193,7 +206,6 @@ public class Welcome extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("Source Station");
 
-        soureStation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         soureStation.setBorder(null);
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_marker_24px.png"))); // NOI18N
@@ -228,8 +240,6 @@ public class Welcome extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel8.setText("Destination");
-
-        destinationStation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_marker_24px.png"))); // NOI18N
 
@@ -583,16 +593,31 @@ public class Welcome extends javax.swing.JFrame {
 
     private void findTrainButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findTrainButtonMouseClicked
         // TODO add your handling code here:
-        trainDetailsContainer.setPreferredSize(new Dimension(939, 1000));
+        DatabaseConnection dc = new DatabaseConnection();
+        TrainDetails td;
+        String search_query = "SELECT * FROM traindata WHERE SourceStation = ? and DestinationStation = ?;";
+        try{
+            PreparedStatement searchprestmt = dc.con.prepareStatement(search_query);
+            searchprestmt.setString(1, soureStation.getItemAt(soureStation.getSelectedIndex()));
+            searchprestmt.setString(2, destinationStation.getItemAt(destinationStation.getSelectedIndex()));
+            
+            ResultSet rs1 = searchprestmt.executeQuery();
+            while(rs1.next()){
+                td = new TrainDetails(this.login_label.getText());
+                td.setTrainName(rs1.getString("TrainName"));
+                td.setTrainNumber(rs1.getString("TrainNo"));
+                td.setBounds(130, y_axis, 688, 156);
+                trainDetailsContainer.add(td);
+                y_axis = y_axis + 160;
+            }
+            dc.con.close();
+            trainDetailsContainer.setPreferredSize(new Dimension(y_axis , 950));
+        }catch(Exception e){
+            javax.swing.JOptionPane.showMessageDialog(this, e);
+        }
         findTrainButton.setText("Its working");
-        TrainDetails td = new TrainDetails(this.login_label.getText());
-        td.setTrainName("Malad Express");
-        td.setTrainNumber("12345");
-        td.setBounds(130, 0, 688, 156);
-        trainDetailsContainer.add(td);
-        TrainDetails td1 = new TrainDetails(this.login_label.getText());
-        td1.setBounds(130, 169, 688, 156);
-        trainDetailsContainer.add(td1);
+        
+        
         if(!(login_flag)){
             javax.swing.JOptionPane.showMessageDialog(this, "Please login to book ticket");
         }
@@ -663,6 +688,7 @@ public class Welcome extends javax.swing.JFrame {
     public void setLoginFlag(boolean value){this.login_flag = value;}
     
     private boolean login_flag = false;
+    private int y_axis = 0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel container;
     private javax.swing.JComboBox<String> destinationStation;
