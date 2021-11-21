@@ -15,7 +15,7 @@ public class TicketInsert {
     private String userid,status;
     DatabaseConnection dc;
     
-    public TicketInsert(String train_num,String source_station,String destination_station,String passenger_name,String user_id){
+    public TicketInsert(String train_num,String source_station,String destination_station,String passenger_name,String user_id,String quota){
         this.train_num = new Integer(train_num);
         this.source_station = source_station;
         this.destination_station = destination_station;
@@ -24,28 +24,38 @@ public class TicketInsert {
         
         try{
             dc = new DatabaseConnection();
-            PreparedStatement prestmt = dc.con.prepareStatement("select * from traindata where TrainNo = ? and StationName = ? and DestinationStation = ?;");
+            PreparedStatement prestmt = dc.con.prepareStatement("select * from traindata where TrainNo = ? and SourceStation = ? and DestinationStation = ? and VacancyQuota = ?;");
             prestmt.setString(1, train_num);
             prestmt.setString(2, source_station);
             prestmt.setString(3, destination_station);
+            prestmt.setString(4, quota);
             ResultSet rs = prestmt.executeQuery();
             if(rs.next()){
                 this.train_name = rs.getString("TrainName");
                 this.distance = new Integer(rs.getString("DistanceFromSourceStation"));
                 this.price = new Integer(rs.getString("Price"));
             }
-            PreparedStatement ticketprestmt = dc.con.prepareStatement("select * from ticketdata");
+            dc = new DatabaseConnection();
+            PreparedStatement ticketprestmt = dc.con.prepareStatement("SELECT * FROM ticketdata HAVING MAX(TicketNo);");
+            ResultSet rs1 = ticketprestmt.executeQuery();
+            if(rs1.next()){
+                System.out.println(rs.getString("TicketNo"));
+                this.ticket_num = new Integer(rs.getString("TicketNo"));
+                javax.swing.JOptionPane.showMessageDialog(null, this.ticket_num);
+            }
+                
+            dc.con.close();
         }catch(Exception e){
             System.out.println(e);
         }
         setIntoTicketData();
     }
-    private void setIntoTicketData(){
+    void setIntoTicketData(){
         dc = new DatabaseConnection();
         try {
             PreparedStatement prestmt = dc.con.prepareStatement("INSERT INTO ticketdata VALUES (?,?,?,?,?,?,?,?,?,?);");
             
-            prestmt.setString(1, String.valueOf(this.ticket_num));
+            prestmt.setString(1, String.valueOf(this.ticket_num+2));
             prestmt.setString(2, String.valueOf(this.train_num));
             prestmt.setString(3, this.train_name);
             prestmt.setString(4, this.source_station);
@@ -55,6 +65,12 @@ public class TicketInsert {
             prestmt.setString(8, String.valueOf(this.price));
             prestmt.setString(9, this.userid);
             prestmt.setString(10, "WAIT");
+            prestmt.executeUpdate();
+            dc.con.close();
+            javax.swing.JOptionPane.showMessageDialog(null, "ticket is created");
+            javax.swing.JOptionPane.showMessageDialog(null, this.train_name);
+            
+            
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(null, ex);
         }
