@@ -7,6 +7,7 @@ package com.ttms.frontend;
 
 import com.ttms.backend.DatabaseConnection;
 import com.ttms.backend.TicketInsert;
+import com.ttms.backend.Validation;
 import java.awt.Dimension;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -261,35 +262,41 @@ public class AddPassenger extends javax.swing.JFrame {
         DatabaseConnection db=new DatabaseConnection();
         String passeneger_query = "Insert Into passenger values(?,?,?,?,?,?,?)";
         String ticket_query = "Insert Into passenger values(?,?,?,?,?,?,?)";
-        try {
-            PreparedStatement passengerstmt = db.con.prepareStatement(passeneger_query);
-            passengerstmt.setString(1,pd.getfirst_name());
-            passengerstmt.setString(2,pd.getlast_name());
-            passengerstmt.setString(3,pd.getAge());
-            passengerstmt.setString(4,null);
-            passengerstmt.setString(5,pd.getaadhar_number());
-            passengerstmt.setString(6,pd.getGender());
-            passengerstmt.setString(7,pd.getmobile_number());
-            passengerstmt.executeUpdate();
-            
-            PreparedStatement ticketstmt = db.con.prepareStatement(ticket_query);
-            
-            db.con.close();
-            //TicketInsert ti = new TicketInsert(this.train_num.getText(),"source_station","destination",pd.getfirst_name()+pd.getlast_name(),this.login_label.getText());
-            Passeneger_Flag = true;
-        } catch (Exception ex) {
-            javax.swing.JOptionPane.showMessageDialog(this, ex);
-        }
-        if(Passeneger_Flag){
-            y_axis = y_axis+78;
-            pd = new PassengerDetails();
-            pd.setBounds(0, y_axis, 860, 78);
-            if(y_axis>439)
-                add_passenser_container.setPreferredSize(new Dimension(890,y_axis));
-            add_passenser_container.add(pd);
+        Validation validator = new Validation(); 
+        if(validator.ageChecker(pd.getAge())){
+            try {
+                PreparedStatement passengerstmt = db.con.prepareStatement(passeneger_query);
+                passengerstmt.setString(1,pd.getfirst_name());
+                passengerstmt.setString(2,pd.getlast_name());
+                passengerstmt.setString(3,pd.getAge());
+                passengerstmt.setString(4,null);
+                passengerstmt.setString(5,pd.getaadhar_number());
+                passengerstmt.setString(6,pd.getGender());
+                passengerstmt.setString(7,pd.getmobile_number());
+                passengerstmt.executeUpdate();
+
+                PreparedStatement ticketstmt = db.con.prepareStatement(ticket_query);
+
+                db.con.close();
+                TicketInsert ti = new TicketInsert(this.train_num.getText(),this.source_staion,this.destination_station,pd.getfirst_name()+pd.getlast_name(),this.login_label.getText(),this.quota);
+                Passeneger_Flag = true;
+            } catch (Exception ex) {
+                javax.swing.JOptionPane.showMessageDialog(this, ex);
+            }
+            if(Passeneger_Flag){
+                y_axis = y_axis+78;
+                pd = new PassengerDetails();
+                pd.setBounds(0, y_axis, 860, 78);
+                if(y_axis>439)
+                    add_passenser_container.setPreferredSize(new Dimension(890,y_axis));
+                add_passenser_container.add(pd);
+            }else{
+                javax.swing.JOptionPane.showMessageDialog(this, "Passenger is not added");
+            }
         }else{
-            javax.swing.JOptionPane.showMessageDialog(this, "Passenger is not added");
-        }     
+            javax.swing.JOptionPane.showMessageDialog(this, "Age is not valid");
+        }
+             
     }//GEN-LAST:event_add_passenger_btnMouseClicked
 
     private void book_ticket_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_ticket_btnMouseClicked
@@ -340,6 +347,19 @@ public class AddPassenger extends javax.swing.JFrame {
     PassengerDetails pd;
     int y_axis=0;
     boolean Passeneger_Flag = false;
+    private String source_staion,destination_station,quota;
+
+    public void setSource_staion(String source_staion) {
+        this.source_staion = source_staion;
+    }
+
+    public void setDestination_station(String destination_station) {
+        this.destination_station = destination_station;
+    }
+
+    public void setQuota(String quota) {
+        this.quota = quota;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_passenger_btn;
     private javax.swing.JPanel add_passenser_container;
