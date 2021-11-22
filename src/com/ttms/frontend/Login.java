@@ -44,7 +44,7 @@ public class Login extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        role = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -141,8 +141,8 @@ public class Login extends javax.swing.JFrame {
 
         password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
 
-        jComboBox2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Admin" }));
+        role.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Admin" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -170,7 +170,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(147, 147, 147)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
@@ -191,7 +191,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(logInButton)
                 .addGap(42, 42, 42)
@@ -226,24 +226,31 @@ public class Login extends javax.swing.JFrame {
         if(validator.nullChecker(username.getText()) || validator.nullChecker(new String(password.getPassword()))){
             javax.swing.JOptionPane.showMessageDialog(this, "Username or password is null");
         }else{
-            try{
-                DatabaseConnection dc = new DatabaseConnection();
-                String query = "select * from userdata where Username = '"+username.getText()+"' and Password = '"+new String(password.getPassword())+"'";
-                ResultSet rs = dc.stmt.executeQuery(query);
-                if(rs.next()){
-                    Welcome w = new Welcome();
-                    w.setLoginLabel(rs.getString("FirstName"));
-                    w.setVisible(true);
-                    w.registerRemover();
-                    w.setLoginFlag(true);
-                    this.setVisible(false);
+            System.out.println(role.getSelectedIndex());
+            if(role.getSelectedIndex() == 1){
+                if((username.getText().equals("admin")) && (new String(password.getPassword()).equals("admin")))
+                    new Admin().setVisible(true);
+            }else{
+                try{
+                    DatabaseConnection dc = new DatabaseConnection();
+                    String query = "select * from userdata where Username = '"+username.getText()+"' and Password = '"+new String(password.getPassword())+"'";
+                    ResultSet rs = dc.stmt.executeQuery(query);
+                    if(rs.next()){
+                        Welcome w = new Welcome();
+                        w.setLoginLabel(rs.getString("FirstName"));
+                        w.setVisible(true);
+                        w.registerRemover();
+                        w.setLoginFlag(true);
+                        this.setVisible(false);
+                    }
+                    else
+                       javax.swing.JOptionPane.showMessageDialog(this,"Username and Password is incorrect");
+                    dc.con.close();
+                } catch(Exception e){
+                    System.out.println(e);
                 }
-                else
-                   javax.swing.JOptionPane.showMessageDialog(this,"Username and Password is incorrect");
-                dc.con.close();
-            } catch(Exception e){
-                System.out.println(e);
             }
+            
         }
     }//GEN-LAST:event_logInButtonMouseClicked
 
@@ -290,7 +297,6 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
@@ -303,6 +309,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton logInButton;
     private javax.swing.JPasswordField password;
     private javax.swing.JButton register;
+    private javax.swing.JComboBox<String> role;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
