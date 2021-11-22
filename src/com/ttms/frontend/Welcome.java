@@ -606,16 +606,22 @@ public class Welcome extends javax.swing.JFrame {
                 td = new TrainDetails(this.login_label.getText());
                 td.setTrainName(rs1.getString("TrainName"));
                 td.setTrainNumber(rs1.getString("TrainNo"));
+                td.setArrivalDate(rs1.getString("Date"));
+                td.setDepartureDate(rs1.getString("Date"));
+                td.setArrivalTime(rs1.getString("ArrivalTime"));
+                td.setDepartureTime(rs1.getString("DepartureTime"));
+                td.setSourceStation(rs1.getString("SourceStation"));
+                td.setDestinationStation(rs1.getString("DestinationStation"));
+                td.setQuota(this.passengerClass.getItemAt(this.passengerClass.getSelectedIndex()));
                 td.setBounds(130, y_axis, 688, 156);
                 trainDetailsContainer.add(td);
                 y_axis = y_axis + 160;
             }
             dc.con.close();
-            trainDetailsContainer.setPreferredSize(new Dimension(y_axis , 950));
+            trainDetailsContainer.setPreferredSize(new Dimension(950 , y_axis));
         }catch(Exception e){
             javax.swing.JOptionPane.showMessageDialog(this, e);
         }
-        findTrainButton.setText("Its working");
         
         
         if(!(login_flag)){
