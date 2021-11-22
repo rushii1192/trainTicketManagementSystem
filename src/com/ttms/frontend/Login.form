@@ -69,7 +69,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-                          <Component id="jComboBox2" min="-2" pref="121" max="-2" attributes="0"/>
+                          <Component id="role" min="-2" pref="121" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
@@ -97,7 +97,7 @@
                       <Component id="password" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                  <Component id="role" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="logInButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
@@ -278,7 +278,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
+        <Component class="javax.swing.JComboBox" name="role">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semibold" size="18" style="0"/>
