@@ -36,11 +36,11 @@ public class TicketInsert {
                 this.price = new Integer(rs.getString("Price"));
             }
             dc = new DatabaseConnection();
-            PreparedStatement ticketprestmt = dc.con.prepareStatement("SELECT * FROM ticketdata HAVING MAX(TicketNo);");
+            PreparedStatement ticketprestmt = dc.con.prepareStatement("SELECT MAX(TicketNo) FROM ticketdata;");
             ResultSet rs1 = ticketprestmt.executeQuery();
             if(rs1.next()){
-                System.out.println(rs.getString("TicketNo"));
-                this.ticket_num = new Integer(rs.getString("TicketNo"));
+                System.out.println(rs1.getString(1));
+                this.ticket_num = new Integer(rs1.getString(1));
                 javax.swing.JOptionPane.showMessageDialog(null, this.ticket_num);
             }
                 
@@ -55,7 +55,7 @@ public class TicketInsert {
         try {
             PreparedStatement prestmt = dc.con.prepareStatement("INSERT INTO ticketdata VALUES (?,?,?,?,?,?,?,?,?,?);");
             
-            prestmt.setString(1, String.valueOf(this.ticket_num+2));
+            prestmt.setString(1, String.valueOf(this.ticket_num+1));
             prestmt.setString(2, String.valueOf(this.train_num));
             prestmt.setString(3, this.train_name);
             prestmt.setString(4, this.source_station);
