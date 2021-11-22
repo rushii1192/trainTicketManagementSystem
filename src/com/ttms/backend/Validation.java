@@ -44,7 +44,7 @@ public class Validation {
     public boolean ageChecker(String str){
         int n = new Integer(str);
         if((n<=0) || (n>=100))
-            return true;
-        return false;
+            return false;
+        return true;
     }
 }
