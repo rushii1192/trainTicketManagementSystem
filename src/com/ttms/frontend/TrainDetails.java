@@ -37,8 +37,8 @@ public class TrainDetails extends javax.swing.JPanel {
         sourceStation = new javax.swing.JTextField();
         arrival_date = new javax.swing.JTextField();
         destinationStation = new javax.swing.JTextField();
-        departure_date = new javax.swing.JTextField();
         train_num = new javax.swing.JLabel();
+        departure_date = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -81,13 +81,13 @@ public class TrainDetails extends javax.swing.JPanel {
         destinationStation.setText("To");
         destinationStation.setBorder(null);
 
+        train_num.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
+        train_num.setText("Train No");
+
         departure_date.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         departure_date.setForeground(new java.awt.Color(102, 102, 102));
         departure_date.setText("Date");
         departure_date.setBorder(null);
-
-        train_num.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        train_num.setText("Train No");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -101,7 +101,7 @@ public class TrainDetails extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(arrival_date, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(arrival_date, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(arrival_time, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -116,7 +116,7 @@ public class TrainDetails extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(departure_time, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(departure_date, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(departure_date, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addComponent(booknow, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(62, 62, 62))
@@ -136,15 +136,13 @@ public class TrainDetails extends javax.swing.JPanel {
                     .addComponent(train_num))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(18, 20, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(departure_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                                .addComponent(departure_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(booknow, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(departure_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(departure_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(booknow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(destinationStation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -169,6 +167,9 @@ public class TrainDetails extends javax.swing.JPanel {
         ap.setUserId(user_id);
         ap.setTrainNumber(this.train_num.getText());
         ap.setVisible(true);
+        ap.setSource_staion(this.sourceStation.getText());
+        ap.setQuota(this.quota);
+        ap.setDestination_station(this.destinationStation.getText());
         System.out.println("Train details:-"+this.train_name.getText());
     }//GEN-LAST:event_booknowMouseClicked
 
@@ -181,7 +182,9 @@ public class TrainDetails extends javax.swing.JPanel {
     public void setTrainName(String train_name){this.train_name.setText(train_name);}
     public void setTrainNumber(String train_no){this.train_num.setText(train_no);}
     public void setDuration(String duration){this.duration.setText(duration);}
+    public void setQuota(String quota) {this.quota = quota;}
     
+    private String quota;
     private String user_id;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField arrival_date;
