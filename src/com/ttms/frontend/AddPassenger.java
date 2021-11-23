@@ -301,7 +301,9 @@ public class AddPassenger extends javax.swing.JFrame {
 
     private void book_ticket_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_ticket_btnMouseClicked
         // TODO add your handling code here:
-        new ConfirmationPage().setVisible(true);
+        ConfirmationPage cp = new ConfirmationPage();
+        cp.setUser_id(this.user_id);
+        cp.setVisible(true);
     }//GEN-LAST:event_book_ticket_btnMouseClicked
     
     public void setTrainNumber(String train_no){
