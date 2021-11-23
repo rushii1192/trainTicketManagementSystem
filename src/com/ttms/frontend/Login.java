@@ -241,6 +241,7 @@ public class Login extends javax.swing.JFrame {
                         w.setVisible(true);
                         w.registerRemover();
                         w.setLoginFlag(true);
+                        w.setUserId(rs.getString("Username"));
                         this.setVisible(false);
                     }
                     else
