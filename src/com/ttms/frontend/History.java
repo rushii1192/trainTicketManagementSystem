@@ -5,6 +5,10 @@
  */
 package com.ttms.frontend;
 
+import com.ttms.backend.DatabaseConnection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author "Rushikesh Borakhede Class:-SEINFTA Batch:- 01 Roll No:- 01"
@@ -16,9 +20,23 @@ public class History extends javax.swing.JFrame {
      */
     public History() {
         initComponents();
-        ph = new PassengerHistory("123456","Rushi","150");
-        ph.setBounds(5, 5, 590,70);
-        this.history_container.add(ph);
+        DatabaseConnection dc = new DatabaseConnection();
+        System.out.println(this.user_id);
+        String query = "SELECT * FROM ticketdata WHERE userid = ?";
+        try{
+            PreparedStatement prestmt = dc.con.prepareStatement(query);
+            prestmt.setString(1, this.user_id);
+            ResultSet rs = prestmt.executeQuery();
+            while(rs.next()){
+                ph = new PassengerHistory(rs.getString("TicketNo"),rs.getString("PassengerName"),rs.getString("Price"));
+                ph.setBounds(5, y_axis, 590,70);
+                this.history_container.add(ph);
+                y_axis = y_axis + 72;
+            }
+        }catch(Exception e){
+            javax.swing.JOptionPane.showMessageDialog(this, e);
+        }
+        
     }
 
     /**
@@ -192,7 +210,7 @@ public class History extends javax.swing.JFrame {
 
     private void login_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_labelMouseClicked
         // TODO add your handling code here:
-        new Login().setVisible(true);
+        
     }//GEN-LAST:event_login_labelMouseClicked
 
     /**
@@ -230,6 +248,9 @@ public class History extends javax.swing.JFrame {
         });
     }
     PassengerHistory ph;
+    private String user_id;
+    private int y_axis = 5;
+    public void setUserId(String usr_id){this.user_id = usr_id;}
     public void setLoginLabel(String usr_id){ this.login_label.setText(usr_id);}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel history_container;
