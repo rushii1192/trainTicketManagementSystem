@@ -6,6 +6,7 @@
 package com.ttms.frontend;
 
 import com.ttms.backend.DatabaseConnection;
+import java.awt.Dimension;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -33,6 +34,7 @@ public class History extends javax.swing.JFrame {
                 this.history_container.add(ph);
                 y_axis = y_axis + 72;
             }
+            history_container.setPreferredSize(new Dimension(590 , y_axis));
         }catch(Exception e){
             javax.swing.JOptionPane.showMessageDialog(this, e);
         }
@@ -57,6 +59,7 @@ public class History extends javax.swing.JFrame {
         prn_no = new javax.swing.JLabel();
         passenger_name = new javax.swing.JLabel();
         ticket_price = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         history_container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -141,6 +144,8 @@ public class History extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
         history_container.setBackground(new java.awt.Color(255, 255, 255));
         history_container.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(84, 110, 229), 3));
 
@@ -155,14 +160,16 @@ public class History extends javax.swing.JFrame {
             .addGap(0, 292, Short.MAX_VALUE)
         );
 
+        jScrollPane1.setViewportView(history_container);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(history_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -171,7 +178,7 @@ public class History extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(history_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
 
@@ -191,7 +198,7 @@ public class History extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -248,7 +255,7 @@ public class History extends javax.swing.JFrame {
         });
     }
     PassengerHistory ph;
-    private String user_id;
+    private String user_id = "rushi@gmail.com";
     private int y_axis = 5;
     public void setUserId(String usr_id){this.user_id = usr_id;}
     public void setLoginLabel(String usr_id){ this.login_label.setText(usr_id);}
@@ -259,6 +266,7 @@ public class History extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel login_label;
     private javax.swing.JLabel passenger_name;
     private javax.swing.JLabel prn_no;
