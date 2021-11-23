@@ -278,7 +278,7 @@ public class AddPassenger extends javax.swing.JFrame {
                 PreparedStatement ticketstmt = db.con.prepareStatement(ticket_query);
 
                 db.con.close();
-                TicketInsert ti = new TicketInsert(this.train_num.getText(),this.source_staion,this.destination_station,pd.getfirst_name()+pd.getlast_name(),this.login_label.getText(),this.quota);
+                TicketInsert ti = new TicketInsert(this.train_num.getText(),this.source_staion,this.destination_station,pd.getfirst_name()+pd.getlast_name(),this.user_id,this.quota);
                 Passeneger_Flag = true;
             } catch (Exception ex) {
                 javax.swing.JOptionPane.showMessageDialog(this, ex);
@@ -307,7 +307,10 @@ public class AddPassenger extends javax.swing.JFrame {
     public void setTrainNumber(String train_no){
         this.train_num.setText(train_no);
     }
-    public void setUserId(String user_id){
+    public void setUserId(String usr_id){
+        this.user_id = usr_id;
+    }
+    public void setLogin(String user_id){
         this.login_label.setText(user_id);
     }
     /**
@@ -347,7 +350,7 @@ public class AddPassenger extends javax.swing.JFrame {
     PassengerDetails pd;
     int y_axis=0;
     boolean Passeneger_Flag = false;
-    private String source_staion,destination_station,quota;
+    private String source_staion,destination_station,quota,user_id;
 
     public void setSource_staion(String source_staion) {
         this.source_staion = source_staion;
