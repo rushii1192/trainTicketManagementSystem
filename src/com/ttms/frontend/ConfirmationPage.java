@@ -5,6 +5,11 @@
  */
 package com.ttms.frontend;
 
+import com.ttms.backend.DatabaseConnection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Vector;
+
 /**
  *
  * @author "Rushikesh Borakhede Class:-SEINFTA Batch:- 01 Roll No:- 01"
@@ -16,9 +21,36 @@ public class ConfirmationPage extends javax.swing.JFrame {
      */
     public ConfirmationPage() {
         initComponents();
-        TicketDetails td = new TicketDetails("Esha Dhuri","Female","19","Ngp Csmt Duronto(12290)","Nagpur","Mumbai");
-        td.setBounds(50, 10, 557,302);
-        tickets_container.add(td);
+        //"Esha Dhuri","Female","19","Ngp Csmt Duronto(12290)","Nagpur","Mumbai"
+        DatabaseConnection dc = new DatabaseConnection();
+        String query = "SELECT * FROM ticketdata WHERE status = ? AND userid = ?;";
+        String upd_qry = "UPDATE ticketdata SET status = ? where userid = ? and status = ?";
+        try{
+            PreparedStatement prestmt = dc.con.prepareStatement(query);
+            prestmt.setString(1, "WAIT");
+            prestmt.setString(2, this.user_id);
+            ResultSet rs = prestmt.executeQuery();
+            while(rs.next()){
+                y_axis = y_axis + 15;
+                ticket_no = new javax.swing.JLabel(rs.getString("TicketNo"));
+                v.add(rs.getString("TicketNo"));
+                psg_name = new javax.swing.JLabel(rs.getString("PassengerName"));
+                ticket_no.setBounds(0, y_axis, 100, 10);
+                psg_name.setBounds(110, y_axis, 125, 10);
+                psg_container.add(ticket_no);
+                psg_container.add(psg_name);
+            }
+            
+            PreparedStatement updprestmt = dc.con.prepareStatement(upd_qry);
+            updprestmt.setString(1, "CNRFM");
+            updprestmt.setString(2, this.user_id);
+            updprestmt.setString(3, "WAIT");
+            updprestmt.executeUpdate();
+
+        }catch(Exception e){
+            javax.swing.JOptionPane.showMessageDialog(this, e);
+        }
+        
     }
 
     /**
@@ -34,6 +66,28 @@ public class ConfirmationPage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tickets_container = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        fare = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        psg_container = new javax.swing.JPanel();
+        psg_name = new javax.swing.JLabel();
+        ticket_no = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        source_station = new javax.swing.JLabel();
+        arrival_time = new javax.swing.JLabel();
+        departure_time = new javax.swing.JLabel();
+        destination_station = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        date = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        train_num = new javax.swing.JLabel();
+        train_name = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         cancel_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -68,20 +122,233 @@ public class ConfirmationPage extends javax.swing.JFrame {
 
         tickets_container.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setText("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("Fare");
+
+        fare.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        fare.setText("Fare");
+
+        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel7.setText("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
+
+        psg_container.setBackground(new java.awt.Color(255, 255, 255));
+        psg_container.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        psg_name.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        psg_name.setForeground(new java.awt.Color(102, 102, 102));
+        psg_name.setText("PassengerName");
+
+        ticket_no.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        ticket_no.setForeground(new java.awt.Color(102, 102, 102));
+        ticket_no.setText("Ticket No");
+
+        javax.swing.GroupLayout psg_containerLayout = new javax.swing.GroupLayout(psg_container);
+        psg_container.setLayout(psg_containerLayout);
+        psg_containerLayout.setHorizontalGroup(
+            psg_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, psg_containerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ticket_no)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(psg_name)
+                .addContainerGap())
+        );
+        psg_containerLayout.setVerticalGroup(
+            psg_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(psg_containerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(psg_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(psg_name)
+                    .addComponent(ticket_no))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(psg_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7))
+                        .addGap(41, 41, 41)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(fare, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fare)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(psg_container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel5.setBackground(new java.awt.Color(209, 68, 74));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_city_24px.png"))); // NOI18N
+
+        source_station.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        source_station.setForeground(new java.awt.Color(255, 255, 255));
+        source_station.setText("SourceStation");
+
+        arrival_time.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        arrival_time.setForeground(new java.awt.Color(255, 255, 255));
+        arrival_time.setText("ArrivalTime");
+
+        departure_time.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        departure_time.setForeground(new java.awt.Color(255, 255, 255));
+        departure_time.setText("DeparTime");
+
+        destination_station.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        destination_station.setForeground(new java.awt.Color(255, 255, 255));
+        destination_station.setText("DestinationStation");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_city_24px.png"))); // NOI18N
+
+        date.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
+        date.setText("Date");
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Date:");
+
+        train_num.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        train_num.setForeground(new java.awt.Color(255, 255, 255));
+        train_num.setText("12345");
+
+        train_name.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        train_name.setForeground(new java.awt.Color(255, 255, 255));
+        train_name.setText("TrainName");
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_down_24px.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(destination_station))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(31, 31, 31)
+                                        .addComponent(jLabel10))
+                                    .addComponent(source_station))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(departure_time)
+                            .addComponent(arrival_time))
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 26, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(train_name, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(49, 49, 49)
+                                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(train_num, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jSeparator1))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(source_station)
+                        .addComponent(arrival_time)))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel10))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(destination_station)
+                        .addComponent(departure_time)))
+                .addGap(19, 19, 19)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(date))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(train_name)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(train_num)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout tickets_containerLayout = new javax.swing.GroupLayout(tickets_container);
         tickets_container.setLayout(tickets_containerLayout);
         tickets_containerLayout.setHorizontalGroup(
             tickets_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
+            .addGroup(tickets_containerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(92, 92, 92))
         );
         tickets_containerLayout.setVerticalGroup(
             tickets_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGroup(tickets_containerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(tickets_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         cancel_btn.setBackground(new java.awt.Color(254, 84, 48));
         cancel_btn.setText("Cancel");
         cancel_btn.setBorder(null);
+        cancel_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancel_btnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,9 +360,9 @@ public class ConfirmationPage extends javax.swing.JFrame {
                 .addComponent(cancel_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tickets_container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,6 +390,24 @@ public class ConfirmationPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cancel_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancel_btnMouseClicked
+        // TODO add your handling code here:
+        DatabaseConnection dc = new DatabaseConnection();
+        String upd_query = "UPDATE ticketdata SET status = ? WHERE TicketNo = ?";
+        try{
+            PreparedStatement prestmt = dc.con.prepareStatement(upd_query);
+            for(String ticket: v){
+                prestmt.setString(1, "CANCELED");
+                prestmt.setString(2, ticket);
+                prestmt.executeUpdate();
+            }
+            javax.swing.JOptionPane.showMessageDialog(this, "Ticket is cancelled successfully");
+        }catch(Exception e){
+            javax.swing.JOptionPane.showMessageDialog(this, e);
+        }
+        
+    }//GEN-LAST:event_cancel_btnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -159,11 +444,40 @@ public class ConfirmationPage extends javax.swing.JFrame {
         });
     }
 
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+    
+    private String user_id = "rushi@gmail.com";
+    private int y_axis = 20;
+    private Vector<String> v = new Vector();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel arrival_time;
     private javax.swing.JButton cancel_btn;
+    private javax.swing.JLabel date;
+    private javax.swing.JLabel departure_time;
+    private javax.swing.JLabel destination_station;
+    private javax.swing.JLabel fare;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel psg_container;
+    private javax.swing.JLabel psg_name;
+    private javax.swing.JLabel source_station;
+    private javax.swing.JLabel ticket_no;
     private javax.swing.JPanel tickets_container;
+    private javax.swing.JLabel train_name;
+    private javax.swing.JLabel train_num;
     // End of variables declaration//GEN-END:variables
 }
