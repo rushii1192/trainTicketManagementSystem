@@ -603,7 +603,7 @@ public class Welcome extends javax.swing.JFrame {
             
             ResultSet rs1 = searchprestmt.executeQuery();
             while(rs1.next()){
-                td = new TrainDetails(this.login_label.getText());
+                td = new TrainDetails(this.user_id);
                 td.setTrainName(rs1.getString("TrainName"));
                 td.setTrainNumber(rs1.getString("TrainNo"));
                 td.setArrivalDate(rs1.getString("Date"));
@@ -646,8 +646,10 @@ public class Welcome extends javax.swing.JFrame {
     private void history_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_history_labelMouseClicked
         // TODO add your handling code here:
         if(this.login_flag){
+            System.out.println(this.user_id);
             History his = new History();
             his.setLoginLabel(this.login_label.getText());
+            his.setUserId(this.user_id);
             his.setVisible(true);
         }else{
             javax.swing.JOptionPane.showMessageDialog(this, "Please login to view history");
@@ -692,7 +694,9 @@ public class Welcome extends javax.swing.JFrame {
     public void registerRemover(){this.register_label.setVisible(false);};
     public void setLoginLabel(String usr_id){ this.login_label.setText(usr_id);}
     public void setLoginFlag(boolean value){this.login_flag = value;}
+    public void setUserId(String usr_id){this.user_id = usr_id;}
     
+    private String user_id;
     private boolean login_flag = false;
     private int y_axis = 0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
