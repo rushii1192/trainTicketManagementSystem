@@ -36,63 +36,37 @@ public class TrainTTRow extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         train_name.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
         train_name.setForeground(new java.awt.Color(27, 120, 138));
         train_name.setText("TrainName");
+        add(train_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 23, 346, -1));
 
         source_station.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
         source_station.setForeground(new java.awt.Color(27, 120, 138));
         source_station.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         source_station.setText("SourceStation");
+        add(source_station, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 23, -1, -1));
 
         destination_station.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
         destination_station.setForeground(new java.awt.Color(27, 120, 138));
         destination_station.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         destination_station.setText("DestinationStation");
+        add(destination_station, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 23, -1, -1));
 
         arrival_time.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
         arrival_time.setForeground(new java.awt.Color(27, 120, 138));
         arrival_time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         arrival_time.setText("ArrivalTime");
+        add(arrival_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(694, 23, -1, -1));
 
         departure_time.setFont(new java.awt.Font("Segoe UI Semibold", 0, 21)); // NOI18N
         departure_time.setForeground(new java.awt.Color(27, 120, 138));
         departure_time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         departure_time.setText("DepartureTime");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(train_name, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(source_station)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(destination_station)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(arrival_time)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(departure_time)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jSeparator1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(train_name)
-                    .addComponent(source_station)
-                    .addComponent(destination_station)
-                    .addComponent(arrival_time)
-                    .addComponent(departure_time))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        add(departure_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 23, -1, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 67, 966, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     public void setTrainName(String name){
