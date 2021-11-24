@@ -43,9 +43,7 @@ public class AdminTrainDetails extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         source_station = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        arrival_time = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        departure_time = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         distance_travelled = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
@@ -56,6 +54,10 @@ public class AdminTrainDetails extends javax.swing.JPanel {
         train_date = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         destination_station = new javax.swing.JTextField();
+        arrival_hour = new com.toedter.components.JSpinField();
+        arrival_min = new com.toedter.components.JSpinField();
+        departure_hour = new com.toedter.components.JSpinField();
+        departure_min = new com.toedter.components.JSpinField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(854, 600));
@@ -102,15 +104,9 @@ public class AdminTrainDetails extends javax.swing.JPanel {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_time_24px.png"))); // NOI18N
         jLabel10.setText("Arrival Time");
 
-        arrival_time.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        arrival_time.setToolTipText("Enter arrival time");
-
         jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_time_24px.png"))); // NOI18N
         jLabel12.setText("Departure Time");
-
-        departure_time.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        departure_time.setToolTipText("Enter departure time");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_map_pinpoint_24px.png"))); // NOI18N
@@ -170,6 +166,18 @@ public class AdminTrainDetails extends javax.swing.JPanel {
             }
         });
 
+        arrival_hour.setMaximum(24);
+        arrival_hour.setMinimum(0);
+
+        arrival_min.setMaximum(60);
+        arrival_min.setMinimum(0);
+
+        departure_hour.setMaximum(24);
+        departure_hour.setMinimum(0);
+
+        departure_min.setMaximum(60);
+        departure_min.setMinimum(0);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -196,11 +204,21 @@ public class AdminTrainDetails extends javax.swing.JPanel {
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(departure_time, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(arrival_time, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(source_station, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(destination_station, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(train_date, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(source_station, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(destination_station, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(train_date, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(58, 58, 58)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(departure_hour, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(departure_min, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(arrival_hour, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(arrival_min, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(72, 72, 72)
@@ -238,7 +256,7 @@ public class AdminTrainDetails extends javax.swing.JPanel {
                     .addComponent(jLabel4))
                 .addGap(27, 27, 27)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,24 +271,32 @@ public class AdminTrainDetails extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(destination_station, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(arrival_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(arrival_min, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(arrival_hour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(departure_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(distance_travelled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(search_btn)
-                    .addComponent(add_btn)
-                    .addComponent(remove_btn)
-                    .addComponent(update_btn))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(departure_min, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(distance_travelled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(search_btn)
+                            .addComponent(add_btn)
+                            .addComponent(remove_btn)
+                            .addComponent(update_btn)))
+                    .addComponent(departure_hour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -286,8 +312,8 @@ public class AdminTrainDetails extends javax.swing.JPanel {
             addprestmt.setString(2, train_name.getText());
             addprestmt.setString(3, source_station.getText());
             addprestmt.setString(4, destination_station.getText());
-            addprestmt.setString(5, arrival_time.getText());
-            addprestmt.setString(6, departure_time.getText());
+            addprestmt.setString(5, arrival_hour.getValue()+"-"+arrival_min.getValue());
+            addprestmt.setString(6, departure_hour.getValue()+"-"+departure_min.getValue());
             addprestmt.setString(7, df.format(train_date.getDate()));
             addprestmt.setString(8, distance_travelled.getText());
             addprestmt.setString(9, "100");
@@ -322,8 +348,8 @@ public class AdminTrainDetails extends javax.swing.JPanel {
             ResultSet rs = prestmt.executeQuery();
             if(rs.next()){
                 train_name.setText(rs.getString("TrainName"));
-                arrival_time.setText(rs.getString("ArrivalTime"));
-                departure_time.setText(rs.getString("DepartureTime"));
+                //arrival_time.setText(rs.getString("ArrivalTime"));
+                //departure_time.setText(rs.getString("DepartureTime"));
                 distance_travelled.setText(rs.getString("DistanceFromSourceStation"));
                 java.util.Date date = new SimpleDateFormat("dd-MM-yyyy").parse(rs.getString("Date"));
                 destination_station.setText(rs.getString("DestinationStation"));
@@ -347,8 +373,10 @@ public class AdminTrainDetails extends javax.swing.JPanel {
     DatabaseConnection dc;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_btn;
-    private javax.swing.JTextField arrival_time;
-    private javax.swing.JTextField departure_time;
+    private com.toedter.components.JSpinField arrival_hour;
+    private com.toedter.components.JSpinField arrival_min;
+    private com.toedter.components.JSpinField departure_hour;
+    private com.toedter.components.JSpinField departure_min;
     private javax.swing.JTextField destination_station;
     private javax.swing.JTextField distance_travelled;
     private javax.swing.JLabel jLabel1;
