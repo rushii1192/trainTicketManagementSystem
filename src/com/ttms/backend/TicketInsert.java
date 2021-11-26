@@ -41,7 +41,7 @@ public class TicketInsert {
             if(rs1.next()){
                 System.out.println(rs1.getString(1));
                 this.ticket_num = new Integer(rs1.getString(1));
-                javax.swing.JOptionPane.showMessageDialog(null, this.ticket_num);
+                //javax.swing.JOptionPane.showMessageDialog(null, this.ticket_num);
             }
                 
             dc.con.close();
@@ -67,8 +67,8 @@ public class TicketInsert {
             prestmt.setString(10, "WAIT");
             prestmt.executeUpdate();
             dc.con.close();
-            javax.swing.JOptionPane.showMessageDialog(null, "ticket is created");
-            javax.swing.JOptionPane.showMessageDialog(null, this.train_name);
+            //javax.swing.JOptionPane.showMessageDialog(null, "ticket is created");
+            //javax.swing.JOptionPane.showMessageDialog(null, this.train_name);
             
             
         } catch (Exception ex) {
