@@ -417,22 +417,10 @@
       </Properties>
     </Component>
     <Component class="com.toedter.components.JSpinField" name="arrival_min">
-      <Properties>
-        <Property name="maximum" type="int" value="60"/>
-        <Property name="minimum" type="int" value="0"/>
-      </Properties>
     </Component>
     <Component class="com.toedter.components.JSpinField" name="departure_hour">
-      <Properties>
-        <Property name="maximum" type="int" value="24"/>
-        <Property name="minimum" type="int" value="0"/>
-      </Properties>
     </Component>
     <Component class="com.toedter.components.JSpinField" name="departure_min">
-      <Properties>
-        <Property name="maximum" type="int" value="60"/>
-        <Property name="minimum" type="int" value="0"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
