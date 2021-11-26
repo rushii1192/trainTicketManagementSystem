@@ -92,7 +92,7 @@
                           <Component id="history_label" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" pref="132" max="-2" attributes="0"/>
+                              <Component id="log_out" min="-2" pref="132" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
@@ -115,7 +115,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="history_label" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="log_out" min="-2" pref="34" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -224,7 +224,7 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="history_labelMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="log_out">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Semibold" size="24" style="0"/>
@@ -238,6 +238,9 @@
                 <Property name="text" type="java.lang.String" value="Log out"/>
                 <Property name="iconTextGap" type="int" value="8"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="log_outMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
