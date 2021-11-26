@@ -21,6 +21,7 @@ public class Welcome extends javax.swing.JFrame {
     /** Creates new form Welcome */
     public Welcome() {
         initComponents();
+        //log_out.setVisible(false);
         DatabaseConnection dc = new DatabaseConnection();
         String query = "SELECT * FROM traindata GROUP BY DestinationStation;";
         try{
@@ -53,7 +54,7 @@ public class Welcome extends javax.swing.JFrame {
         register_label = new javax.swing.JLabel();
         plan_journey_label = new javax.swing.JLabel();
         history_label = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        log_out = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -145,11 +146,16 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_export_25px.png"))); // NOI18N
-        jLabel4.setText("Log out");
-        jLabel4.setIconTextGap(8);
+        log_out.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        log_out.setForeground(new java.awt.Color(255, 255, 255));
+        log_out.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_export_25px.png"))); // NOI18N
+        log_out.setText("Log out");
+        log_out.setIconTextGap(8);
+        log_out.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                log_outMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -170,7 +176,7 @@ public class Welcome extends javax.swing.JFrame {
                     .addComponent(history_label, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(48, 48, 48))
         );
         jPanel2Layout.setVerticalGroup(
@@ -189,7 +195,7 @@ public class Welcome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(history_label, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -657,6 +663,12 @@ public class Welcome extends javax.swing.JFrame {
         
     }//GEN-LAST:event_history_labelMouseClicked
 
+    private void log_outMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_log_outMouseClicked
+        // TODO add your handling code here:
+        new Welcome().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_log_outMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -719,7 +731,6 @@ public class Welcome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -733,6 +744,7 @@ public class Welcome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel log_out;
     private javax.swing.JLabel login_label;
     private javax.swing.JComboBox<String> passengerClass;
     private javax.swing.JLabel plan_journey_label;
