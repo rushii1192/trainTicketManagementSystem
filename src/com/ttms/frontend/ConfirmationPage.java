@@ -39,6 +39,9 @@ public class ConfirmationPage extends javax.swing.JFrame {
                 psg_name.setBounds(110, y_axis, 125, 10);
                 psg_container.add(ticket_no);
                 psg_container.add(psg_name);
+                source_station.setText(rs.getString("SourceStation"));
+                destination_station.setText(rs.getString("DestinationStation"));
+                
             }
             
             PreparedStatement updprestmt = dc.con.prepareStatement(upd_qry);
