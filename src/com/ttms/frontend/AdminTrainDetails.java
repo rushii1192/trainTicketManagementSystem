@@ -312,8 +312,8 @@ public class AdminTrainDetails extends javax.swing.JPanel {
             addprestmt.setString(2, train_name.getText());
             addprestmt.setString(3, source_station.getText());
             addprestmt.setString(4, destination_station.getText());
-            addprestmt.setString(5, arrival_hour.getValue()+"-"+arrival_min.getValue());
-            addprestmt.setString(6, departure_hour.getValue()+"-"+departure_min.getValue());
+            addprestmt.setString(5, new String(String.valueOf(arrival_hour.getValue())+"-"+String.valueOf(arrival_min.getValue())));
+            addprestmt.setString(6, new String(String.valueOf(departure_hour.getValue())+"-"+String.valueOf(departure_min.getValue())));
             addprestmt.setString(7, df.format(train_date.getDate()));
             addprestmt.setString(8, distance_travelled.getText());
             addprestmt.setString(9, "100");
@@ -348,7 +348,10 @@ public class AdminTrainDetails extends javax.swing.JPanel {
             ResultSet rs = prestmt.executeQuery();
             if(rs.next()){
                 train_name.setText(rs.getString("TrainName"));
-                //arrival_time.setText(rs.getString("ArrivalTime"));
+                arrival_hour.setValue(Integer.valueOf(rs.getString("ArrivalTime").split("-")[0]));
+                arrival_min.setValue(Integer.valueOf(rs.getString("ArrivalTime").split("-")[1]));
+                departure_hour.setValue(Integer.valueOf(rs.getString("DepartureTime").split("-")[0]));
+                departure_min.setValue(Integer.valueOf(rs.getString("DepartureTime").split("-")[1]));
                 //departure_time.setText(rs.getString("DepartureTime"));
                 distance_travelled.setText(rs.getString("DistanceFromSourceStation"));
                 java.util.Date date = new SimpleDateFormat("dd-MM-yyyy").parse(rs.getString("Date"));
