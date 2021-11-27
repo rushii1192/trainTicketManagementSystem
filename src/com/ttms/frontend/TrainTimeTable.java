@@ -176,6 +176,8 @@ public class TrainTimeTable extends javax.swing.JPanel {
 
     private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
         // TODO add your handling code here:
+        int y_axis = 0;
+        time_table_container.removeAll();
         dc = new DatabaseConnection();
         String search_query = "select * from traindata where TrainNo =? group by DestinationStation;";
         try{
@@ -206,7 +208,7 @@ public class TrainTimeTable extends javax.swing.JPanel {
     
     DatabaseConnection dc;
     TrainTTRow row;
-    int y_axis = 0;
+    
     boolean train_flag = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
