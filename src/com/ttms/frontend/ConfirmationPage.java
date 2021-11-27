@@ -25,6 +25,7 @@ public class ConfirmationPage extends javax.swing.JFrame {
         DatabaseConnection dc = new DatabaseConnection();
         String query = "SELECT * FROM ticketdata WHERE status = ? AND userid = ?;";
         String upd_qry = "UPDATE ticketdata SET status = ? where userid = ? and status = ?";
+        String trn_qry = "SELECT * FROM traindata WHERE TrainNo = ? AND SourceStation = ? AND DestinationStation = ?;";
         try{
             PreparedStatement prestmt = dc.con.prepareStatement(query);
             prestmt.setString(1, "WAIT");
@@ -41,7 +42,21 @@ public class ConfirmationPage extends javax.swing.JFrame {
                 psg_container.add(psg_name);
                 source_station.setText(rs.getString("SourceStation"));
                 destination_station.setText(rs.getString("DestinationStation"));
+                train_num.setText(rs.getString("TrainNumber"));
+                train_name.setText(rs.getString("TrainName"));
+                fare.setText(rs.getString("Price"));
                 
+            }
+            
+            PreparedStatement trnprestmt = dc.con.prepareStatement(trn_qry);
+            trnprestmt.setString(1, train_num.getText());
+            trnprestmt.setString(2, source_station.getText());
+            trnprestmt.setString(3, destination_station.getText());
+            ResultSet trn_rs = trnprestmt.executeQuery();
+            if(trn_rs.next()){
+                arrival_time.setText(trn_rs.getString("ArrivalTime"));
+                departure_time.setText(trn_rs.getString("DepartureTime"));
+                date.setText("Date");
             }
             
             PreparedStatement updprestmt = dc.con.prepareStatement(upd_qry);
