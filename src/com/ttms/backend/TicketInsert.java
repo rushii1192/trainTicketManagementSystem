@@ -33,9 +33,9 @@ public class TicketInsert {
             if(rs.next()){
                 this.train_name = rs.getString("TrainName");
                 this.distance = new Integer(rs.getString("DistanceFromSourceStation"));
-                this.price = new Integer(rs.getString("Price"));
+                System.out.println("Distance is "+this.distance);
             }
-            dc = new DatabaseConnection();
+            
             PreparedStatement ticketprestmt = dc.con.prepareStatement("SELECT MAX(TicketNo) FROM ticketdata;");
             ResultSet rs1 = ticketprestmt.executeQuery();
             if(rs1.next()){
@@ -43,7 +43,18 @@ public class TicketInsert {
                 this.ticket_num = new Integer(rs1.getString(1));
                 //javax.swing.JOptionPane.showMessageDialog(null, this.ticket_num);
             }
+            
+            String rate_qry = "SELECT Price FROM rates WHERE Vacancy = ?";
+            System.out.println("quota is "+quota);
+            PreparedStatement rateprestmt = dc.con.prepareStatement(rate_qry);
+            rateprestmt.setString(1, quota);
+            ResultSet rate_rs = rateprestmt.executeQuery();
+            if(rate_rs.next()){
                 
+                System.out.println("Price is "+rate_rs.getString(1));
+                this.price = Math.round(new Float(rate_rs.getString("Price")) * this.distance);
+                System.out.println("rate query status = "+rate_rs.next());
+            }
             dc.con.close();
         }catch(Exception e){
             System.out.println(e);
