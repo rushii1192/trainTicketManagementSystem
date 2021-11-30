@@ -47,4 +47,16 @@ public class Validation {
             return false;
         return true;
     }
+    public boolean mobileChecker(String str){
+        if(str.length()==10){
+            return true;
+        }
+        return false;
+    }
+    public boolean aadharChecker(String str){
+        if(str.length()==16){
+            return true;
+        }
+        return false;
+    }
 }
