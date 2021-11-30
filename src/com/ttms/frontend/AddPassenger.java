@@ -259,11 +259,20 @@ public class AddPassenger extends javax.swing.JFrame {
     private void add_passenger_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_passenger_btnMouseClicked
         // TODO add your handling code here:
 //        coding....
+        boolean valid = true;
         DatabaseConnection db=new DatabaseConnection();
         String passeneger_query = "Insert Into passenger values(?,?,?,?,?,?,?)";
         String ticket_query = "Insert Into passenger values(?,?,?,?,?,?,?)";
         Validation validator = new Validation(); 
-        if(validator.ageChecker(pd.getAge())){
+        if(!validator.mobileChecker(pd.getmobile_number())){
+            javax.swing.JOptionPane.showMessageDialog(this, "Mobile number is not valid");
+            valid = false;
+        }
+        if(!validator.aadharChecker(pd.getmobile_number())){
+            javax.swing.JOptionPane.showMessageDialog(this, "Aadhar number is not valid");
+            valid = false;
+        }
+        if(validator.ageChecker(pd.getAge()) && valid){
             try {
                 PreparedStatement passengerstmt = db.con.prepareStatement(passeneger_query);
                 passengerstmt.setString(1,pd.getfirst_name());
