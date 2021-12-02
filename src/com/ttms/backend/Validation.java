@@ -54,7 +54,7 @@ public class Validation {
         return false;
     }
     public boolean aadharChecker(String str){
-        if(str.length()==16){
+        if(str.length()==12){
             return true;
         }
         return false;
