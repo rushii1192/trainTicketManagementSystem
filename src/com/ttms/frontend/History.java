@@ -29,8 +29,8 @@ public class History extends javax.swing.JFrame {
             prestmt.setString(1, this.user_id);
             ResultSet rs = prestmt.executeQuery();
             while(rs.next()){
-                ph = new PassengerHistory(rs.getString("TicketNo"),rs.getString("PassengerName"),rs.getString("Price"));
-                ph.setBounds(5, y_axis, 590,70);
+                ph = new PassengerHistory(rs.getString("TicketNo"),rs.getString("PassengerName"),rs.getString("Price"),rs.getString("Status"));
+                ph.setBounds(5, y_axis, 730,70);
                 this.history_container.add(ph);
                 y_axis = y_axis + 72;
             }
@@ -61,6 +61,7 @@ public class History extends javax.swing.JFrame {
         prn_no = new javax.swing.JLabel();
         passenger_name = new javax.swing.JLabel();
         ticket_price = new javax.swing.JLabel();
+        status = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         history_container = new javax.swing.JPanel();
 
@@ -122,6 +123,9 @@ public class History extends javax.swing.JFrame {
         ticket_price.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_rupee_24px_1.png"))); // NOI18N
         ticket_price.setText("Price");
 
+        status.setFont(new java.awt.Font("Mongolian Baiti", 0, 22)); // NOI18N
+        status.setText("Status");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -133,7 +137,9 @@ public class History extends javax.swing.JFrame {
                 .addComponent(passenger_name, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(135, 135, 135)
                 .addComponent(ticket_price, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +148,8 @@ public class History extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(prn_no)
                     .addComponent(passenger_name)
-                    .addComponent(ticket_price))
+                    .addComponent(ticket_price)
+                    .addComponent(status))
                 .addGap(24, 24, 24))
         );
 
@@ -169,8 +176,11 @@ public class History extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addGap(0, 63, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +214,7 @@ public class History extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,6 +279,7 @@ public class History extends javax.swing.JFrame {
     private javax.swing.JLabel login_label;
     private javax.swing.JLabel passenger_name;
     private javax.swing.JLabel prn_no;
+    private javax.swing.JLabel status;
     private javax.swing.JLabel ticket_price;
     // End of variables declaration//GEN-END:variables
 }
