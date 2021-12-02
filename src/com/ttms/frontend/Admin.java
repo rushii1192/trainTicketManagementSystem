@@ -46,6 +46,7 @@ public class Admin extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         train_details_label = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        log_out = new javax.swing.JLabel();
         adminContainerPanel = new javax.swing.JPanel();
 
         jLabel3.setText("jLabel3");
@@ -116,6 +117,17 @@ public class Admin extends javax.swing.JFrame {
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_train_100px.png"))); // NOI18N
 
+        log_out.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        log_out.setForeground(new java.awt.Color(255, 255, 255));
+        log_out.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_export_25px.png"))); // NOI18N
+        log_out.setText("Log out");
+        log_out.setIconTextGap(8);
+        log_out.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                log_outMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -135,7 +147,8 @@ public class Admin extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(train_details_label, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(trainTTLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(trainTTLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -151,7 +164,9 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(train_details_label)
                 .addGap(18, 18, 18)
                 .addComponent(trainTTLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(497, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(log_out, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(450, Short.MAX_VALUE))
         );
 
         adminContainerPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -224,6 +239,12 @@ public class Admin extends javax.swing.JFrame {
         adminContainerPanel.add(ttt);
     }//GEN-LAST:event_trainTTLabelMouseClicked
 
+    private void log_outMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_log_outMouseClicked
+        // TODO add your handling code here:
+        new Welcome().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_log_outMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -274,6 +295,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JLabel log_out;
     private javax.swing.JLabel trainTTLabel;
     private javax.swing.JLabel train_details_label;
     // End of variables declaration//GEN-END:variables
