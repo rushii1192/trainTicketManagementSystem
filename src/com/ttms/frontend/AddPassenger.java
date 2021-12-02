@@ -268,7 +268,7 @@ public class AddPassenger extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Mobile number is not valid");
             valid = false;
         }
-        if(!validator.aadharChecker(pd.getmobile_number())){
+        if(!validator.aadharChecker(pd.getaadhar_number())){
             javax.swing.JOptionPane.showMessageDialog(this, "Aadhar number is not valid");
             valid = false;
         }
@@ -313,6 +313,7 @@ public class AddPassenger extends javax.swing.JFrame {
         ConfirmationPage cp = new ConfirmationPage();
         cp.setUser_id(this.user_id);
         cp.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_book_ticket_btnMouseClicked
     
     public void setTrainNumber(String train_no){
