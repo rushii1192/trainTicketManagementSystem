@@ -5,6 +5,9 @@
  */
 package com.ttms.frontend;
 
+import com.ttms.backend.DatabaseConnection;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author "Rushikesh Borakhede Class:-SEINFTA Batch:- 01 Roll No:- 01"
@@ -14,11 +17,15 @@ public class PassengerHistory extends javax.swing.JPanel {
     /**
      * Creates new form PassengerHistory
      */
-    public PassengerHistory(String prnno, String name, String ticketprice) {
+    public PassengerHistory(String prnno, String name, String ticketprice,String ticket_status) {
         initComponents();
         this.prn_no.setText(prnno);
         this.passenger_name.setText(name);
         this.ticket_price.setText(ticketprice);
+        this.status.setText(ticket_status);
+        if(ticket_status.equals("CANCELED")){
+            this.cancel_btn.setVisible(false);
+        }
     }
 
     /**
@@ -34,6 +41,7 @@ public class PassengerHistory extends javax.swing.JPanel {
         passenger_name = new javax.swing.JLabel();
         ticket_price = new javax.swing.JLabel();
         cancel_btn = new javax.swing.JButton();
+        status = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -49,6 +57,14 @@ public class PassengerHistory extends javax.swing.JPanel {
         cancel_btn.setBackground(new java.awt.Color(254, 84, 48));
         cancel_btn.setText("Cancel");
         cancel_btn.setBorder(null);
+        cancel_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancel_btnMouseClicked(evt);
+            }
+        });
+
+        status.setFont(new java.awt.Font("Mongolian Baiti", 0, 22)); // NOI18N
+        status.setText("Status");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -61,7 +77,9 @@ public class PassengerHistory extends javax.swing.JPanel {
                 .addComponent(passenger_name, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ticket_price, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(status, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cancel_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -73,10 +91,28 @@ public class PassengerHistory extends javax.swing.JPanel {
                     .addComponent(cancel_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ticket_price)
                     .addComponent(passenger_name)
-                    .addComponent(prn_no))
+                    .addComponent(prn_no)
+                    .addComponent(status))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cancel_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancel_btnMouseClicked
+        // TODO add your handling code here:
+        DatabaseConnection dc = new DatabaseConnection();
+        String upd_query = "UPDATE ticketdata SET status = ? WHERE TicketNo = ?";
+        try{
+            PreparedStatement prestmt = dc.con.prepareStatement(upd_query);
+            
+            prestmt.setString(1, "CANCELED");
+            prestmt.setString(2, this.prn_no.getText());
+            prestmt.executeUpdate();
+            
+            javax.swing.JOptionPane.showMessageDialog(this, "Ticket is cancelled successfully");
+        }catch(Exception e){
+            javax.swing.JOptionPane.showMessageDialog(this, e);
+        }
+    }//GEN-LAST:event_cancel_btnMouseClicked
 
     //setters for this
     
@@ -84,6 +120,7 @@ public class PassengerHistory extends javax.swing.JPanel {
     private javax.swing.JButton cancel_btn;
     private javax.swing.JLabel passenger_name;
     private javax.swing.JLabel prn_no;
+    private javax.swing.JLabel status;
     private javax.swing.JLabel ticket_price;
     // End of variables declaration//GEN-END:variables
 }
