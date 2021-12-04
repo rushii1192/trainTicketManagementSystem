@@ -19,14 +19,14 @@ public class History extends javax.swing.JFrame {
     /**
      * Creates new form History
      */
-    public History() {
+    public History(String user_id) {
         initComponents();
         DatabaseConnection dc = new DatabaseConnection();
-        System.out.println(this.user_id);
+        System.out.println(user_id);
         String query = "SELECT * FROM ticketdata WHERE userid = ?";
         try{
             PreparedStatement prestmt = dc.con.prepareStatement(query);
-            prestmt.setString(1, this.user_id);
+            prestmt.setString(1, user_id);
             ResultSet rs = prestmt.executeQuery();
             while(rs.next()){
                 ph = new PassengerHistory(rs.getString("TicketNo"),rs.getString("PassengerName"),rs.getString("Price"),rs.getString("Status"));
@@ -34,8 +34,8 @@ public class History extends javax.swing.JFrame {
                 this.history_container.add(ph);
                 y_axis = y_axis + 72;
             }
-            history_container.setSize(662,321);
-            history_container.setPreferredSize(new Dimension(590 , 1000));
+            //history_container.setSize(662,321);
+            history_container.setPreferredSize(new Dimension(730 , y_axis));
             
         }catch(Exception e){
             javax.swing.JOptionPane.showMessageDialog(this, e);
@@ -92,7 +92,7 @@ public class History extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(login_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(login_label, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
                 .addGap(68, 68, 68)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(295, 295, 295))
@@ -139,7 +139,7 @@ public class History extends javax.swing.JFrame {
                 .addComponent(ticket_price, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,11 +176,8 @@ public class History extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addGap(0, 63, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,8 +195,8 @@ public class History extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +211,7 @@ public class History extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,15 +256,15 @@ public class History extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new History().setVisible(true);
+                new History("").setVisible(true);
             }
         });
     }
     PassengerHistory ph;
-    private String user_id = "rushi@gmail.com";
+    //private String user_id;
     private int y_axis = 5;
-    public void setUserId(String usr_id){this.user_id = usr_id;}
-    public void setLoginLabel(String usr_id){ this.login_label.setText(usr_id);}
+    //public void setUserId(String usr_id){this.user_id = usr_id;}
+    public void setLoginLabel(String login_label){ this.login_label.setText(login_label);}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel history_container;
     private javax.swing.JLabel jLabel1;
