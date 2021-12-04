@@ -259,61 +259,19 @@ public class AddPassenger extends javax.swing.JFrame {
     private void add_passenger_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_passenger_btnMouseClicked
         // TODO add your handling code here:
 //        coding....
-        boolean valid = true;
-        DatabaseConnection db=new DatabaseConnection();
-        String passeneger_query = "Insert Into passenger values(?,?,?,?,?,?,?)";
-        String ticket_query = "Insert Into passenger values(?,?,?,?,?,?,?)";
-        Validation validator = new Validation(); 
-        if(!validator.mobileChecker(pd.getmobile_number())){
-            javax.swing.JOptionPane.showMessageDialog(this, "Mobile number is not valid");
-            valid = false;
-        }
-        if(!validator.aadharChecker(pd.getaadhar_number())){
-            javax.swing.JOptionPane.showMessageDialog(this, "Aadhar number is not valid");
-            valid = false;
-        }
-        if(validator.ageChecker(pd.getAge()) && valid){
-            try {
-                PreparedStatement passengerstmt = db.con.prepareStatement(passeneger_query);
-                passengerstmt.setString(1,pd.getfirst_name());
-                passengerstmt.setString(2,pd.getlast_name());
-                passengerstmt.setString(3,pd.getAge());
-                passengerstmt.setString(4,null);
-                passengerstmt.setString(5,pd.getaadhar_number());
-                passengerstmt.setString(6,pd.getGender());
-                passengerstmt.setString(7,pd.getmobile_number());
-                passengerstmt.executeUpdate();
-
-                PreparedStatement ticketstmt = db.con.prepareStatement(ticket_query);
-
-                db.con.close();
-                TicketInsert ti = new TicketInsert(this.train_num.getText(),this.source_staion,this.destination_station,pd.getfirst_name()+pd.getlast_name(),this.user_id,this.quota);
-                Passeneger_Flag = true;
-            } catch (Exception ex) {
-                javax.swing.JOptionPane.showMessageDialog(this, ex);
-            }
-            if(Passeneger_Flag){
-                y_axis = y_axis+78;
-                pd = new PassengerDetails();
-                pd.setBounds(0, y_axis, 860, 78);
-                if(y_axis>439)
-                    add_passenser_container.setPreferredSize(new Dimension(890,y_axis));
-                add_passenser_container.add(pd);
-            }else{
-                javax.swing.JOptionPane.showMessageDialog(this, "Passenger is not added");
-            }
-        }else{
-            javax.swing.JOptionPane.showMessageDialog(this, "Age is not valid");
-        }
-             
+        addPassenger();             
     }//GEN-LAST:event_add_passenger_btnMouseClicked
 
     private void book_ticket_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_ticket_btnMouseClicked
         // TODO add your handling code here:
-        ConfirmationPage cp = new ConfirmationPage();
-        cp.setUser_id(this.user_id);
-        cp.setVisible(true);
-        this.setVisible(false);
+        if(addPassenger()){
+            ConfirmationPage cp = new ConfirmationPage(this.user_id);
+            //cp.setUser_id(this.user_id);
+            cp.setDate(this.date);
+            cp.setVisible(true);
+            this.setVisible(false);
+        }
+        
     }//GEN-LAST:event_book_ticket_btnMouseClicked
     
     public void setTrainNumber(String train_no){
@@ -362,7 +320,7 @@ public class AddPassenger extends javax.swing.JFrame {
     PassengerDetails pd;
     int y_axis=0;
     boolean Passeneger_Flag = false;
-    private String source_staion,destination_station,quota,user_id;
+    private String source_staion,destination_station,quota,user_id,date;
 
     public void setSource_staion(String source_staion) {
         this.source_staion = source_staion;
@@ -374,6 +332,58 @@ public class AddPassenger extends javax.swing.JFrame {
 
     public void setQuota(String quota) {
         this.quota = quota;
+    }
+    public void setDate(String date){
+        this.date = date;
+    }
+    private boolean addPassenger(){
+        boolean valid = true;
+        DatabaseConnection db=new DatabaseConnection();
+        String passeneger_query = "Insert Into passenger values(?,?,?,?,?,?,?)";
+        String ticket_query = "Insert Into passenger values(?,?,?,?,?,?,?)";
+        Validation validator = new Validation(); 
+        if(!validator.mobileChecker(pd.getmobile_number())){
+            javax.swing.JOptionPane.showMessageDialog(this, "Mobile number is not valid");
+            valid = false;
+        }
+        else if(!validator.aadharChecker(pd.getaadhar_number())){
+            javax.swing.JOptionPane.showMessageDialog(this, "Aadhar number is not valid");
+            valid = false;
+        }
+        else if(validator.ageChecker(pd.getAge()) && valid){
+            try {
+                PreparedStatement passengerstmt = db.con.prepareStatement(passeneger_query);
+                passengerstmt.setString(1,pd.getfirst_name());
+                passengerstmt.setString(2,pd.getlast_name());
+                passengerstmt.setString(3,pd.getAge());
+                passengerstmt.setString(4,null);
+                passengerstmt.setString(5,pd.getaadhar_number());
+                passengerstmt.setString(6,pd.getGender());
+                passengerstmt.setString(7,pd.getmobile_number());
+                passengerstmt.executeUpdate();
+
+                PreparedStatement ticketstmt = db.con.prepareStatement(ticket_query);
+
+                db.con.close();
+                TicketInsert ti = new TicketInsert(this.train_num.getText(),this.source_staion,this.destination_station,pd.getfirst_name()+pd.getlast_name(),this.user_id,this.quota);
+                Passeneger_Flag = true;
+            } catch (Exception ex) {
+                javax.swing.JOptionPane.showMessageDialog(this, ex);
+            }
+            if(Passeneger_Flag){
+                y_axis = y_axis+78;
+                pd = new PassengerDetails();
+                pd.setBounds(0, y_axis, 860, 78);
+                if(y_axis>439)
+                    add_passenser_container.setPreferredSize(new Dimension(890,y_axis));
+                add_passenser_container.add(pd);
+            }else{
+                javax.swing.JOptionPane.showMessageDialog(this, "Passenger is not added");
+            }
+        }else{
+            javax.swing.JOptionPane.showMessageDialog(this, "Age is not valid");
+        }
+        return valid;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_passenger_btn;
