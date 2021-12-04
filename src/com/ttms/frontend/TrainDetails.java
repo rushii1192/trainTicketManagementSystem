@@ -170,6 +170,7 @@ public class TrainDetails extends javax.swing.JPanel {
         ap.setSource_staion(this.sourceStation.getText());
         ap.setQuota(this.quota);
         ap.setDestination_station(this.destinationStation.getText());
+        ap.setDate(this.date);
         System.out.println("Train details:-"+this.train_name.getText());
     }//GEN-LAST:event_booknowMouseClicked
 
@@ -183,9 +184,11 @@ public class TrainDetails extends javax.swing.JPanel {
     public void setTrainNumber(String train_no){this.train_num.setText(train_no);}
     public void setDuration(String duration){this.duration.setText(duration);}
     public void setQuota(String quota) {this.quota = quota;}
+    public void setDate(String date){this.date = date;}
     
     private String quota;
     private String user_id;
+    private String date;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField arrival_date;
     private javax.swing.JTextField arrival_time;
