@@ -10,6 +10,7 @@ import com.ttms.backend.DatabaseConnection;
 import java.awt.Dimension;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
@@ -31,6 +32,7 @@ public class Welcome extends javax.swing.JFrame {
                 soureStation.addItem(rs.getString("DestinationStation"));
                 destinationStation.addItem(rs.getString("DestinationStation"));
             }
+            start_flag = false;
         }catch(Exception e){
             javax.swing.JOptionPane.showMessageDialog(this, e);
         }
@@ -68,7 +70,7 @@ public class Welcome extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        journey_date = new com.toedter.calendar.JDateChooser();
         jPanel12 = new javax.swing.JPanel();
         passengerClass = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -245,6 +247,12 @@ public class Welcome extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel8.setText("Destination");
 
+        destinationStation.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                destinationStationItemStateChanged(evt);
+            }
+        });
+
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_marker_24px.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -294,7 +302,7 @@ public class Welcome extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(journey_date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -304,7 +312,7 @@ public class Welcome extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addComponent(journey_date, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -541,8 +549,8 @@ public class Welcome extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.login_flag){
             User usr1 = new User();
-            String query = "select * from userdata where Userid = ?";
-            usr1.setUserId(this.login_label.getText());
+            String query = "select * from userdata where Username = ?";
+            usr1.setUserId(this.user_id);
             try{
                 DatabaseConnection dc = new DatabaseConnection();
                 PreparedStatement prestmt = dc.con.prepareStatement(query);
@@ -566,6 +574,7 @@ public class Welcome extends javax.swing.JFrame {
             new Login().setVisible(true);
             this.setVisible(false);
         }
+        System.out.println("User id"+this.user_id);
     }//GEN-LAST:event_login_labelMouseClicked
 
     private void register_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_register_labelMouseClicked
@@ -577,6 +586,7 @@ public class Welcome extends javax.swing.JFrame {
         // TODO add your handling code here:
         DatabaseConnection dc = new DatabaseConnection();
         TrainDetails td;
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         String search_query = "SELECT * FROM traindata WHERE SourceStation = ? and DestinationStation = ?;";
         try{
             PreparedStatement searchprestmt = dc.con.prepareStatement(search_query);
@@ -594,6 +604,7 @@ public class Welcome extends javax.swing.JFrame {
                 td.setDepartureTime(rs1.getString("DepartureTime"));
                 td.setSourceStation(rs1.getString("SourceStation"));
                 td.setDestinationStation(rs1.getString("DestinationStation"));
+                td.setDate(df.format(journey_date.getDate()));
                 td.setQuota(this.passengerClass.getItemAt(this.passengerClass.getSelectedIndex()));
                 td.setBounds(130, y_axis, 688, 156);
                 trainDetailsContainer.add(td);
@@ -628,10 +639,10 @@ public class Welcome extends javax.swing.JFrame {
     private void history_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_history_labelMouseClicked
         // TODO add your handling code here:
         if(this.login_flag){
-            System.out.println(this.user_id);
-            History his = new History();
-            his.setLoginLabel(this.login_label.getText());
-            his.setUserId(this.user_id);
+            System.out.println("Welcome Login passed:-"+this.user_id);
+            History his = new History(this.user_id);
+            his.setLoginLabel(this.user_id);
+            //his.setUserId(this.user_id);
             his.setVisible(true);
         }else{
             javax.swing.JOptionPane.showMessageDialog(this, "Please login to view history");
@@ -644,6 +655,16 @@ public class Welcome extends javax.swing.JFrame {
         new Welcome().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_log_outMouseClicked
+
+    private void destinationStationItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_destinationStationItemStateChanged
+        // TODO add your handling code here:
+        if(!start_flag){
+            if(soureStation.getSelectedIndex() == destinationStation.getSelectedIndex()){
+                javax.swing.JOptionPane.showMessageDialog(this, "Source and destination cannont be same"); 
+                destinationStation.setSelectedIndex(destinationStation.getSelectedIndex() - 1);
+            }
+        }
+    }//GEN-LAST:event_destinationStationItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -687,12 +708,12 @@ public class Welcome extends javax.swing.JFrame {
     private String user_id;
     private boolean login_flag = false;
     private int y_axis = 0;
+    private boolean start_flag = true;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel container;
     private javax.swing.JComboBox<String> destinationStation;
     private javax.swing.JButton findTrainButton;
     private javax.swing.JLabel history_label;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -718,6 +739,7 @@ public class Welcome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private com.toedter.calendar.JDateChooser journey_date;
     private javax.swing.JLabel log_out;
     private javax.swing.JLabel login_label;
     private javax.swing.JComboBox<String> passengerClass;
