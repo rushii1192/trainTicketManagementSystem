@@ -19,7 +19,7 @@ public class ConfirmationPage extends javax.swing.JFrame {
     /**
      * Creates new form ConfirmationPage
      */
-    public ConfirmationPage() {
+    public ConfirmationPage(String user_id) {
         initComponents();
         //"Esha Dhuri","Female","19","Ngp Csmt Duronto(12290)","Nagpur","Mumbai"
         DatabaseConnection dc = new DatabaseConnection();
@@ -29,7 +29,7 @@ public class ConfirmationPage extends javax.swing.JFrame {
         try{
             PreparedStatement prestmt = dc.con.prepareStatement(query);
             prestmt.setString(1, "WAIT");
-            prestmt.setString(2, this.user_id);
+            prestmt.setString(2, user_id);
             ResultSet rs = prestmt.executeQuery();
             while(rs.next()){
                 y_axis = y_axis + 15;
@@ -56,12 +56,12 @@ public class ConfirmationPage extends javax.swing.JFrame {
             if(trn_rs.next()){
                 arrival_time.setText(trn_rs.getString("ArrivalTime"));
                 departure_time.setText(trn_rs.getString("DepartureTime"));
-                date.setText("Date");
+                //date.setText(trn_rs.getString("Date"));
             }
             
             PreparedStatement updprestmt = dc.con.prepareStatement(upd_qry);
             updprestmt.setString(1, "CNRFM");
-            updprestmt.setString(2, this.user_id);
+            updprestmt.setString(2, user_id);
             updprestmt.setString(3, "WAIT");
             updprestmt.executeUpdate();
 
@@ -457,16 +457,18 @@ public class ConfirmationPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConfirmationPage().setVisible(true);
+                new ConfirmationPage("").setVisible(true);
             }
         });
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    //public void setUser_id(String user_id) {
+      //  this.user_id = user_id;
+    //}
+    public void setDate(String date){
+        this.date.setText(date);
     }
-    
-    private String user_id = "rushi@gmail.com";
+    //private String user_id;
     private int y_axis = 20;
     private Vector<String> v = new Vector();
     // Variables declaration - do not modify//GEN-BEGIN:variables
