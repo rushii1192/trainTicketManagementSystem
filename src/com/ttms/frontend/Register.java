@@ -178,6 +178,8 @@ public class Register extends javax.swing.JFrame {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ttms/frontend/Icons/icons8_user_24px_1.png"))); // NOI18N
 
+        dob.setMaxSelectableDate(new java.util.Date(1072899095000L));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -324,17 +326,23 @@ public class Register extends javax.swing.JFrame {
     
     private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {  
         Validation validator = new Validation();
+        boolean valid = true;
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         if(validator.nullChecker(first_name.getText()) || validator.nullChecker(last_name.getText())|| validator.nullChecker(confirm_password.getText())|| validator.nullChecker(password.getText())|| validator.nullChecker(mobile.getText())|| validator.nullChecker(email.getText())|| validator.nullChecker(aadhar_num.getText())){
             javax.swing.JOptionPane.showMessageDialog(this, "Any of required fill is null");
         }
-        else if(validator.passwordChecker(password.getText(),confirm_password.getText())){
-            try {
-                validator.validity(password.getText());
-            } catch (InvalidPassword ex) {
-                ex.alert();
-            }
+        else if(!validator.mobileChecker(mobile.getText())){
+            javax.swing.JOptionPane.showMessageDialog(this, "Mobile number is not valid");
+            valid = false;
+        }
+        else if(!validator.aadharChecker(aadhar_num.getText())){
+            javax.swing.JOptionPane.showMessageDialog(this, "Aadhar number is not valid");
+            valid = false;
+        }
+        else if(validator.passwordChecker(password.getText(),confirm_password.getText()) && valid){
+            
             try{
+                validator.validity(password.getText());
                 DatabaseConnection dc = new DatabaseConnection();
                 String registerquery = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?)";
                 PreparedStatement registerprestmt = dc.con.prepareStatement(registerquery);
@@ -368,9 +376,11 @@ public class Register extends javax.swing.JFrame {
                 else {
                     javax.swing.JOptionPane.showMessageDialog(this, "You have not clicked the accept terms and condition.");
                 }
+                } catch(InvalidPassword ex){
+                    ex.alert();
                 } catch(Exception e){
-                    System.out.println(e);
-            }
+                    javax.swing.JOptionPane.showMessageDialog(this, e);
+                }
         }
         else{
             javax.swing.JOptionPane.showMessageDialog(this, "Passowrd mismatch");
