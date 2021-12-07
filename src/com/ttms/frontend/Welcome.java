@@ -36,7 +36,8 @@ public class Welcome extends javax.swing.JFrame {
         }catch(Exception e){
             javax.swing.JOptionPane.showMessageDialog(this, e);
         }
-        
+        if(this.login_flag)
+            this.login_label.setToolTipText("click here to update your details");
     }
 
     /** This method is called from within the constructor to
@@ -547,45 +548,50 @@ public class Welcome extends javax.swing.JFrame {
 
     private void login_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_labelMouseClicked
         // TODO add your handling code here:
+        System.out.println("login label:-"+login_flag);
         if(this.login_flag){
             User usr1 = new User();
-            String query = "select * from userdata where Username = ?";
+            String usr_query = "select * from userdata where Username = ?";
             usr1.setUserId(this.user_id);
             try{
                 DatabaseConnection dc = new DatabaseConnection();
-                PreparedStatement prestmt = dc.con.prepareStatement(query);
-                prestmt.setString(1, this.login_label.getText());
+                PreparedStatement prestmt = dc.con.prepareStatement(usr_query);
+                prestmt.setString(1, this.user_id);
                 ResultSet rs = prestmt.executeQuery();
                 if(rs.next()){
                     usr1.setUserName(rs.getString("FirstName"));
                     usr1.setAadharNumber(rs.getString("AadharNo"));
                     usr1.setUserMobile(rs.getString("Mobile"));
-                    usr1.setUserEmail(rs.getString("Username"));
                     usr1.setUserPassword(rs.getString("Password"));
-                    usr1.setUserDOB(new SimpleDateFormat("dd-MM-yyyy").parse(rs.getString("Date")));
-
+                    usr1.setUserDOB(new SimpleDateFormat("dd-MM-yyyy").parse(rs.getString("DOB")));
+                    usr1.setUserGender(rs.getString("Gender"));
                     usr1.setVisible(true);
+                    
                 }
             }catch(Exception e){
                 javax.swing.JOptionPane.showMessageDialog(this, e);
             }
+            
         }
         else{
             new Login().setVisible(true);
             this.setVisible(false);
         }
         System.out.println("User id"+this.user_id);
+        
     }//GEN-LAST:event_login_labelMouseClicked
 
     private void register_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_register_labelMouseClicked
         // TODO add your handling code here:
         new Register().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_register_labelMouseClicked
 
     private void findTrainButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findTrainButtonMouseClicked
         // TODO add your handling code here:
         DatabaseConnection dc = new DatabaseConnection();
         TrainDetails td;
+        boolean train_found = false;
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         String search_query = "SELECT * FROM traindata WHERE SourceStation = ? and DestinationStation = ?;";
         try{
@@ -609,7 +615,10 @@ public class Welcome extends javax.swing.JFrame {
                 td.setBounds(130, y_axis, 688, 156);
                 trainDetailsContainer.add(td);
                 y_axis = y_axis + 160;
+                train_found = true;
             }
+            if(!train_found)
+                javax.swing.JOptionPane.showMessageDialog(this, "Train not found");
             dc.con.close();
             trainDetailsContainer.setPreferredSize(new Dimension(950 , y_axis));
         }catch(Exception e){
