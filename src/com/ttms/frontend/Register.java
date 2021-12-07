@@ -344,25 +344,23 @@ public class Register extends javax.swing.JFrame {
             try{
                 validator.validity(password.getText());
                 DatabaseConnection dc = new DatabaseConnection();
-                String registerquery = "Insert Into userdata values(?,?,?,?,?,?,?,?,?,?,?)";
+                String registerquery = "Insert Into userdata values(?,?,?,?,?,?,?,?,?)";
                 PreparedStatement registerprestmt = dc.con.prepareStatement(registerquery);
 
                 registerprestmt.setString(1, first_name.getText());
                 registerprestmt.setString(2, last_name.getText());
-                registerprestmt.setString(3, null);
-                registerprestmt.setString(4, email.getText());
-                registerprestmt.setString(5, new String(password.getPassword()));
-                registerprestmt.setString(6, "User");
-                registerprestmt.setString(7, null);
+                registerprestmt.setString(3, email.getText());
+                registerprestmt.setString(4, new String(password.getPassword()));
+                registerprestmt.setString(5, "User");
                 if(malegenderradiobtn.isSelected())
-                    registerprestmt.setString(8, "Male");
+                    registerprestmt.setString(6, "Male");
                 else if(femalegenderradiobtn.isSelected())
-                    registerprestmt.setString(8, "Female");
+                    registerprestmt.setString(6, "Female");
                 else
-                    registerprestmt.setString(8, "Other");
-                registerprestmt.setString(9, df.format(dob.getDate()));
-                registerprestmt.setString(10, aadhar_num.getText());
-                registerprestmt.setString(11, mobile.getText());
+                    registerprestmt.setString(6, "Other");
+                registerprestmt.setString(7, df.format(dob.getDate()));
+                registerprestmt.setString(8, aadhar_num.getText());
+                registerprestmt.setString(9, mobile.getText());
 
                 registerprestmt.executeUpdate();
 
