@@ -171,7 +171,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`rushi`@`localhost`*/ /*!50003 TRIGGER `usr_login_creator` BEFORE INSERT ON `userdata` FOR EACH ROW begin
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `usr_login_creator` BEFORE INSERT ON `userdata` FOR EACH ROW begin
     insert into userlogin values(new.Username,new.Password,"User");
 end */;;
 DELIMITER ;
