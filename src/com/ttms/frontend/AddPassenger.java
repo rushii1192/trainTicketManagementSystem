@@ -382,6 +382,7 @@ public class AddPassenger extends javax.swing.JFrame {
             }
         }else{
             javax.swing.JOptionPane.showMessageDialog(this, "Age is not valid");
+            valid = false;
         }
         return valid;
     }
