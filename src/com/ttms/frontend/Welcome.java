@@ -320,7 +320,7 @@ public class Welcome extends javax.swing.JFrame {
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
 
-        passengerClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "Tatkal", "1st Ac", "2nd AC", "3rd Ac", "Sleeper", "2 Sitter" }));
+        passengerClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "Tatkal", "1AC", "2AC", "3AC", "Sleeper", "2S" }));
         passengerClass.setActionCommand("");
         passengerClass.setBorder(null);
 
@@ -639,12 +639,6 @@ public class Welcome extends javax.swing.JFrame {
         //jp.setPreferredSize(new java.awt.Dimension(600, 600));
     }//GEN-LAST:event_findTrainButtonMouseClicked
 
-    private void plan_journey_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plan_journey_labelMouseClicked
-        // TODO add your handling code here:
-        new Welcome().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_plan_journey_labelMouseClicked
-
     private void history_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_history_labelMouseClicked
         // TODO add your handling code here:
         if(this.login_flag){
@@ -674,6 +668,17 @@ public class Welcome extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_destinationStationItemStateChanged
+
+    private void plan_journey_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plan_journey_labelMouseClicked
+        // TODO add your handling code here:
+        if(this.login_flag){
+                        
+        }
+        else{
+            new Welcome().setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_plan_journey_labelMouseClicked
 
     /**
      * @param args the command line arguments
