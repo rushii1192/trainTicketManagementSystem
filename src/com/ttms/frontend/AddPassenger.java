@@ -265,11 +265,16 @@ public class AddPassenger extends javax.swing.JFrame {
     private void book_ticket_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_book_ticket_btnMouseClicked
         // TODO add your handling code here:
         if(addPassenger()){
-            ConfirmationPage cp = new ConfirmationPage(this.user_id);
-            //cp.setUser_id(this.user_id);
-            cp.setDate(this.date);
-            cp.setVisible(true);
-            this.setVisible(false);
+            if(confirm_psg_btn.isSelected()){
+                ConfirmationPage cp = new ConfirmationPage(this.user_id);
+                //cp.setUser_id(this.user_id);
+                cp.setDate(this.date);
+                cp.setVisible(true);
+                this.setVisible(false);
+            }
+            else{
+                javax.swing.JOptionPane.showMessageDialog(this, "pleace click the confrmation checkbox");
+            }
         }
         
     }//GEN-LAST:event_book_ticket_btnMouseClicked
