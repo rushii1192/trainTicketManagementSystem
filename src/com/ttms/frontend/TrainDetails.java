@@ -165,6 +165,7 @@ public class TrainDetails extends javax.swing.JPanel {
         // TODO add your handling code here:
         AddPassenger ap = new AddPassenger();
         ap.setUserId(user_id);
+        ap.setLogin(user_id);
         ap.setTrainNumber(this.train_num.getText());
         ap.setVisible(true);
         ap.setSource_staion(this.sourceStation.getText());
