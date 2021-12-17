@@ -1,2 +1,3 @@
 # trainTicketManagementSystem
- 
+     Due to increase in tourism and transportation,number of passengers have increased.As a consequence there are multiple isuues such as the never ending queues,more staff utilization, wastage of paper and several other resources.To overcome these prominent issues one of the solution is to implement an online train ticket booking system which will not only increase eficiency but also eliminate various such problems to a great extent.
+     The objective of this project is to provide an easy and simple solution to the above problems.To make the process user friendly we have used appropriate and attractive UI. The generated ticket is easy to understand as we have dropped out unnecessary information. The ticket booking process and cancellation of booked  tickets has become easy.
